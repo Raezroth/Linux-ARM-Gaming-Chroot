@@ -1,7 +1,7 @@
 Games that run on the Pinephone Pro
 ====================================
 
-See https://github.com/ptitSeb/box86-compatibility-list for others that might be compatible.
+See [Box86 Compatibility List](https://box86.org/app/) for others that might be compatible.
 
 EMULATORS
 ===========
