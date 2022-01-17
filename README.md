@@ -56,7 +56,9 @@ cd ~/
 # git clone repos for box86 & gl4es
 
 wget https://github.com/ptitSeb/box86/archive/refs/tags/v0.2.4.tar.gz
+
 tar -xvf v0.2.4.tar.gz
+
 git clone https://github.com/ptitSeb/gl4es
 
 cd ~/gl4es; mkdir build; cd build; cmake ../; make -j$(nproc); sudo make install
@@ -113,10 +115,7 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam +open steam://rungameid/$S
 ###
 ### - Proton doesn't work
 ### 
-### - Steam doesn't work in a arm64 chroot enviroment, start with armhf then use debian multiarch (Part 2)
-###
-### - Installing Wine can typically break Steam (in my expirience). Its best to have a separte chroot.
-###
+### - Steam doesn't work in a arm64 chroot enviroment, that's why we start with armhf then use debian multiarch (Part 2)
 ###
 
 
@@ -151,6 +150,9 @@ sudo systemctl restart systemd-binfmt
 
 ### If everything went well you should now be able to launch 64bit applications while still being able to launch steam
 
+
+# Installing Wine 
+Instructions for installing Wine for Box86 can be found https://github.com/ptitSeb/box86/blob/master/docs/X86WINE.md
 
 ###
 ### Tested On: PinePhone (Arch Linux Arm w/ Debian chroot) & PinePhone Pro (Arch Linux Arm w/ Debian chroot)
