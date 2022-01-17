@@ -27,13 +27,9 @@ sudo chroot .
 vi /root/.bashrc
 
 export LC_ALL="C"
-
 export LANGUAGE="C"
-
 export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/bin:/usr/local/sbin
-
 export STEAMOS=1
-
 export STEAM_RUNTIME=1
 
 source /root/.bashrc
