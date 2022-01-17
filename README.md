@@ -90,10 +90,7 @@ wget https://repo.steampowered.com/steam/archive/stable/steam_latest.deb
 sudo apt install ./steam_latest.deb
 
 
-## Add Steam variables to .bashrc & launch steam into mini games list
-
-echo 'export STEAMOS=1
-export STEAM_RUNTIME=1' >> ~/.bashrc
+## chroot back intoo the container and launch steam into mini games list
 
 setarch -L linux32 steam +open steam://open/minigameslist
 
