@@ -138,6 +138,8 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam +open steam://rungameid/$S
 ```
 
 
+
+
 ###
 ###	Notes
 ###    =======
@@ -150,6 +152,8 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam +open steam://rungameid/$S
 ### 
 ### - Steam doesn't work in a arm64 chroot enviroment, that's why we start with armhf then use debian multiarch (Part 2)
 ###
+
+
 
 
 
@@ -207,6 +211,9 @@ Instructions for installing Wine for Box86 can be found [here](https://github.co
 ###  GL4ES [Here](https://github.com/ptitSeb/gl4es) 
 ###
 ###
+
+
+
 
 # Steam
 ![Steam](https://github.com/Raezroth/Pinephone-Gaming-Chroot/blob/master/IMG_20211104_012947.jpg)
