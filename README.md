@@ -1,6 +1,8 @@
 # Pinephone-Gaming-Chroot
 Guide to setup a MultiArch Chroot container to run Steam and Wine.
 
+Pictures at bottom.
+
 ## Install desbootstrap and xhost
 
 For Arch-based Distro(Arch Linux, Manjaro): ```sudo pacman -S debootstrap debian-archive-keyring xorg-xhost```
@@ -205,3 +207,15 @@ Instructions for installing Wine for Box86 can be found [here](https://github.co
 ###  GL4ES [Here](https://github.com/ptitSeb/gl4es) 
 ###
 ###
+
+#Steam
+![Steam](https://github.com/Raezroth/Pinephone-Gaming-Chroot/blob/master/IMG_20211104_012947.jpg)
+
+# Steam-DST
+![Steam-DST](https://github.com/Raezroth/Pinephone-Gaming-Chroot/blob/master/IMG_20211122_182954.jpg)
+
+# Steam Team Fortress Classic
+
+![Steam-TFC](https://github.com/Raezroth/Pinephone-Gaming-Chroot/blob/master/IMG_20211123_020518.jpg)
+
+
