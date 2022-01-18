@@ -120,6 +120,9 @@ sudo apt install ./steam_latest.deb
 
 
 ## chroot back intoo the container and launch steam into mini games list
+
+Remember ``` sudo chmod 1777 /dev/shm``` needs to be ran before running Steam after every reboot.
+
 ```
 setarch -L linux32 steam +open steam://open/minigameslist
 ```
