@@ -120,6 +120,8 @@ sudo apt install ./steam_latest.deb
 
 setarch -L linux32 steam +open steam://open/minigameslist
 
+After installing BOX64 you can just run steam +open steam://open/minigameslist to use both BOX86 and BOX64
+
 
 
 ## To open a specific steam game, to get $STEAMAPPID go to "https://steamdb.info/apps/"
