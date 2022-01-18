@@ -208,7 +208,7 @@ Instructions for installing Wine for Box86 can be found [here](https://github.co
 ###
 ###
 
-#Steam
+# Steam
 ![Steam](https://github.com/Raezroth/Pinephone-Gaming-Chroot/blob/master/IMG_20211104_012947.jpg)
 
 # Steam-DST
