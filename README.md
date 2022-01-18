@@ -101,7 +101,7 @@ sudo cp -r PATH_TO_CHROOT/etc/binfmt.d/box86.conf /etc/binfmt.d/
 sudo systemctl restart systemd-binfmt
 ```
 
-## Install steam and libappindicator1, then add i386 multiarch after steam has launched.
+## Chroot back intoo the container and Install steam and libappindicator1, then add i386 multiarch after steam has launched.
 ```
 mkdir ~/Downloads
 
@@ -119,14 +119,32 @@ sudo apt install ./steam_latest.deb
 ```
 
 
-## chroot back intoo the container and launch steam into mini games list
+## Launch steam into mini games list
+```
+setarch-L linux32 steam +open steam://open/minigameslist
+```
+
+After installing BOX64 you can just run ```steam +open steam://open/minigameslist``` to use both BOX86 and BOX64
+
 
 Remember ``` sudo chmod 1777 /dev/shm``` needs to be ran before running Steam after every reboot.
 
+Since this is a chroot, you will have to remount ```/dev```, ```/proc```, & ```/sys```.
+
+You can just combine the mount and chmod command when starting the container.
+
 ```
-setarch -L linux32 steam +open steam://open/minigameslist
+sudo mount -t proc /proc proc/
+
+sudo mount -t sysfs /sys sys/
+
+sudo mount --bind /dev dev/
+
+xhost +local:
+
+sudo chmod 1777 /dev/shm
 ```
-After installing BOX64 you can just run ```steam +open steam://open/minigameslist``` to use both BOX86 and BOX64
+
 
 
 
@@ -141,7 +159,7 @@ steam +open steam://rungameid/$STEAMAPPID
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam +open steam://rungameid/$STEAMAPPID
 ```
 
-## Uninstalling games.
+## Uninstalling Steam games.
 #### To uninistall games:
 1. Close Steam
 2. Grab APPID from [SteamDB](https://steamdb.info/apps/)
@@ -150,7 +168,7 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam +open steam://rungameid/$S
 5. Launch Steam again and the game should be uninstalled.
 
 
-
+---------
 
 ###
 ### Notes
