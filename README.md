@@ -59,12 +59,14 @@ usermod -g users your_user
 
 EDITOR=vim visudo
 
-...
+
 root	ALL=(ALL:ALL) ALL
+
 your_user 	ALL=(ALL:ALL) ALL
-...
+
  
 su $USER
+
 cd ~/
 
 
