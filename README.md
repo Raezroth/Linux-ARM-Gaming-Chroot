@@ -59,9 +59,11 @@ apt install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-de
 ```
 
 Note: When using sxmo/swmo, you will need to install your DE's terminal: ```sudo apt install foot stterm```. 
+
 You may have to do this for other Desktop Enviroments.
 
 ### Set chroot's user and password for root and user
+
 Note: Replace your_user with your preferred username when creatinging a user. 
 
 ```
@@ -243,6 +245,7 @@ sudo systemctl restart systemd-binfmt
 ---------
 
 ## Installing Wine 
+
 ### Instructions for installing Wine for Box86 can be found [here](https://github.com/ptitSeb/box86/blob/master/docs/X86WINE.md)
 
 ----------
@@ -274,8 +277,11 @@ For Debian-based Distro(Mobian, Ubuntu Touch??): ```sudo apt remove deboostrap d
 --------
 
 ### Tested On: 
+
 Device: PinePhone & PinePhone Pro 
+
 Distro: Arch Linux Arm w/ Debian multiarch chroot
+
 Inputs: Touchscreen, Dualsense Controller, Xbox One Controller, Power-A Switch Controller
 
 ### NOTE: Touchscreen Controller input is experimental use at your own risk.
@@ -288,9 +294,13 @@ Recommend to launch another terminal and chroot into the container again for thi
 
 ---
 ### Checkout ptitSeb's BOX86, BOX64, & GL4ES githubs at these links. This project is the real hero here!!!! 
+ 
  BOX86 [Here](https://github.com/ptitSeb/box86)
+
  BOX86-COMPATIBILITY-LIST [Here](https://github.com/ptitSeb/box86-compatibility-list) Go to issues.
+
  BOX64 [Here](https://github.com/ptitSeb/box64)
+ 
  GL4ES [Here](https://github.com/ptitSeb/gl4es) 
 
 
