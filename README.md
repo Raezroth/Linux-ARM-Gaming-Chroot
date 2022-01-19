@@ -4,18 +4,22 @@ Guide to setup a MultiArch Chroot container to run Steam and Wine.
 
 Pictures at bottom.
 
-## Install desbootstrap and xhost
+-----
+## Getting Started!
+
+### Install desbootstrap and xhost
 
 For Arch-based Distro(Arch Linux, Manjaro): ```sudo pacman -S debootstrap debian-archive-keyring xorg-xhost```
 
 For Debian-based Distro(Mobian, Ubuntu Touch??): ```sudo apt install deboostrap debian-archive-keyring x11-xserver-utils```
 
 
-## Navigate to a directory and Deboostrap container
+### Navigate to a directory and Deboostrap container
 ```
 sudo debootstrap --arch armhf bullseye steam https://deb.debian.org/debian
 ```
-## Mount container & chroot into it.
+
+### Mount container & chroot into it.
 ```
 cd steam
 
@@ -32,7 +36,7 @@ sudo chmod 1777 /dev/shm
 sudo chroot .
 ```
 
-## Add PATH to /root/.bashrc
+### Add PATH to /root/.bashrc
 ```
 vi /root/.bashrc
 
@@ -49,7 +53,7 @@ export STEAM_RUNTIME=1
 source /root/.bashrc
 ```
 
-## Install some packages and create user. Replace $USER with your user
+### Install some packages and create user. Replace $USER with your user
 ```
 apt install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium libsdl2-dev unzip libgles-dev
 
@@ -58,7 +62,7 @@ adduser --home /home/your_user your_user
 usermod -g users your_user
 ```
 
-## Add $USER to visudo then change to $USER
+### Add $USER to visudo then change to $USER
 ```
 EDITOR=vim visudo
 
@@ -74,7 +78,7 @@ cd ~/
 ```
 
 
-## git clone repos for box86 & gl4es
+### git clone repos for box86 & gl4es
 ```
 wget https://github.com/ptitSeb/box86/archive/refs/tags/v0.2.4.tar.gz
 
@@ -94,14 +98,14 @@ cd ~/box86*; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo 
 
 ```
 
-## Outside the chroot container 
+### Outside the chroot container 
 ```
 sudo cp -r PATH_TO_CHROOT/etc/binfmt.d/box86.conf /etc/binfmt.d/
 
 sudo systemctl restart systemd-binfmt
 ```
 
-## Chroot back intoo the container and Install steam and libappindicator1, then add i386 multiarch after steam has launched.
+### Chroot back intoo the container and Install steam and libappindicator1, then add i386 multiarch after steam has launched.
 ```
 mkdir ~/Downloads
 
@@ -119,7 +123,7 @@ sudo apt install ./steam_latest.deb
 ```
 
 
-## Launch steam into mini games list
+### Launch steam into mini games list
 ```
 setarch-L linux32 steam +open steam://open/minigameslist
 ```
@@ -145,22 +149,24 @@ xhost +local:
 sudo chmod 1777 /dev/shm
 ```
 
+----
 
 
-
-## To open a specific steam game, to get $STEAMAPPID go to [SteamDB](https://steamdb.info/apps/)
+### To open a specific steam game, to get $STEAMAPPID go to [SteamDB](https://steamdb.info/apps/)
 ```
 steam +open steam://rungameid/$STEAMAPPID
 ```
 
 
-## To use gl4es with specific steam game, Do not use gl4es with steam mini games list.
+### To use gl4es with specific steam game, Do not use gl4es with steam mini games list.
 ```
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam +open steam://rungameid/$STEAMAPPID
 ```
+-----
+
 
 ## Uninstalling Steam games.
-#### To uninistall games:
+### To uninistall games:
 1. Close Steam
 2. Grab APPID from [SteamDB](https://steamdb.info/apps/)
 3. Delete game from PATH_TO_STEAMLIBRARY/common/
@@ -184,14 +190,14 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam +open steam://rungameid/$S
 ###
 
 
-
+----------
 
 
 # PART 2
 
 # Adding Box64 for 64bit
 
-## Setup prerequisites 
+### Setup prerequisites 
 ```
 sudo dpkg --add-architecture arm64 
 
@@ -216,20 +222,45 @@ cd ~/box64*; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo 
 ```
 
 
-## Outside the chroot container 
+### Outside the chroot container 
 ```
 sudo cp -r PATH_TO_CHROOT/etc/binfmt.d/box64.conf /etc/binfmt.d/
 sudo systemctl restart systemd-binfmt
 ```
 ### If everything went well you should now be able to launch 64bit applications while still being able to launch steam
 
-
+---------
 
 ## Installing Wine 
-Instructions for installing Wine for Box86 can be found [here](https://github.com/ptitSeb/box86/blob/master/docs/X86WINE.md)
+### Instructions for installing Wine for Box86 can be found [here](https://github.com/ptitSeb/box86/blob/master/docs/X86WINE.md)
+
+----------
+
+# Uninstalling the chroot
+
+### Navigate to chroot directoy, mine is /home/alarm/chroot/steam
+
+### Inside the chroot folder umount /dev, /proc, & /sys
+
+```
+	sudo umount ./*  #This is if you are inside /home/alarm/chroot/steam directory
+
+	sudo umount steam/* # If you are in the folder /home/alarm/chroot 
+```
+### From /home/alarm/chroot run
+```
+	sudo rm -r steam/ 
+```
+
+### Removing debootstrap and xhost
+For Arch-based Distro(Arch Linux, Manjaro): ```sudo pacman -R debootstrap debian-archive-keyring xorg-xhost```
+
+For Debian-based Distro(Mobian, Ubuntu Touch??): ```sudo apt remove deboostrap debian-archive-keyring x11-xserver-utils```
 
 
 
+
+--------
 ###
 ### Tested On: PinePhone (Arch Linux Arm w/ Debian chroot) & PinePhone Pro (Arch Linux Arm w/ Debian chroot)
 ###
@@ -243,7 +274,7 @@ Instructions for installing Wine for Box86 can be found [here](https://github.co
 ###
 
 
-----
+---------
 
 # Steam
 ![Steam](https://github.com/Raezroth/Pinephone-Gaming-Chroot/blob/master/IMG_20211104_012947.jpg)
