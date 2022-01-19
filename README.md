@@ -53,7 +53,7 @@ export STEAM_RUNTIME=1
 source /root/.bashrc
 ```
 
-### Install some packages and create user. Replace $USER with your user
+### Install some packages and create user.
 ```
 apt install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium libsdl2-dev unzip libgles-dev
 ```
