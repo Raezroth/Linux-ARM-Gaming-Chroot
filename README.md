@@ -56,10 +56,22 @@ source /root/.bashrc
 ### Install some packages and create user. Replace $USER with your user
 ```
 apt install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium libsdl2-dev unzip libgles-dev
+```
 
+Note: When using sxmo/swmo, you will need to install your DE's terminal: ```sudo apt install foot stterm```. 
+You may have to do this for other Desktop Enviroments.
+
+### Set chroot's user and password for root and user
+Note: Replace your_user with your preferred username when creatinging a user. 
+
+```
 adduser --home /home/your_user your_user 
 
 usermod -g users your_user
+
+passwd your_user
+
+passwd root
 ```
 
 ### Add $USER to visudo then change to $USER
