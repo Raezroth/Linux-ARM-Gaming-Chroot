@@ -76,7 +76,7 @@ passwd your_user
 passwd root
 ```
 
-### Add $USER to visudo then change to $USER
+### Add your_user to visudo then change to your_user
 ```
 EDITOR=vim visudo
 
@@ -86,7 +86,7 @@ root	ALL=(ALL:ALL) ALL
 your_user 	ALL=(ALL:ALL) ALL
 
  
-su $USER
+su your_user
 
 cd ~/
 ```
