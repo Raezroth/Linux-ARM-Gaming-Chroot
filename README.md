@@ -188,10 +188,9 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam +open steam://rungameid/$S
 
 ---------
 
-###
+---
 ### Notes
-###    =======
-###
+--- 
 ### - Big Picture Mode Crashes on PinePhone and PinePhone Pro, even with gl4es.
 ###  
 ### + Conrtollers Work with some games.	
@@ -199,7 +198,7 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam +open steam://rungameid/$S
 ### - Proton doesn't work
 ### 
 ### - Steam doesn't work in a arm64 chroot enviroment, that's why we start with armhf then use debian multiarch (Part 2)
-###
+
 
 
 ----------
@@ -273,17 +272,27 @@ For Debian-based Distro(Mobian, Ubuntu Touch??): ```sudo apt remove deboostrap d
 
 
 --------
-###
-### Tested On: PinePhone (Arch Linux Arm w/ Debian chroot) & PinePhone Pro (Arch Linux Arm w/ Debian chroot)
-###
+
+### Tested On: 
+Device: PinePhone & PinePhone Pro 
+Distro: Arch Linux Arm w/ Debian multiarch chroot
+Inputs: Touchscreen, Dualsense Controller, Xbox One Controller, Power-A Switch Controller
+
+### NOTE: Touchscreen Controller input is experimental use at your own risk.
+
+### [TabPad](https://github.com/nitg16/TabPad) must be ran from a seperate terminal.
+
+Recommend to launch another terminal and chroot into the container again for this.
+
+
+
+---
 ### Checkout ptitSeb's BOX86, BOX64, & GL4ES githubs at these links. This project is the real hero here!!!! 
-### 
-###  BOX86 [Here](https://github.com/ptitSeb/box86)
-###  BOX86-COMPATIBILITY-LIST [Here](https://github.com/ptitSeb/box86-compatibility-list) Go to issues.
-###  BOX64 [Here](https://github.com/ptitSeb/box64)
-###  GL4ES [Here](https://github.com/ptitSeb/gl4es) 
-###
-###
+ BOX86 [Here](https://github.com/ptitSeb/box86)
+ BOX86-COMPATIBILITY-LIST [Here](https://github.com/ptitSeb/box86-compatibility-list) Go to issues.
+ BOX64 [Here](https://github.com/ptitSeb/box64)
+ GL4ES [Here](https://github.com/ptitSeb/gl4es) 
+
 
 
 ---------
