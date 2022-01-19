@@ -182,9 +182,9 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam +open steam://rungameid/$S
 ## Uninstalling Steam games.
 ### To uninistall games:
 1. Close Steam
-2. Grab APPID from [SteamDB](https://steamdb.info/apps/)
-3. Delete game from PATH_TO_STEAMLIBRARY/common/
-4. Delete appmanifest_APPID.acf from PATH_TO_STEAMLIBRARY/
+2. Grab ```APPID``` from [SteamDB](https://steamdb.info/apps/)
+3. Delete game from ```PATH_TO_STEAMLIBRARY/common/```
+4. Delete ```appmanifest_APPID.acf``` from ```PATH_TO_STEAMLIBRARY/```
 5. Launch Steam again and the game should be uninstalled.
 
 
