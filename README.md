@@ -16,12 +16,12 @@ For Debian-based Distro(Mobian, Ubuntu Touch??): ```sudo apt install deboostrap 
 
 ### Navigate to a directory and Deboostrap container
 ```
-sudo debootstrap --arch armhf bullseye steam https://deb.debian.org/debian
+sudo debootstrap --arch armhf bullseye gaming https://deb.debian.org/debian
 ```
 
 ### Mount container & chroot into it.
 ```
-cd steam
+cd gaming
 
 sudo mount -t proc /proc proc/
 
@@ -238,18 +238,18 @@ sudo systemctl restart systemd-binfmt
 
 # Uninstalling the chroot
 
-### Navigate to chroot directoy, mine is /home/alarm/chroot/steam
+### Navigate to chroot directoy, mine is /home/alarm/chroot/gaming
 
 ### Inside the chroot folder umount /dev, /proc, & /sys
 
 ```
-	sudo umount ./*  #This is if you are inside /home/alarm/chroot/steam directory
+	sudo umount ./*  #This is if you are inside /home/alarm/chroot/gaming directory
 
-	sudo umount steam/* # If you are in the folder /home/alarm/chroot 
+	sudo umount gaming/* # If you are in the folder /home/alarm/chroot 
 ```
 ### From /home/alarm/chroot run
 ```
-	sudo rm -r steam/ 
+	sudo rm -r gaming/ 
 ```
 
 ### Removing debootstrap and xhost
