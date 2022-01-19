@@ -20,6 +20,7 @@ BOX86 - Needs Release v0.2.4 https://github.com/ptitSeb/box86/archive/refs/tags/
 
 STEAM
 -------
+Borderlands PreSequel (Linux Port) - Loads Slows, Graphics Issues
 Counter Strike - Runs great
 Half-Life - Runs great
 Half-Life 2 - Runs Well
