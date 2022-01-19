@@ -278,11 +278,11 @@ For Debian-based Distro(Mobian, Ubuntu Touch??): ```sudo apt remove deboostrap d
 
 ### Tested On: 
 
-Device: PinePhone & PinePhone Pro 
+Device: ```PinePhone & PinePhone Pro```
 
-Distro: Arch Linux Arm w/ Debian multiarch chroot
+Distro: ```Arch Linux Arm w/ Debian multiarch chroot```
 
-Inputs: Touchscreen, Dualsense Controller, Xbox One Controller, Power-A Switch Controller
+Inputs: ```Touchscreen, Dualsense Controller, Xbox One Controller, Power-A Switch Controller```
 
 ### NOTE: Touchscreen Controller input is experimental use at your own risk.
 
