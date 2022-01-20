@@ -224,7 +224,8 @@ or
 2. Use ```ps a``` the display a list of runnning tasks and find the PID for Steam.
 
    Example:
-   ```[your_user@your_hostname ~]$ ps a 
+   ```
+   [your_user@your_hostname ~]$ ps a 
     PID TTY      STAT   TIME COMMAND
     835 tty1     Ssl+   0:09 /usr/lib/Xorg -nolisten tcp -background none -seat seat0 vt1 -auth /var/run/sddm/{ce2a345f
    1797 pts/2    Ss     0:00 /bin/bash
