@@ -239,7 +239,7 @@ cd ~/
 
 wget https://github.com/ptitSeb/box64/archive/fbb534917a028aaae2dd6b79900425dbe5617112.zip
 
-unzip box64-fbb534917a028aaae2dd6b79900425dbe5617112.zip
+unzip fbb534917a028aaae2dd6b79900425dbe5617112.zip
 
 ```
 ### For PinePhone (A64)
