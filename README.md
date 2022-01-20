@@ -215,9 +215,9 @@ Note: when launching a game this way, Steam will be mimized and almost impossibl
 4. If you use a skin, be carefull. Some tax Steam's Interface.
 5. Launch with:
 	
-	For Pinephone (A64): ```BOX86_LOG=0 BOX64_LOG=0 steam -single_core +open steam://open/minigameslist 2> tee ~/steam.log```
+	For Pinephone (A64): ```BOX86_LOG=0 BOX64_LOG=0 steam +open steam://open/minigameslist 2> tee ~/steam.log```
 	
-	For Pinephone Pro (RK3399s): ```BOX86_LOG=0 BOX64_LOG=0 MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 steam -single_core +open steam://open/minigameslist 2> tee steam.log```
+	For Pinephone Pro (RK3399s): ```BOX86_LOG=0 BOX64_LOG=0 MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 steam +open steam://open/minigameslist 2> tee steam.log```
 	
 	This will redirect output to a file. Improves performance a bit.
 	
