@@ -173,7 +173,7 @@ steam -single_core +open steam://rungameid/$STEAMAPPID
 
 ### To use gl4es with specific steam game, Do not use gl4es with steam mini games list.
 ```
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam -single_core +open steam://rungameid/$STEAMAPPID
+BOX86_LIBGL=/usr/lib/gl4es/libGL.so.1 steam -single_core +open steam://rungameid/$STEAMAPPID
 ```
 -----
 
