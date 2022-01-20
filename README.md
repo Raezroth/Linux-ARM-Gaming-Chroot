@@ -31,15 +31,15 @@ sudo mount --bind /dev dev/
 
 xhost +local:
 
-sudo chmod 1777 /dev/shm
-
 sudo chroot .
 ```
 
 ### Add PATH to /root/.bashrc
 ```
 vi /root/.bashrc
+```
 
+```
 export LC_ALL="C"
 
 export LANGUAGE="C"
@@ -49,7 +49,9 @@ export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/bin:/usr/l
 export STEAMOS=1
 
 export STEAM_RUNTIME=1
+```
 
+```
 source /root/.bashrc
 ```
 
@@ -68,26 +70,30 @@ Note: Replace your_user with your preferred username when creatinging a user.
 
 ```
 adduser --home /home/your_user your_user 
-
+```
+```
 usermod -g users your_user
-
+```
+```
 passwd your_user
-
+```
+```
 passwd root
 ```
 
 ### Add your_user to visudo then change to your_user
 ```
 EDITOR=vim visudo
-
-
+```
+```
 root	ALL=(ALL:ALL) ALL
 
 your_user 	ALL=(ALL:ALL) ALL
-
- 
+```
+```
 su your_user
-
+```
+```
 cd ~/
 ```
 
@@ -146,9 +152,7 @@ After installing BOX64 you can just run ```steam -single_core +open steam://open
 
 Remember ``` sudo chmod 1777 /dev/shm``` needs to be ran before running Steam after every reboot.
 
-Since this is a chroot, you will have to remount ```/dev```, ```/proc```, & ```/sys```.
-
-You can just combine the mount and chmod command when starting the container.
+Since this is a chroot, you will have to remount ```/dev```, ```/proc```, & ```/sys``` on reboot.
 
 ```
 sudo mount -t proc /proc proc/
@@ -159,7 +163,6 @@ sudo mount --bind /dev dev/
 
 xhost +local:
 
-sudo chmod 1777 /dev/shm
 ```
 
 ----
