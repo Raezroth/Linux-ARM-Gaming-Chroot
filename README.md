@@ -77,7 +77,7 @@ source /root/.bashrc
 
 ### Install some packages and create user.
 ```
-apt install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium libsdl2-dev unzip libgles-dev
+apt install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium alsamixergui libsdl2-dev unzip libgles-dev
 ```
 
 You may have to do this for other Desktop Enviroments.
@@ -210,6 +210,11 @@ xhost +local:
 ```steam +open steam://rungameid/$STEAMAPPID```
 
 Note: when launching a game this way, Steam will be mimized and almost impossible to bring back up.
+
+### Adjusting audio
+Since the chroot container has a seperater audio server, you can use ```alsamixergui``` to adjust the audio level.
+
+
 
 ### Managing tasks.
 
