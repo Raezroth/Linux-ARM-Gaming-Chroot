@@ -185,7 +185,7 @@ cd ~/
 Remember that  ``` sudo chmod 1777 /dev/shm``` needs to be ran before running Steam, This will only have to be done after every reboot.
 
 This command will set the architecture to linux32 to use 32bit libraries only. This is so Steam doesn't register 64bit pins right away, if it does it may cause issues later.
-```setarch-L linux32 steam +open steam://open/minigameslist```
+```setarch -L linux32 steam +open steam://open/minigameslist```
 
 After installing BOX64 in [PART 2](https://github.com/Raezroth/Pinephone-Gaming-Chroot#part-2) you can just run ```steam +open steam://open/minigameslist``` to use both BOX86 and BOX64
 
