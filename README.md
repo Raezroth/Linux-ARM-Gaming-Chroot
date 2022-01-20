@@ -139,10 +139,10 @@ sudo apt install ./steam_latest.deb
 
 ### Launch steam into mini games list
 ```
-setarch-L linux32 steam +open steam://open/minigameslist
+setarch-L linux32 steam -single_core +open steam://open/minigameslist
 ```
 
-After installing BOX64 you can just run ```steam +open steam://open/minigameslist``` to use both BOX86 and BOX64
+After installing BOX64 you can just run ```steam -single_core +open steam://open/minigameslist``` to use both BOX86 and BOX64
 
 
 Remember ``` sudo chmod 1777 /dev/shm``` needs to be ran before running Steam after every reboot.
@@ -168,13 +168,13 @@ sudo chmod 1777 /dev/shm
 
 ### To open a specific steam game, to get $STEAMAPPID go to [SteamDB](https://steamdb.info/apps/)
 ```
-steam +open steam://rungameid/$STEAMAPPID
+steam -single_core +open steam://rungameid/$STEAMAPPID
 ```
 
 
 ### To use gl4es with specific steam game, Do not use gl4es with steam mini games list.
 ```
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam +open steam://rungameid/$STEAMAPPID
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam -single_core +open steam://rungameid/$STEAMAPPID
 ```
 -----
 
