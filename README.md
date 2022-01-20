@@ -124,15 +124,11 @@ When you change to your_user, it will still be in the previous direcotry you wer
 
 
 
-### Copy the sources for box86 & gl4es and compile them.
+### Copy the stable source for box86  and then compile it.
 ```
 wget https://github.com/ptitSeb/box86/archive/refs/tags/v0.2.4.tar.gz
 
 tar -xvf v0.2.4.tar.gz
-
-git clone https://github.com/ptitSeb/gl4es
-
-cd ~/gl4es; mkdir build; cd build; cmake ../; make -j$(nproc); sudo make install
 ```
 For PinePhone (A64)
 ```
@@ -209,12 +205,6 @@ Note: when launching a game this way, Steam will be mimized and almost impossibl
 1. Kill the task with htop. Must have htop installed
 2.1. Use ```ps a``` the display a list of runnning tasks and find the PID for Steam.
 2.2. Then use ```kill -9 PID``` to kill the process.
-
-### To use gl4es with specific steam game, Do not use gl4es with steam mini games list.
-```
-BOX86_LIBGL=/usr/lib/gl4es/libGL.so.1 steam +open steam://rungameid/$STEAMAPPID
-```
------
 
 
 ### To improve performance
