@@ -3,6 +3,7 @@
 --------
 
 Keep in mind that the Rockchip RK3399s' Mali-T860MP4 GPU only supports up to OpenGL 3.0, but can be tricked to use OpenGL 3.2.
+
 This is also still ARM hardware. It is best to run on the lowest settings a game can run on.
 
 See [Box86 Compatibility List](https://box86.org/app/) for others that might be compatible.
