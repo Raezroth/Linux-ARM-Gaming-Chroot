@@ -4,6 +4,9 @@ Guide to setup a MultiArch Chroot container to run Steam and Wine.
 
 Please make sure to read, I put alot of time to try to make this as newbie friendly as possible.
 
+To see a list of games I've tested:[PinePhone(A64)](PPBE-A64-Tested-Games-md), [PinePhone Pro(RK3399s)](PPP-Tested-Games.md)
+
+
 Pictures of Steam and a few games running at bottom.
 
 Launch scripts and possible auto installer script coming soon.?.?.?.?...
