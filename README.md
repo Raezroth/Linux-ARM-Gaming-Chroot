@@ -144,7 +144,6 @@ setarch-L linux32 steam -single_core +open steam://open/minigameslist
 
 After installing BOX64 you can just run ```steam -single_core +open steam://open/minigameslist``` to use both BOX86 and BOX64
 
-
 Remember ``` sudo chmod 1777 /dev/shm``` needs to be ran before running Steam after every reboot.
 
 Since this is a chroot, you will have to remount ```/dev```, ```/proc```, & ```/sys```.
@@ -178,6 +177,24 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gl4es steam -single_core +open steam:/
 ```
 -----
 
+
+### To improve performance
+
+1. Set Steam Library setting to Low Bandwisth Mode and Low Performance Mode
+2. Disable Broadcasting
+3. Disable Remote Play. This is broken anyways.
+4. If you use a skin, be carefull. Some tax Steam's Interface.
+5. Launch with:
+	
+	For Pinephone (A64): ```BOX86_LOG=0 BOX64_LOG=0 steam -single_core +open steam://open/minigameslist```
+	
+	For Pinephone Pro (RK3399s): ```BOX86_LOG=0 BOX64_LOG=0 MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 steam -single_core +open steam://open/minigameslist```
+	
+	Note: I left the override for opengl 3 in there because it doesn't hurt anything, yet makes more games able to launch from library list.
+
+6. Run all games on low obviously. Alot of games crash loading in from menus due to texture overloading.
+ 
+-------
 
 ## Uninstalling Steam games.
 ### To uninistall games:
