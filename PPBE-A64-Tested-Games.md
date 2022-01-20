@@ -9,55 +9,55 @@ See [Box86 Compatibility List](https://box86.org/app/) for others that might be 
 ### EMULATORS:
 
 
-Mupen64Plus - Runs great, Needs to be compiled from source.
+Mupen64Plus - ```Runs great, Needs to be compiled from source.```
 
-VisualBoyAdvance - Runs Great
+VisualBoyAdvance - ```Runs Great```
 
 ---
 
 ### Ports:
 
-OpenMW - Runs Okay
+OpenMW - ```Runs Okay```
 
-lzDoom - Runs Okay
+lzDoom - ```Runs Okay```
 
 ------------
 
-## BOX86 - Needs Release v0.2.4 https://github.com/ptitSeb/box86/archive/refs/tags/v0.2.4.tar.gz
+## BOX86 - Needs Release [v0.2.4](https://github.com/ptitSeb/box86/archive/refs/tags/v0.2.4.tar.gz)
 
 ---
 
 ### STEAM:
 
-Counter Strike - Runs Okay
+Counter Strike - ```Runs Okay```
 
-Half-Life - Runs Okay
+Half-Life - ```Runs Okay```
 
-Don't Starve - Kinda Slow
+Don't Starve - ```Kinda Slow```
 
-Don't Starve Together - Kinda Slow
+Don't Starve Together - ```Kinda Slow```
 
-Team Fortress Classic - Runs Okay
+Team Fortress Classic - ```Runs Okay```
 
 ---
 
 ### GOG:
 
-Undertale - Runs Great
+Undertale - ```Runs Great```
 
-Super Meat Boy - Runs Well
+Super Meat Boy - ```Runs Well```
 
 ---
 
 ### Wine:
 
-Fallout 1 - Runs Okay 
+Fallout 1 - ```Runs Okay``` 
 
-Fallout 2 - Runs Okay
+Fallout 2 - ```Runs Okay```
 
 --------
 
-## BOX64 - Needs this revision: https://github.com/ptitSeb/box64/archive/fbb534917a028aaae2dd6b79900425dbe5617112.zip
+## BOX64 - Needs this [revision](https://github.com/ptitSeb/box64/archive/fbb534917a028aaae2dd6b79900425dbe5617112.zip)
 
 ----
 
@@ -70,7 +70,7 @@ Fallout 2 - Runs Okay
 
 ### GOG:
 
-Super Meat Boy - Runs Well
+Super Meat Boy - ```Runs Well```
 
 
 
