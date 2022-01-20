@@ -208,9 +208,11 @@ BOX86_LIBGL=/usr/lib/gl4es/libGL.so.1 steam -single_core +open steam://rungameid
 4. If you use a skin, be carefull. Some tax Steam's Interface.
 5. Launch with:
 	
-	For Pinephone (A64): ```BOX86_LOG=0 BOX64_LOG=0 steam -single_core +open steam://open/minigameslist```
+	For Pinephone (A64): ```BOX86_LOG=0 BOX64_LOG=0 steam -single_core +open steam://open/minigameslist 2> tee ~/steam.log```
 	
-	For Pinephone Pro (RK3399s): ```BOX86_LOG=0 BOX64_LOG=0 MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 steam -single_core +open steam://open/minigameslist```
+	For Pinephone Pro (RK3399s): ```BOX86_LOG=0 BOX64_LOG=0 MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 steam -single_core +open steam://open/minigameslist 2> tee steam.log```
+	
+	This will redirect output to a file. Improves performance a bit.
 	
 	Note: I left the override for opengl 3 in there because it doesn't hurt anything, yet makes more games able to launch from library list.
 
