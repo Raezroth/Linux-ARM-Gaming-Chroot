@@ -209,11 +209,30 @@ xhost +local:
 ### To open a specific steam game, to get $STEAMAPPID go to [SteamDB](https://steamdb.info/apps/)
 ```steam +open steam://rungameid/$STEAMAPPID```
 
-Note: when launching a game this way, Steam will be mimized and almost impossible to bring back up. You can do one of following things:
+Note: when launching a game this way, Steam will be mimized and almost impossible to bring back up.
+
+### Managing tasks.
+
+You will probably end up having to manage tasks of crashed programs and such. 
+
+You can easily:
 
 1. Kill the task with htop. Must have htop installed
-2.1. Use ```ps a``` the display a list of runnning tasks and find the PID for Steam.
-2.2. Then use ```kill -9 PID``` to kill the process.
+
+or
+
+2. Use ```ps a``` the display a list of runnning tasks and find the PID for Steam.
+
+   Example:
+   ```[your_user@your_hostname ~]$ ps a 
+    PID TTY      STAT   TIME COMMAND
+    835 tty1     Ssl+   0:09 /usr/lib/Xorg -nolisten tcp -background none -seat seat0 vt1 -auth /var/run/sddm/{ce2a345f
+   1797 pts/2    Ss     0:00 /bin/bash
+   2501 pts/2    S+     0:00 sudo .xs/backs/.applications/OpenRGB/openrgb --gui
+
+   ```
+
+   Then use ```kill -9 PID``` to kill the process.
 
 
 ### To improve performance
