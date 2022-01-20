@@ -2,6 +2,10 @@
 
 Guide to setup a MultiArch Chroot container to run Steam and Wine.
 
+NOTE: I have tested multiple Desktop Enviroments/Shells and SXMO/SWMO has the best fps with both PMOS and Arch Linux. (Mobian yet to be tested)
+
+You can use other desktop enviroments but perfomance can vary depending on the users distro settings. 
+
 Please make sure to read, I put alot of time to try to make this as newbie friendly as possible.
 
 To see a list of games I've tested: [PinePhone(A64)](https://github.com/Raezroth/Pinephone-Gaming-Chroot/blob/master/PPBE-A64-Tested-Games.md), [PinePhone Pro(RK3399s)](https://github.com/Raezroth/Pinephone-Gaming-Chroot/blob/master/PPP-Tested-Games.md)
@@ -22,11 +26,16 @@ For Debian-based Distro(Mobian, Ubuntu Touch??): ```sudo apt install deboostrap 
 
 
 ### Navigate to a directory and Deboostrap container
+
+This will create a secondary root directory that we can use the chroot command to switch to.
 ```
 sudo debootstrap --arch armhf bullseye gaming https://deb.debian.org/debian
 ```
 
 ### Mount container & chroot into it.
+Here we navigate into the secondary root directory, then mount necessary device and system folders to use the secondary root.
+
+We enable X11 connectivity so we can use graphical applications.
 ```
 cd gaming
 
