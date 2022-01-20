@@ -344,7 +344,7 @@ Inputs: ```Touchscreen, Dualsense Controller, Xbox One Controller, Power-A Switc
 
 ### [TabPad](https://github.com/nitg16/TabPad) must be ran from a seperate terminal.
 
-Recommend to launch another terminal and chroot into the container again for this.
+Recommend to launch another terminal and chroot into the container again for this. You can try to run this from the host, but TabPad relies on X11 and won't launch with wayland currently. Looking into modifying or just a new touchscreen controller.
 
 
 
