@@ -2,7 +2,9 @@
 
 Guide to setup a MultiArch Chroot container to run Steam and Wine.
 
-Pictures at bottom.
+Please make sure to read, I put alot of time to try to make this as newbie friendly as possible.
+
+Pictures of Steam and a few games running at bottom.
 
 Launch scripts and possible auto installer script coming soon.?.?.?.?...
 
@@ -140,13 +142,17 @@ cd ~/box86*; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo 
 ```
 
 ### Outside the chroot container 
+Here we must copy box86.conf from chroot to host and restart host systemd-binfmt so BOX86 will run automatically when launching x86 applications.
+
+NOTE: You don't have to quit the chroot. Just open another terminal.
 ```
 sudo cp -r PATH_TO_CHROOT/etc/binfmt.d/box86.conf /etc/binfmt.d/
 
 sudo systemctl restart systemd-binfmt
 ```
 
-### Chroot back into the container and Install steam and libappindicator1, then add i386 multiarch after steam has launched.
+### Inside the container install steam and libappindicator1, then add i386 multiarch after steam has launched.
+These commands will create a Downloads Folder and use it to store required install files. You can clear this folder after install.
 ```
 mkdir ~/Downloads
 
@@ -161,15 +167,16 @@ sudo apt install ./lib*
 wget https://repo.steampowered.com/steam/archive/stable/steam_latest.deb
 
 sudo apt install ./steam_latest.deb
+
+cd ~/
 ```
 
 
 ### Launch steam into mini games list
-```
-setarch-L linux32 steam -single_core +open steam://open/minigameslist
-```
+This command will set the architecture to linux32 to use 32bit libraries only. This is so Steam doesn't register 64bit pins right away, if it does it may cause issues later.
+```setarch-L linux32 steam +open steam://open/minigameslist```
 
-After installing BOX64 you can just run ```steam -single_core +open steam://open/minigameslist``` to use both BOX86 and BOX64
+After installing BOX64 in [PART 2](https://github.com/Raezroth/Pinephone-Gaming-Chroot#part-2) you can just run ```steam +open steam://open/minigameslist``` to use both BOX86 and BOX64
 
 Remember ``` sudo chmod 1777 /dev/shm``` needs to be ran before running Steam after every reboot.
 
@@ -190,14 +197,17 @@ xhost +local:
 
 
 ### To open a specific steam game, to get $STEAMAPPID go to [SteamDB](https://steamdb.info/apps/)
-```
-steam -single_core +open steam://rungameid/$STEAMAPPID
-```
+```steam +open steam://rungameid/$STEAMAPPID```
 
+Note: when launching a game this way, Steam will be mimized and almost impossible to bring back up. You can do one of following things:
+
+1. Kill the task with htop. Must have htop installed
+2.1. Use ```ps a``` the display a list of runnning tasks and find the PID for Steam.
+2.2. Then use ```kill -9 PID``` to kill the process.
 
 ### To use gl4es with specific steam game, Do not use gl4es with steam mini games list.
 ```
-BOX86_LIBGL=/usr/lib/gl4es/libGL.so.1 steam -single_core +open steam://rungameid/$STEAMAPPID
+BOX86_LIBGL=/usr/lib/gl4es/libGL.so.1 steam +open steam://rungameid/$STEAMAPPID
 ```
 -----
 
@@ -253,7 +263,8 @@ BOX86_LIBGL=/usr/lib/gl4es/libGL.so.1 steam -single_core +open steam://rungameid
 
 # Adding Box64 for 64bit
 
-### Setup prerequisites 
+### Setup prerequisites
+Here we added arm64 architecture, update debian sources, and install some requirements to install BOX64 and run x86_64 applications
 ```
 sudo dpkg --add-architecture arm64 
 
@@ -279,6 +290,9 @@ cd ~/box64*; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo 
 
 
 ### Outside the chroot container 
+Here we must copy box64.conf from chroot to host and restart host systemd-binfmt so BOX64 will run automatically when launching x86_64 applications.
+
+NOTE: You don't have to quit the chroot. Just open another terminal.
 ```
 sudo cp -r PATH_TO_CHROOT/etc/binfmt.d/box64.conf /etc/binfmt.d/
 sudo systemctl restart systemd-binfmt
@@ -291,25 +305,24 @@ sudo systemctl restart systemd-binfmt
 
 ### Instructions for installing Wine for Box86 can be found [here](https://github.com/ptitSeb/box86/blob/master/docs/X86WINE.md)
 
+Note: Doing this may or may not break Steam. It's worth the risk to try in my opinion.
+
 ----------
 
-# Uninstalling the chroot
+## Uninstalling the chroot
 
-### Navigate to chroot directoy, mine is /home/alarm/chroot/gaming
+Navigate to chroot directoy, mine is /home/alarm/chroot/gaming
 
-### Inside the chroot folder umount /dev, /proc, & /sys
+Inside the chroot folder umount /dev, /proc, & /sys
 
-```
-	sudo umount ./*  #This is if you are inside /home/alarm/chroot/gaming directory
+```sudo umount ./*```  This is if you are inside /home/$USER/chroot/gaming directory
 
-	sudo umount gaming/* # If you are in the folder /home/alarm/chroot 
-```
-### From /home/alarm/chroot run
-```
-	sudo rm -r gaming/ 
-```
+```sudo umount gaming/*```  If you are in the folder /home/$USER/chroot 
 
-### Removing debootstrap and xhost
+From /home/alarm/chroot run ```sudo rm -r gaming/```
+
+Removing debootstrap and xhost
+
 For Arch-based Distro(Arch Linux, Manjaro): ```sudo pacman -R debootstrap debian-archive-keyring xorg-xhost```
 
 For Debian-based Distro(Mobian, Ubuntu Touch??): ```sudo apt remove deboostrap debian-archive-keyring x11-xserver-utils```
