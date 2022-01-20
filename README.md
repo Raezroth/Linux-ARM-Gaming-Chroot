@@ -34,11 +34,15 @@ xhost +local:
 sudo chroot .
 ```
 
-### Add PATH to /root/.bashrc
-```
-vi /root/.bashrc
-```
+Note: When using sxmo/swmo, you will need to install your DE's terminal: ```apt install foot stterm``` and chroot back into the container to fix backspace and arrow keys. 
 
+### Inside the chroot, add PATH and other variables to /root/.bashrc
+```vi /root/.bashrc```
+or use nano if you are new to linux.
+```/bin/nano /root/.bashrc```
+
+
+You can just copy and paste this.
 ```
 export LC_ALL="C"
 
@@ -50,7 +54,7 @@ export STEAMOS=1
 
 export STEAM_RUNTIME=1
 ```
-
+This will source the changes to be used
 ```
 source /root/.bashrc
 ```
@@ -59,8 +63,6 @@ source /root/.bashrc
 ```
 apt install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium libsdl2-dev unzip libgles-dev
 ```
-
-Note: When using sxmo/swmo, you will need to install your DE's terminal: ```sudo apt install foot stterm```. 
 
 You may have to do this for other Desktop Enviroments.
 
@@ -71,34 +73,51 @@ Note: Replace your_user with your preferred username when creatinging a user.
 ```
 adduser --home /home/your_user your_user 
 ```
+
+Next add your_user to users group
+
 ```
 usermod -g users your_user
 ```
+These next commands set your passwords in combination with the corrisponding user.
+
 ```
 passwd your_user
 ```
+
+Remember to set root to something complex. 
 ```
 passwd root
 ```
 
 ### Add your_user to visudo then change to your_user
-```
-EDITOR=vim visudo
-```
+```EDITOR=vim visudo```
+or use nano if you are new to linux
+```EDITOR=nano visudo```
+
+
 ```
 root	ALL=(ALL:ALL) ALL
 
 your_user 	ALL=(ALL:ALL) ALL
 ```
+
+Note: There is a bug where the home folder doesn't always get created. We must create one ourselves.
+```mkdir /home/your_user```
+Then ```chown``` it to your_user
+```chown your_user /home/your_user```
+
+Now change to your user.
 ```
 su your_user
 ```
-```
-cd ~/
-```
+
+When you change to your_user, it will still be in the previous direcotry you were in as root. We must change to our home directory.
+```cd ~/```
 
 
-### git clone repos for box86 & gl4es
+
+### Copy the sources for box86 & gl4es and compile them.
 ```
 wget https://github.com/ptitSeb/box86/archive/refs/tags/v0.2.4.tar.gz
 
@@ -108,11 +127,11 @@ git clone https://github.com/ptitSeb/gl4es
 
 cd ~/gl4es; mkdir build; cd build; cmake ../; make -j$(nproc); sudo make install
 ```
-### For PinePhone (A64)
+For PinePhone (A64)
 ```
 cd ~/box86*; mkdir build; cd build; cmake ../ -DA64=1; make -j$(nproc); sudo make install
 ```
-### For PinePhone Pro (RK3399s)
+For PinePhone Pro (RK3399s)
 ```
 cd ~/box86*; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo make install
 
@@ -125,7 +144,7 @@ sudo cp -r PATH_TO_CHROOT/etc/binfmt.d/box86.conf /etc/binfmt.d/
 sudo systemctl restart systemd-binfmt
 ```
 
-### Chroot back intoo the container and Install steam and libappindicator1, then add i386 multiarch after steam has launched.
+### Chroot back into the container and Install steam and libappindicator1, then add i386 multiarch after steam has launched.
 ```
 mkdir ~/Downloads
 
