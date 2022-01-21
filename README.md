@@ -50,7 +50,9 @@ Logout:
 logout
 ```
 Finally we can boot the container to continue setup. Make sure to remember or script this command, it will be how you start you container.
-```sudo systemd-nspawn -bUD ~/MyContainer --bind-ro=/tmp/.X11-unix```
+```
+sudo systemd-nspawn -bUD ~/MyContainer --bind-ro=/tmp/.X11-unix
+```
 
 Note: When using sxmo/swmo, you will need to install your DE's terminal: ```apt install foot stterm``` and chroot back into the container to fix backspace and arrow keys. 
 
