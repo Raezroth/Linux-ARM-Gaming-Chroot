@@ -70,9 +70,6 @@ export LANGUAGE="C"
 
 export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/bin:/usr/local/sbin
 
-export STEAMOS=1
-
-export STEAM_RUNTIME=1
 ```
 This will source the changes to be used
 ```
@@ -135,21 +132,34 @@ su your_user
 When you change to your_user, it will still be in the previous direcotry you were in as root. We must change to our home directory.
 ```cd ~/```
 
+### So we can launch gui applications and steam without so many errors
+Edit ``~/.bashrc`` with your favorite text editor
+```
+vim ~/.bashrc
+```
+
+Add these variables to the bottom
+```
+export DISPLAY=:0
+
+export STEAMOS=1
+
+export STEAM_RUNTIME=1
+```
 
 
 ### Copy the stable source for box86  and then compile it.
 ```
-wget https://github.com/ptitSeb/box86/archive/refs/tags/v0.2.4.tar.gz
-
-tar -xvf v0.2.4.tar.gz
+git clone https://github.com/ptitSeb/box86
 ```
+
 For PinePhone (A64)
 ```
-cd ~/box86*; mkdir build; cd build; cmake ../ -DA64=1; make -j$(nproc); sudo make install
+cd ~/box86; mkdir build; cd build; cmake ../ -DA64=1; make -j$(nproc); sudo make install
 ```
 For PinePhone Pro (RK3399s)
 ```
-cd ~/box86*; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo make install
+cd ~/box86; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo make install
 
 ```
 
