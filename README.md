@@ -29,26 +29,28 @@ For Debian-based Distro(Mobian, Ubuntu Touch??): ```sudo apt install deboostrap 
 
 This will create a secondary root directory that we can use the chroot command to switch to.
 ```
-sudo debootstrap --arch armhf bullseye gaming https://deb.debian.org/debian
+sudo debootstrap --arch armhf --components=main,universe bullseye gaming https://deb.debian.org/debian
 ```
 
-### Mount container & chroot into it.
-Here we navigate into the secondary root directory, then mount necessary device and system folders to use the secondary root.
+### Using ```systemd-nspawn``` to use the container.
 
-We enable X11 connectivity so we can use graphical applications.
+Here we use [systemd-nspawn](https://wiki.archlinux.org/title/Arch_systemd_container) to launch the container to set the ```root``` password.
+
+Launch the container:
 ```
-cd gaming
-
-sudo mount -t proc /proc proc/
-
-sudo mount -t sysfs /sys sys/
-
-sudo mount --bind /dev dev/
-
-xhost +local:
-
-sudo chroot .
+sudo systemd-nspawn -D ~/MyContainer
 ```
+Change root password of the container to something secure =):
+```
+passwd root
+```
+
+Logout: 
+```
+logout
+```
+Finally we can boot the container to continue setup. Make sure to remember or script this command, it will be how you start you container.
+```sudo systemd-nspawn -bUD ~/MyContainer --bind-ro=/tmp/.X11-unix```
 
 Note: When using sxmo/swmo, you will need to install your DE's terminal: ```apt install foot stterm``` and chroot back into the container to fix backspace and arrow keys. 
 
@@ -154,8 +156,6 @@ Here we must copy box86.conf from chroot to host and restart host systemd-binfmt
 
 NOTE: You don't have to quit the chroot. Just open another terminal.
 ```
-sudo cp -r PATH_TO_CHROOT/etc/binfmt.d/box86.conf /etc/binfmt.d/
-
 sudo systemctl restart systemd-binfmt
 ```
 
@@ -325,7 +325,6 @@ Here we must copy box64.conf from chroot to host and restart host systemd-binfmt
 
 NOTE: You don't have to quit the chroot. Just open another terminal.
 ```
-sudo cp -r PATH_TO_CHROOT/etc/binfmt.d/box64.conf /etc/binfmt.d/
 sudo systemctl restart systemd-binfmt
 ```
 ### If everything went well you should now be able to launch 64bit applications while still being able to launch steam
