@@ -50,7 +50,9 @@ Don't Starve - ```Runs Well```
 
 Don't Starve Together - ```Runs Well```
 
-Portal - ```Runs Slow```
+Portal - ```Runs Well```
+
+Portal 2 - ```Runs Alright```
 
 Team Fortress Classic - ```Runs Great```
 
