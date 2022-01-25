@@ -1,4 +1,4 @@
-# Pinephone-Gaming-Chroot
+# Linux-ARM-Gaming-Chroot
 
 Guide to setup a MultiArch Chroot container to run Steam and Wine.
 
@@ -130,12 +130,6 @@ su your_user
 
 When you change to your_user, it will still be in the previous direcotry you were in as root. We must change to our home directory.
 ```cd ~/```
-
-### So we can launch gui applications and steam without so many errors
-Edit ``~/.bashrc`` with your favorite text editor
-```
-vim ~/.bashrc
-```
 
 ### Copy the stable source for box86  and then compile it.
 ```
