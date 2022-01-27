@@ -338,6 +338,37 @@ Note: Doing this may or may not break Steam. It's worth the risk to try in my op
 
 ----------
 
+## Updating Box86 & Box64
+
+Due to how we had to install the chroot container you will have to reinstall GCC when updating Box86 or Box64.
+  You can use the steps below for each:
+  
+  For Box86 (inside chroot container):
+  ```
+  sudo apt install gcc:armhf
+  
+  cd ~/box86/build
+  
+  git pull
+  
+  make -j$(nproc); sudo make install
+  
+  ```
+
+  For Box64 (inside chroot container):
+  ```
+  sudo apt install gcc:arm64
+  
+  cd ~/box64/build
+  
+  git pull
+  
+  make -j$(nproc); sudo make install
+  
+  ```
+
+----------
+
 ## Uninstalling the chroot
 
 Navigate to chroot directoy, mine is /home/alarm/chroot/gaming
