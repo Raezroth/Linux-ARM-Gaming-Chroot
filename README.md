@@ -211,8 +211,9 @@ xhost +local:
 Note: when launching a game this way, Steam will be mimized and almost impossible to bring back up.
 
 ### Adjusting audio
-Since the chroot container has a seperater audio server, you can use ```alsamixergui``` to adjust the audio level.
+Since the chroot container has a seperater audio server, you can use ```alsamixergui``` or ```alsamixer``` to adjust the audio level.
 
+Look for the DAC outputs
 
 
 ### Managing tasks.
