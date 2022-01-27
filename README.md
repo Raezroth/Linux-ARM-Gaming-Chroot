@@ -303,9 +303,7 @@ sudo apt install firefox-esr:arm64 gcc:arm64 libx11-dev:arm64 libvulkan-dev:arm6
 
 cd ~/
 
-wget https://github.com/ptitSeb/box64/archive/fbb534917a028aaae2dd6b79900425dbe5617112.zip
-
-unzip fbb534917a028aaae2dd6b79900425dbe5617112.zip
+git clone https://github.com/ptitSeb/box64
 
 ```
 ### For PinePhone (A64)
