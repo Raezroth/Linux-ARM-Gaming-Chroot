@@ -1,14 +1,14 @@
 
 
-#Linux ARM Gaming Chroot
+# Linux ARM Gaming Chroot
 
 -------------------------
 
-######Written on the go with a PinePhone Pro w/ Keyboard using bash, git, & vim.
+###### Written on the go with a PinePhone Pro w/ Keyboard using bash, git, & vim.
 
 -------
 
-##Index.
+## Index.
 
 1. [Brief Introduction](Docs/introduction.md)
 
@@ -34,5 +34,15 @@
 
 ----------------------------------------------------
 
-###Check out ptitSeb's [Box86](https://github.com/ptitSeb/box86)/[Box64](https://github.com/ptitSeb/box64) githubs.
+### Check out ptitSeb's [Box86](https://github.com/ptitSeb/box86)/[Box64](https://github.com/ptitSeb/box64) githubs.
+
+-------------------------------------------------------
+
+To see Videos of games running, check out these links:
+
+1. [Half Life 2 Deathmatch and Half Life 2 on PinePhone Pro with Box86](https://www.youtube.com/watch?v=lAfEB0B14fw)
+
+2. [PinePhone Pro running Portal 2 through Steam using Box86](https://www.youtube.com/watch?v=yPr0Aw3xZrA)
+
+
 
