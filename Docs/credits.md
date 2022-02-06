@@ -5,6 +5,8 @@ Written by: Raezroth
 
 Edited by: Raezroth
 
+Co-Edited by: Broop
+
 Research: CalcProgrammer1, Raezroth
 
 Tested by: CalcProgrammer1, Raezroth
