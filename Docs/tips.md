@@ -35,6 +35,29 @@ or
 
    Then use `kill -9 PID` to kill the process.
 
+### Using `systemd-nspawn`
+
+`systemd-nspawn` can be used on any system that uses systemd.
+As stated in the beginning, `systemd-nspawn` can be used to auto mount and auto start the container. You can do so by using:
+
+```
+sudo systemd-nspawn -D chroot-path/container-name
+```
+
+It can be used in a combination of other flags for GUI and even running daemons in the container.
+
+To run X11 gui apps use `--setenv=DISPLAY=:1 --bind-ro=/tmp/.11-unix` like so:
+
+```
+sudo systemd-nspawn --setenv=DISPLAY=:1 --bind-ro=/tmp/.11-unix -D chroot-path/container-name
+```
+
+To enable daemons with nspawn use the `-b` flag. This will also allow Desktop environments to run. You with have to use the `poweroff` command to close the container. It can be used like so:
+
+```
+sudo systemd-nspawn --setenv=DISPLAY=:1 --bind-ro=/tmp/.11-unix -bD chroot-path/container-name 
+```
+
 
 ### To improve performance
 
