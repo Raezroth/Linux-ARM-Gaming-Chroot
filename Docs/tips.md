@@ -53,7 +53,15 @@ This will redirect output to a file, which Improves performance a bit.
 Note: I left the override for opengl 3 in there because it doesn't hurt anything, yet makes more games able to launch from library list.
 
 6. Run all games on low obviously, many of games crash loading in from menus due to texture overloading.
- 
+
+### Dealing with thermal throttling
+
+So far, the best way to deal with lag from thermal throttling is to strap a cooler of some sort to it.
+A few of the users in the Pine64 Pinephone chat (you can find links [here](https://wiki.pine64.org/index.php/Main_Page)) have had some interesting ideas about cooling solutions. 
+People have used a variety of methods, such as TEC cooling, a ENOKAY Raspberry Pi cooler, Desktop Heatsinks, to even sticking the device in the freezer.
+It is best to stick the heatsinks on the modem shielding, due to design. This is not a optimal way to draw heat from the CPU during gaming, especially since it passes through the modem, but it does alright and proven to show stability in some games.
+
+A couple of users are designing their own mock cooling cases. I will release details of my own mock case when I have a prototype.
 
 ### NOTE: Touchscreen Controller input is experimental use at your own risk.
 
