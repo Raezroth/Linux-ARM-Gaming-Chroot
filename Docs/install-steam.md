@@ -49,6 +49,6 @@ If everything went well you can move on to using Steam.
 
 ------
 
-[< Installing Box86 & Box64] (Docs/install-box86_64) | [Using Steam >] (Docs/using-steam.md)
+[< Installing Box86 & Box64](Docs/install-box86_64) | [Using Steam >](Docs/using-steam.md)
 
 

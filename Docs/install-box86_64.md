@@ -96,6 +96,6 @@ You can run `box86` or `box64` to see a list of environment variables or goto [E
 
 -----
 
-[< Setting up your user] (Docs/create-user.md) | [Installing Steam >] (Docs/install-steam.md)
+[< Setting up your user](Docs/create-user.md) | [Installing Steam >](Docs/install-steam.md)
 
 

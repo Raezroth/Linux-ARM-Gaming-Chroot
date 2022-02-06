@@ -19,5 +19,5 @@ If you need to kill a running process, head over to the [TIPS](Docs/tips.md) sec
 
 ----------
 
-[< Installing Wine] (Docs/install-wine.md) | [Uninstalling the contatiner >] (Docs/delete-chroot.md])
+[< Installing Wine](Docs/install-wine.md) | [Uninstalling the contatiner >](Docs/delete-chroot.md)
 

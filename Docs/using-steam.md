@@ -36,7 +36,7 @@ If all went well in the previous steps, Steam should launch and you should be ab
 
 -----
 
-[< Installing Steam] (Docs/install-steam.md) | [Installing Wine >] (Docs/install-wine.md)
+[< Installing Steam](Docs/install-steam.md) | [Installing Wine >](Docs/install-wine.md)
 
 
  
