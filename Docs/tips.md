@@ -8,7 +8,7 @@ Note: when launching a game this way, Steam will be mimized and almost impossibl
 ### Adjusting audio
 Since the chroot container has a seperater audio server, you can use `alsamixergui` or `alsamixer` to adjust the audio level.
 
-Look for the DAC outputs
+Look for the DAC1 & DAC2 outputs
 
 
 ### Managing tasks.
