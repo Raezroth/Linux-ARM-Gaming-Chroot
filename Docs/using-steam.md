@@ -1,4 +1,4 @@
-##Using Steam
+## Using Steam
 
 Remember that  `sudo chmod 1777 /dev/shm` needs to be ran before running Steam, This will only have to be done after every device reboot.
 
