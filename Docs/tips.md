@@ -17,11 +17,11 @@ You will probably end up having to manage tasks of crashed programs and such.
 
 You can easily:
 
-1. Kill the task with htop. Must have htop installed
+1. Kill the task with htop; Must have htop installed
 
 or
 
-2. Use `ps a` the display a list of runnning tasks and find the PID for Steam.
+2. Use `ps ax` the display a list of runnning tasks then find the PID for Steam.
 
    Example:
    ```
@@ -40,26 +40,26 @@ or
 
 1. Set Steam Library setting to Low Bandwisth Mode and Low Performance Mode
 2. Disable Broadcasting
-3. Disable Remote Play. This is broken anyways.
-4. If you use a skin, be carefull. Some tax Steam's Interface.
+3. Disable Remote Play, This is broken anyways.
+4. If you do use a skin, be careful, Some tax Steam's Interface.
 5. Launch with:
 
 For Pinephone (A64): `BOX86_LOG=0 BOX64_LOG=0 steam +open steam://open/minigameslist 2> tee ~/steam.log`
 
 For Pinephone Pro (RK3399s): `BOX86_LOG=0 BOX64_LOG=0 MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 steam +open steam://open/minigameslist 2> tee steam.log`
 
-This will redirect output to a file. Improves performance a bit.
+This will redirect output to a file, which Improves performance a bit.
 
 Note: I left the override for opengl 3 in there because it doesn't hurt anything, yet makes more games able to launch from library list.
 
-6. Run all games on low obviously. Alot of games crash loading in from menus due to texture overloading.
+6. Run all games on low obviously, many of games crash loading in from menus due to texture overloading.
  
 
 ### NOTE: Touchscreen Controller input is experimental use at your own risk.
 
 For Toucscreen Controller use [TabPad](https://github.com/nitg16/TabPad) must be ran from a seperate terminal.
 
-Recommend to launch another terminal and chroot into the container again for this. You can try to run this from the host, but TabPad relies on X11 and won't launch with wayland currently. Looking into modifying or just a new touchscreen controller.
+Recommend to launch another terminal and chroot into the container again for this. You can try to run this from the host, but TabPad relies on X11 and won't launch with wayland currently, Looking into modifying or just a new touchscreen controller.
 
 -------
 
