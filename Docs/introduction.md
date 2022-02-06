@@ -16,6 +16,14 @@ It is recommended to use a 128GB+ microsd card to have space for some applicatio
 
 ----
 
+To see a list of applications I have tested:
+
+PinePhone(A64): [Games](https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/blob/master/tested-games-by-device/PPBE-A64-Tested-Games.md)
+
+PinePhone Pro(RK3399): [Games](https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/blob/master/tested-games-by-device/PPP-Tested-Games.md)
+
+----
+
 [Setting up the container >](create-chroot.md)
 
 
