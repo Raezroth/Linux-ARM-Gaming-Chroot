@@ -1,11 +1,11 @@
 
-##Installing Box86 & Box64.
+## Installing Box86 & Box64.
 
 There are 2 ways we can go about this.
 
 ------
 
-####1. Download the precompiled debian packages from the guides Release page and install with apt.
+#### 1. Download the precompiled debian packages from the guides Release page and install with apt.
 
 Make `Downloads` folder we will need this when installing Steam as well.
 ```
@@ -45,7 +45,7 @@ Now Box86 and/or Box64 should start automatically when launching x86 or x86_64 b
 
 -----
 
-####2. Manually compile and install.
+#### 2. Manually compile and install.
 
 For Box86, copy the latest source for box86  and then compile it.
 
