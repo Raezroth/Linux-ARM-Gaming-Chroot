@@ -26,9 +26,9 @@
 
 8. [Using Wine](Docs/using-wine.md)
 
-9. [Uninstalling the container](Docs/delete-chroot.md)
+9. [Tips & Tricks](Docs/tips.md)
 
-10. [Tips for getting the most out of the container](Docs/tips.md)
+10. [Uninstalling the container](Docs/delete-chroot.md)
 
 11. [Credits](Docs/credits.md)
 

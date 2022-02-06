@@ -76,12 +76,14 @@ git clone https://github.com/ptitSeb/box64
 
 Before we compile we need to install the arm64 version of `gcc` with `sudo apt install gcc:arm64`
 
-	For PinePhone (A64)
+For PinePhone (A64)
+
 ```
 cd ~/box64*; mkdir build; cd build; cmake ../ -DA64=1; make -j$(nproc); sudo make install
 ```
 
-	For PinePhone Pro (RK3399s)
+For PinePhone Pro (RK3399s)
+
 ```
 cd ~/box64*; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo make install
 ```
