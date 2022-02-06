@@ -32,6 +32,6 @@ For Debian-based Distro(Mobian, Ubuntu Touch??): `sudo apt remove deboostrap deb
 
 ---------
 
-[Tips and Tricks](Docs/tips.md) | [Credits](Docs/credits.md)
+[< Tips and Tricks](tips.md) | [Credits >](credits.md)
 
 

@@ -19,9 +19,9 @@ cd ~/Downloads
 
 Use `wget` to fetch the debian packages.
 
-` ` For Box86
+`wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/publish/box86_0.2.4_armhf.deb` For Box86
 
-` ` For Box64
+`wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/publish/box64_0.1.6_arm64.deb` For Box64
 
 Then from inside your `Downloads` folder use apt to install
 ```
@@ -98,6 +98,6 @@ You can run `box86` or `box64` to see a list of environment variables or goto [E
 
 -----
 
-[< Setting up your user](Docs/create-user.md) | [Installing Steam >](Docs/install-steam.md)
+[< Setting up your user](create-user.md) | [Installing Steam >](install-steam.md)
 
 

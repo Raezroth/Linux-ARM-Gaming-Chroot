@@ -16,6 +16,6 @@ It is recommended to use a 128GB+ microsd card to have space for some applicatio
 
 ----
 
-[Setting up the container](Docs/create-chroot.md)
+[Setting up the container](create-chroot.md)
 
 

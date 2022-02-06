@@ -11,5 +11,5 @@ Note: Doing this may or may not break Steam. It's worth the risk to try in my op
 
 ------------
 
-[< Using Steam](Docs/using-steam.md) | [Using Wine >](Docs/using-wine.md)
+[< Using Steam](using-steam.md) | [Using Wine >](using-wine.md)
 

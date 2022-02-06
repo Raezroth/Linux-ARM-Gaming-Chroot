@@ -108,7 +108,7 @@ Once this is done installing we can create our user.
 
 -----
 
-[< Brief Introduction](Docs/introduction.md) | [Setting up your user >](Docs/create-user.mDocs/create-user.mdd)
+[< Brief Introduction](introduction.md) | [Setting up your user >](create-user.md)
 
 
 

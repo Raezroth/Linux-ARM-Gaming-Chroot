@@ -19,5 +19,5 @@ If you need to kill a running process, head over to the next section  to get the
 
 ----------
 
-[< Installing Wine](Docs/install-wine.md) | [Tips & Tricks >](Docs/tips.md)
+[< Installing Wine](install-wine.md) | [Tips & Tricks >](tips.md)
 

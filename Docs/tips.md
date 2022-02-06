@@ -54,6 +54,13 @@ Note: I left the override for opengl 3 in there because it doesn't hurt anything
 
 6. Run all games on low obviously. Alot of games crash loading in from menus due to texture overloading.
  
+
+### NOTE: Touchscreen Controller input is experimental use at your own risk.
+
+For Toucscreen Controller use [TabPad](https://github.com/nitg16/TabPad) must be ran from a seperate terminal.
+
+Recommend to launch another terminal and chroot into the container again for this. You can try to run this from the host, but TabPad relies on X11 and won't launch with wayland currently. Looking into modifying or just a new touchscreen controller.
+
 -------
 
 [< Using Wine](using-wine.md) | [Uninstalling the container >](delete-chroot.md)
