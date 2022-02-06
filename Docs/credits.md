@@ -17,7 +17,7 @@ Device: `PinePhone & PinePhone Pro`
 
 Distro: `Arch Linux Arm w/ Debian multiarch chroot`
 
-Inputs: `Touchscreen, Dualsense Controller, Xbox One Controller, Power-A Switch Controller`
+Inputs: `Touchscreen, Keyboard+ Mouse, Dualsense Controller, Xbox One Controller, Power-A Switch Controller`
 
 -----
 
