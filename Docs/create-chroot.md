@@ -1,5 +1,5 @@
 
-##Setting up the container
+## Setting up the container
 -------------------------
 
 ### Install desbootstrap and xhost
@@ -17,11 +17,11 @@ sudo debootstrap --arch armhf --components=main,universe sid gaming https://deb.
 ```
 ----
 
-###Mounting the container & chroot into it.
+### Mounting the container & chroot into it.
 
 There are a few different of going about this. 
 
-#####1. Manually
+##### 1. Manually
 
 Here we navigate into the secondary root directory, then mount necessary device and system folders to use the secondary root.
 
@@ -41,7 +41,7 @@ xhost +local
 sudo chroot .
 ```
 
-#####2. Using systemd-nspawn
+##### 2. Using systemd-nspawn
 
 `systemd-nspawn` can be used to automatically mount the containers essentials while starting it.
 
