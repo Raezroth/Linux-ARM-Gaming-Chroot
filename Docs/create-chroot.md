@@ -46,12 +46,14 @@ sudo chroot .
 `systemd-nspawn` can be used to automatically mount the containers essentials while starting it.
 
 ```
-sudo systemd-nspawn --setenv=DISPLAY=:1 --bind-ro=/tmp/.11-unix -D gaming
+sudo systemd-nspawn --setenv=DISPLAY=:1 --bind-ro=/tmp/.11-unix --bind=/dev/dri -D gaming
 ```
 
 `--setenv=DISPLAY=:1` sets the DISPLAY variable to be used by X11
 
 `--bind-ro=/tmp/.X11-unix` binds tmp file for X11 to be used (some applications need it for graphical ui.
+
+`--bind=/dev/dri` bind /dev/dri for 3D graphics acceleration.
 
 ----
 
