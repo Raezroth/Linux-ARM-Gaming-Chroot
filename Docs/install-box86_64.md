@@ -28,7 +28,7 @@ Then from inside your `Downloads` folder use apt to install
 sudo apt install ./box*.deb
 ```
 
-If you are using `chroot` command or `systemd-nspawn` with the `-b` boot flag, you will have to copy the binfmt files to the host.
+If you are using `chroot` command or `systemd-nspawn` without the `-b` boot flag, you will have to copy the binfmt files to the host.
 
 From host terminal run
 
