@@ -94,7 +94,7 @@ Now Box86/64 should be usuable. Updating will require reinstalling `gcc:armhf` f
 
 If everything went well, you are now ready to move on to to installing Steam.
 
-You can run `box86` or `box64` to see a list of environment variables or goto [Edit link in](). 
+You can run `box86` or `box64` to see a list of environment variables or goto [Box86](https://github.com/ptitSeb/box86/blob/master/docs/USAGE.md), [Box64](https://github.com/ptitSeb/box64/blob/main/docs/USAGE.md). 
 
 -----
 
