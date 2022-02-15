@@ -13,7 +13,7 @@ For Debian-based Distro(Mobian, Ubuntu Touch??): `sudo apt install deboostrap de
 
 This will create a secondary root directory that we can use the chroot command to switch to.
 ```
-sudo debootstrap --arch armhf --components=main,universe sid gaming https://deb.debian.org/debian
+sudo debootstrap --arch armhf --components=main,universe bullseye gaming https://deb.debian.org/debian
 ```
 ----
 
