@@ -28,7 +28,7 @@ gzDoom - ```Runs Great```
 
 --------
 
-## BOX86 - Needs Release [v0.2.4](https://github.com/ptitSeb/box86/archive/refs/tags/v0.2.4.tar.gz)
+## BOX86 
 
 --------
 
