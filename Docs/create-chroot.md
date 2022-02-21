@@ -36,7 +36,7 @@ sudo mount -t sysfs /sys sys/
 
 sudo mount --bind /dev dev/
 
-xhost +local
+xhost +local:
 
 sudo chroot .
 ```
