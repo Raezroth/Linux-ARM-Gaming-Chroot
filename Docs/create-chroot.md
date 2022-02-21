@@ -96,7 +96,7 @@ Now we can set up the libraries require to run the programs we want.
 
 At this time we can setup arm64 as well.
 
-`dpkg --add-archiecture arm64` Adds the architecture
+`dpkg --add-architecture arm64` Adds the architecture
 
 `apt update` Updates the Repository Lists
 
