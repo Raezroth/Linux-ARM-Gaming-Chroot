@@ -11,7 +11,7 @@ debootstrap --arch armhf --components=main,universe bookworm /chroot/debian_gami
 #
 cd /chroot/debian_gaming
 mount -o bind /dev dev/
-mount -o bind /dev/pts dev/pts
+mount -t devpts devpts dev/pts
 mount -o bind /proc proc/
 mount -o bind /sys sys/
 
@@ -23,12 +23,15 @@ mount -o bind /sys sys/
 #
 chroot /chroot/debian_gaming/ /bin/bash -x <<'EOF'
 su -
-echo "export LC_ALL=\"C\""    >> /root/.bashrc
-echo "export LANGUAGE=\"C\""  >> /root/.bashrc
+echo "export LC_ALL=\"C\""                 >> /root/.bashrc
+echo "export LANGUAGE=\"C\""               >> /root/.bashrc
 echo "export PATH=\$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/bin:/usr/local/sbin" >> /root/.bashrc
-echo "export STEAMOS=1"       >> /root/.bashrc
-echo "export STEAM_RUNTIME=1" >> /root/.bashrc
-echo "chmod 177 /dev/shm"     >> /root/.bashrc
+echo "export STEAMOS=1"                    >> /root/.bashrc
+echo "export STEAM_RUNTIME=1"              >> /root/.bashrc
+echo "chmod 177 /dev/shm"                  >> /root/.bashrc
+echo "export MESA_GL_VERSION_OVERRIDE=3.2" >> /root/.bashrc
+echo "export PAN_MESA_DEBUG=gl3"           >> /root/.bashrc
+echo "export PULSE_SERVER=127.0.0.1"       >> /root/.bashrc
 source /root/.bashrc
 dpkg --add-architecture arm64
 apt update
