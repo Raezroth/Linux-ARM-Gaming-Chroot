@@ -36,6 +36,8 @@ sudo mount -t sysfs /sys sys/
 
 sudo mount --bind /dev dev/
 
+sudo mount -t devpts devpts dev/pts
+
 xhost +local:
 
 sudo chroot .
