@@ -4,7 +4,7 @@
 
 ### Install desbootstrap and xhost
 
-For Arch-based Distro(Arch Linux, Manjaro): `sudo pacman -S debootstrap debian-archive-keyring xorg-xhost`
+For Arch-based Distro(Arch Linux, Manjaro): `sudo pacman -S debootstrap debian-archive-keyring xorg-xhost xorg-server-xephyr`
 
 For Debian-based Distro(Mobian, Ubuntu Touch??): `sudo apt install deboostrap debian-archive-keyring x11-xserver-utils`
 
@@ -45,15 +45,21 @@ sudo chroot .
 
 ##### 2. Using systemd-nspawn
 
+Using `Xephyr` we can specify a window for chroot grpahical applications avoiding xhost.
+
+```
+Xephyr :1 -resizable
+```
+
 `systemd-nspawn` can be used to automatically mount the containers essentials while starting it.
 
 ```
-sudo systemd-nspawn --setenv=DISPLAY=:1 --bind-ro=/tmp/.11-unix --bind=/dev/dri -D gaming
+sudo systemd-nspawn --setenv=DISPLAY=:1 --bind-ro=/tmp/.11-unix/X1 --bind=/dev/dri -D gaming
 ```
 
 `--setenv=DISPLAY=:1` sets the DISPLAY variable to be used by X11
 
-`--bind-ro=/tmp/.X11-unix` binds tmp file for X11 to be used (some applications need it for graphical ui.
+`--bind-ro=/tmp/.X11-unix/X1` binds tmp file for X11 to be used (some applications need it for graphical ui.
 
 `--bind=/dev/dri` bind /dev/dri for 3D graphics acceleration.
 
