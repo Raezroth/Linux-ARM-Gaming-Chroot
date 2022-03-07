@@ -25,9 +25,20 @@ I set it to force OpenGL 3.2 so games like TableTop Simulator ad Borderlands Pre
 
 If all went well in the previous steps, Steam should launch and you should be able to login and download a game within your system's specification range. =)
 
+
+Big Picture now works (REQUIRES BOTH BOX86 & BOX64), you can automatically start with:
+```
+BOX64_EMULATED_LIBS=libSDL2-2.0.so.0 steam +open steam://open/bigpicture
+```
+`BOX64_EMULATED_LIBS=libSDL2-2.0.so.0` is added to emulate SDL2 so that we can use Remote Play =)
+
+
 --------
 
 ### To uninistall games:
+
+Use Big Picture Mode or manual uninstall down below.
+
 1. Close Steam
 2. Grab `APPID` from [SteamDB](https://steamdb.info/apps/)
 3. Delete game from `PATH_TO_STEAMLIBRARY/common/`
