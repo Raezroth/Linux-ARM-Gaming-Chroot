@@ -19,9 +19,19 @@ cd ~/Downloads
 
 Use `wget` to fetch the debian packages.
 
-`wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/publish/box86_0.2.4_armhf.deb` For Box86
+For Bullseye RK3399:
 
-`wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/publish/box64_0.1.6_arm64.deb` For Box64
+Box86: `wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/Experimental/box86_0.2.4_bullseye_armhf_rk3399.deb`
+
+Box64 `wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/Experimental/box64_0.1.6_bullseye_arm64_rk3399.deb`
+
+For Sid RK3399:
+
+Box86: `wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/Experimental/box86_0.2.4_armhf_sid_rk3399.deb`
+
+Box64: `wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/Experimental/box64_0.1.6_sid_arm64_rk3399.deb`
+
+A64 & Generic Debs coming soon!
 
 Then from inside your `Downloads` folder use apt to install
 ```
