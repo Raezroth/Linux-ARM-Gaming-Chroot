@@ -62,10 +62,9 @@ sudo systemd-nspawn --setenv=DISPLAY=:1 --bind-ro=/tmp/.11-unix -bD chroot-path/
 ### To improve performance
 
 1. Set Steam Library setting to Low Bandwisth Mode and Low Performance Mode
-2. Disable Broadcasting
-3. Disable Remote Play, This is broken anyways.
-4. If you do use a skin, be careful, Some tax Steam's Interface.
-5. Launch with:
+2. Disable Broadcasting, This is broken anyways.
+3. If you do use a skin, be careful, Some tax Steam's Interface.
+4. Launch with:
 
 For Pinephone (A64): `BOX86_LOG=0 BOX64_LOG=0 steam +open steam://open/minigameslist 2> tee ~/steam.log`
 
