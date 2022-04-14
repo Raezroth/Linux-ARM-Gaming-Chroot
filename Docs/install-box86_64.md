@@ -19,21 +19,14 @@ cd ~/Downloads
 
 Use `wget` to fetch the debian packages.
 
-For Bullseye RK3399:
-
-Box86: `wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/Experimental/box86_0.2.4_bullseye_armhf_rk3399.deb`
-
-Box64 `wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/Experimental/box64_0.1.6_bullseye_arm64_rk3399.deb`
-
 For Sid RK3399:
 
-Box86: `wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/Experimental/box86_0.2.4_armhf_sid_rk3399.deb`
-
-Box64: `wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/Experimental/box64_0.1.6_sid_arm64_rk3399.deb`
+Head over to the [Releases](https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases) and grab the most recent precompiled.
+TIP: Use in chroot browser to download into chroot Downloads. You can also copy by `cp -r PATH-TO-DEBS PATH-TO-CHROOT-USER-HOME`
 
 A64 & Generic Debs coming soon!
 
-Then from inside your `Downloads` folder use apt to install
+Then from inside your `Downloads` or `Home` folder use apt to install
 ```
 sudo apt install ./box*.deb
 ```
