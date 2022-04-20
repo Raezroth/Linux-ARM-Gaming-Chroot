@@ -40,6 +40,9 @@
 
 To see Videos of games running, check out these links:
 
+WARNING: Source engine games _may_ not work with Box86/64 due to new libmimalloc update on the Source Engine. 
+Some devices vary, Gold Source works fine though.
+
 1. [Half Life 2 Deathmatch and Half Life 2 on PinePhone Pro with Box86](https://www.youtube.com/watch?v=lAfEB0B14fw)
 
 2. [PinePhone Pro running Portal 2 through Steam using Box86](https://www.youtube.com/watch?v=yPr0Aw3xZrA)
