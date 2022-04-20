@@ -44,8 +44,8 @@ su user -
 cd ~/
 mkdir Downloads
 cd Downloads
-wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/publish/box86_0.2.4_sid_armhf.deb
-wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/publish/box64_0.1.6_sid_arm64.deb
+wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/0.2.6%2F0.1.8/box64_0.1.8_sid_generic__arm64.deb
+wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/0.2.6%2F0.1.8/box86_0.2.6_sid_generic_armhf.deb
 wget http://ftp.debian.org/debian/pool/main/libi/libindicator/libindicator7_0.5.0-4_armhf.deb
 wget http://ftp.debian.org/debian/pool/main/liba/libappindicator/libappindicator1_0.4.92-7_armhf.deb
 exit
