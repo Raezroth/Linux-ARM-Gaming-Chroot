@@ -25,7 +25,7 @@ I set it to force OpenGL 3.2 so games like TableTop Simulator and Borderlands Pr
 
 If all went well in the previous steps, Steam should launch and you should be able to login and download a game within your system's specification range. =)
 
---
+--NOTE: BOX86/64 is still in developement and highly experimental. Expect slow load times and lower FPS. 
 
 ## More Usage
 
