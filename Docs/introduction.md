@@ -4,6 +4,8 @@
 
 First off, I have tried to make this as beginner friendly as possible. It is recommended to have basic knowledge about using the linux terminal(E.g Filesystem Navigation, View/Move/Copy/Remove files, Piping, Task Management). You can continue without said knowledge and pick it up along the way if you pay attention =).
 
+This entire guide can be made into scripts for easy of usage. Premade scripts are in the works. No ETA!
+
 ----
 
 Why a chroot container?
