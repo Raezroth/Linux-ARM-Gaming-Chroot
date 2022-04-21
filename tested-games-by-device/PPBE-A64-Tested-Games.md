@@ -27,7 +27,7 @@ lzDoom - ```Runs Okay```
 
 ------------
 
-## BOX86 - Needs Release [v0.2.4](https://github.com/ptitSeb/box86/archive/refs/tags/v0.2.4.tar.gz)
+## BOX86 - Use Generic Debs for now.
 
 ---
 
@@ -61,7 +61,7 @@ Fallout 2 - ```Runs Okay```
 
 --------
 
-## BOX64 - Needs this [revision](https://github.com/ptitSeb/box64/archive/fbb534917a028aaae2dd6b79900425dbe5617112.zip)
+## BOX64 - Use Generic Debs for now.
 
 ----
 
