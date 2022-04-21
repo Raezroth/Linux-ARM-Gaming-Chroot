@@ -25,7 +25,7 @@ I set it to force OpenGL 3.2 so games like TableTop Simulator and Borderlands Pr
 
 If all went well in the previous steps, Steam should launch and you should be able to login and download a game within your system's specification range. =)
 
---NOTE: BOX86/64 is still in developement and highly experimental. Expect slow load times and lower FPS. 
+--NOTE: BOX86/64 is still in developement and highly experimental. Expect slow load times and lower FPS or even games not working. 
 
 ## More Usage
 
@@ -34,8 +34,18 @@ You can automatically start Big Picture with:
 BOX86_LOG=0 BOX64_LOG=0 steam +open steam://open/bigpicture
 ```
 
-
 This may still be needed for some people to use Remote Play. `BOX64_EMULATED_LIBS=libSDL2-2.0.so.0`
+
+What works:
+```
++Mini Games List
++Big Picture
++Remote Play
++Proton with some Indie games so far.
++You can watch broadcasts at a low quality in Big Picture (only been tested on PinePhone Pro??)
++Store works for the most part in Big Picture.
+```
+
 
 --------
 
