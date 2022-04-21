@@ -21,10 +21,13 @@ If you are running the PinePhone Pro, you may need to force OpenGL 3. You can do
 ```
 MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 steam +open steam://open/minigameslist
 ```
-I set it to force OpenGL 3.2 so games like TableTop Simulator ad Borderlands PreSequel launch.
+I set it to force OpenGL 3.2 so games like TableTop Simulator and Borderlands PreSequel launch.
 
 If all went well in the previous steps, Steam should launch and you should be able to login and download a game within your system's specification range. =)
 
+--
+
+## More Usage
 
 You can automatically start Big Picture with:
 ```
