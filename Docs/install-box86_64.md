@@ -66,7 +66,6 @@ For PinePhone Pro (RK3399s)
 
 ```
 cd ~/box86; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo make install
-.
 ```
 
 For Box64, copy the latest source for box64 and compile it
