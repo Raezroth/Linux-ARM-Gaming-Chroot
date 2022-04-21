@@ -4,7 +4,7 @@
 #
 mkdir /chroot
 pacman -S debootstrap debian-archive-keyring xorg-xhost
-debootstrap --arch armhf --components=main,universe bookworm /chroot/debian_gaming https://deb.debian.org/debian
+debootstrap --arch armhf --components=main,universe sid /chroot/debian_gaming https://deb.debian.org/debian
 
 #
 # Bind mount necessary directories /dev, /dev/pts, /proc, and /sys into the chroot
