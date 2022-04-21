@@ -78,6 +78,8 @@ Note: I left the override for opengl 3 in there because it doesn't hurt anything
 
 ### Dealing with thermal throttling
 
+This is for the PinePhones currently. Alot of SBC (single board computers) have different types of coolers available for them.
+
 So far, the best way to deal with lag from thermal throttling is to strap a cooler of some sort to it.
 A few of the users in the Pine64 Pinephone chat (you can find links [here](https://wiki.pine64.org/index.php/Main_Page)) have had some interesting ideas about cooling solutions. 
 People have used a variety of methods, such as TEC cooling, a ENOKAY Raspberry Pi cooler, Desktop Heatsinks, to even sticking the device in the freezer.
@@ -87,7 +89,9 @@ A couple of users are designing their own mock cooling cases. I will release det
 
 ### NOTE: Touchscreen Controller input is experimental use at your own risk.
 
-For Toucscreen Controller use [TabPad](https://github.com/nitg16/TabPad) must be ran from a seperate terminal.
+Steam Remote Play has a touchpad that can be enabled, but it only works in Remote Play.  
+
+For Toucscreen Controller use in other programs [TabPad](https://github.com/nitg16/TabPad) must be used from `systemd-nspawn -b` for best possible usage.
 
 Recommend to launch another terminal and chroot into the container again for this. You can try to run this from the host, but TabPad relies on X11 and won't launch with wayland currently, Looking into modifying or just a new touchscreen controller.
 
