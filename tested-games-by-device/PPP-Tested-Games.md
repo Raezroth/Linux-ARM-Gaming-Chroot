@@ -80,7 +80,7 @@ Fallout NV - ```Runs Slow```
 
 ------
 
-## BOX64 - Needs this [revision](https://github.com/ptitSeb/box64/archive/fbb534917a028aaae2dd6b79900425dbe5617112.zip)
+## BOX64 - May or may not need this [revision](https://github.com/ptitSeb/box64/archive/fbb534917a028aaae2dd6b79900425dbe5617112.zip) for TableTop Simulator
 
 ------
 
