@@ -7,9 +7,9 @@
 echo -n "Please input the path you want the chroot to install to (eg. /home/alarm/.local/share/games): "
 read CHROOT_PATH
 
-# The error is hidden as users may choose a preexisting directoru which works just fine
+# The error is hidden as users may choose a preexisting directory which works just fine
 mkdir $CHROOT_PATH 2>/dev/null
-pacman -S debootstrap debian-archive-keyring xorg-xhost
+pacman -S debootstrap debian-archive-keyring xorg-xhost --needed
 debootstrap --arch armhf --components=main,universe sid /$CHROOT_PATH/debian_gaming https://deb.debian.org/debian
 
 #
