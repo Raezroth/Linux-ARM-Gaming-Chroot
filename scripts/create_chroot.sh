@@ -2,10 +2,13 @@
 # Begin by creating a directory for the chroot (/chroot/debian_gaming), installing debootstrap,
 # and creating a bootstrapped Debian Bookworm installation
 #
-echo -n "Please input the path you want the chroot to install to (eg. /home/alarm/.local/games): "
+# User is asked what path they want to install the chroot to
+#
+echo -n "Please input the path you want the chroot to install to (eg. /home/alarm/.local/share/games): "
 read CHROOT_PATH
 
-mkdir $CHROOT_PATH
+# The error is hidden as users may choose a preexisting directoru which works just fine
+mkdir $CHROOT_PATH 2>/dev/null
 pacman -S debootstrap debian-archive-keyring xorg-xhost
 debootstrap --arch armhf --components=main,universe sid /$CHROOT_PATH/debian_gaming https://deb.debian.org/debian
 
@@ -67,9 +70,14 @@ cp /$CHROOT_PATH/debian_gaming/etc/binfmt.d/box86.conf /etc/binfmt.d
 cp /$CHROOT_PATH/debian_gaming/etc/binfmt.d/box64.conf /etc/binfmt.d
 systemctl restart systemd-binfmt
 
+#
+# edits start chroot script to include the new path 
+#
 echo "CHROOT_PATH=$CHROOT_PATH" > start_chroot.sh 
 cat ./start_chroot_tmp.sh >> start_chroot.sh
 
+#
 # creates an uninstall script with the new path
+#
 echo "CHROOT_PATH=$CHROOT_PATH" > ./uninstall_chroot.sh
 cat ./uninstall_chroot_tmp.sh >> ./uninstall_chroot.sh

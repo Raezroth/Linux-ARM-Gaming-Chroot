@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /chroot
+cd /$CHROOT_PATH
 
 umount ./debian_gaming/*
 
