@@ -2,7 +2,7 @@
 # Begin by creating a directory for the chroot (/chroot/debian_gaming), installing debootstrap,
 # and creating a bootstrapped Debian Bookworm installation
 #
-echo -n "Please input the path you want the chroot to install to: (eg. /home/alarm/.local/games)"
+echo -n "Please input the path you want the chroot to install to (eg. /home/alarm/.local/games): "
 read CHROOT_PATH
 
 mkdir $CHROOT_PATH
