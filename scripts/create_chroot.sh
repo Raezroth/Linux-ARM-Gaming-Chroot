@@ -2,14 +2,17 @@
 # Begin by creating a directory for the chroot (/chroot/debian_gaming), installing debootstrap,
 # and creating a bootstrapped Debian Bookworm installation
 #
-mkdir /chroot
+echo -n "Please input the path you want the chroot to install to: (eg. /home/alarm/.local/games)"
+read CHROOT_PATH
+
+mkdir $CHROOT_PATH
 pacman -S debootstrap debian-archive-keyring xorg-xhost
-debootstrap --arch armhf --components=main,universe sid /chroot/debian_gaming https://deb.debian.org/debian
+debootstrap --arch armhf --components=main,universe sid /$CHROOT_PATH/debian_gaming https://deb.debian.org/debian
 
 #
 # Bind mount necessary directories /dev, /dev/pts, /proc, and /sys into the chroot
 #
-cd /chroot/debian_gaming
+cd /$CHROOT_PATH/debian_gaming
 mount -o bind /dev dev/
 mount -t devpts devpts dev/pts
 mount -o bind /proc proc/
@@ -21,7 +24,7 @@ mount -o bind /sys sys/
 # Creates user 'user' with password 'password'
 # Installs required dependencies, box86, box64, custom libraries, and Steam
 #
-chroot /chroot/debian_gaming/ /bin/bash -x <<'EOF'
+chroot /$CHROOT_PATH/debian_gaming/ /bin/bash -x <<'EOF'
 su -
 echo "export LC_ALL=\"C\""                 >> /root/.bashrc
 echo "export LANGUAGE=\"C\""               >> /root/.bashrc
@@ -60,6 +63,13 @@ EOF
 #
 # Copy binfmt files from chroot to host
 #
-cp /chroot/debian_gaming/etc/binfmt.d/box86.conf /etc/binfmt.d
-cp /chroot/debian_gaming/etc/binfmt.d/box64.conf /etc/binfmt.d
+cp /$CHROOT_PATH/debian_gaming/etc/binfmt.d/box86.conf /etc/binfmt.d
+cp /$CHROOT_PATH/debian_gaming/etc/binfmt.d/box64.conf /etc/binfmt.d
 systemctl restart systemd-binfmt
+
+echo "CHROOT_PATH=$CHROOT_PATH" > start_chroot.sh 
+cat ./start_chroot_tmp.sh >> start_chroot.sh
+
+# creates an uninstall script with the new path
+echo "CHROOT_PATH=$CHROOT_PATH" > ./uninstall_chroot.sh
+cat ./uninstall_chroot_tmp.sh >> ./uninstall_chroot.sh
