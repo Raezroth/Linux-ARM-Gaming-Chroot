@@ -39,6 +39,7 @@ echo "chmod 177 /dev/shm"                  >> /root/.bashrc
 echo "export MESA_GL_VERSION_OVERRIDE=3.2" >> /root/.bashrc
 echo "export PAN_MESA_DEBUG=gl3"           >> /root/.bashrc
 echo "export PULSE_SERVER=127.0.0.1"       >> /root/.bashrc
+echo "su user"                             >> /root/.bashrc
 source /root/.bashrc
 dpkg --add-architecture arm64
 apt update
