@@ -6,16 +6,17 @@
 #
 echo -n "Please input the path you want the chroot to install to (eg. /home/alarm/.local/share/games): "
 read CHROOT_PATH
+SCRIPT_PATH=$(pwd)
 
 # The error is hidden as users may choose a preexisting directory which works just fine
 mkdir $CHROOT_PATH 2>/dev/null
 pacman -S debootstrap debian-archive-keyring xorg-xhost --needed
-debootstrap --arch armhf --components=main,universe sid /$CHROOT_PATH/debian_gaming https://deb.debian.org/debian
+debootstrap --arch armhf --components=main,universe sid $CHROOT_PATH/debian_gaming https://deb.debian.org/debian
 
 #
 # Bind mount necessary directories /dev, /dev/pts, /proc, and /sys into the chroot
 #
-cd /$CHROOT_PATH/debian_gaming
+cd $CHROOT_PATH/debian_gaming
 mount -o bind /dev dev/
 mount -t devpts devpts dev/pts
 mount -o bind /proc proc/
@@ -27,7 +28,7 @@ mount -o bind /sys sys/
 # Creates user 'user' with password 'password'
 # Installs required dependencies, box86, box64, custom libraries, and Steam
 #
-chroot /$CHROOT_PATH/debian_gaming/ /bin/bash -x <<'EOF'
+chroot $CHROOT_PATH/debian_gaming/ /bin/bash -x <<'EOF'
 su -
 echo "export LC_ALL=\"C\""                 >> /root/.bashrc
 echo "export LANGUAGE=\"C\""               >> /root/.bashrc
@@ -66,13 +67,14 @@ EOF
 #
 # Copy binfmt files from chroot to host
 #
-cp /$CHROOT_PATH/debian_gaming/etc/binfmt.d/box86.conf /etc/binfmt.d
-cp /$CHROOT_PATH/debian_gaming/etc/binfmt.d/box64.conf /etc/binfmt.d
+cp $CHROOT_PATH/debian_gaming/etc/binfmt.d/box86.conf /etc/binfmt.d
+cp $CHROOT_PATH/debian_gaming/etc/binfmt.d/box64.conf /etc/binfmt.d
 systemctl restart systemd-binfmt
 
 #
 # edits start chroot script to include the new path 
 #
+cd $SCRIPT_PATH
 echo "CHROOT_PATH=$CHROOT_PATH" > start_chroot.sh 
 cat ./start_chroot_tmp.sh >> start_chroot.sh
 
