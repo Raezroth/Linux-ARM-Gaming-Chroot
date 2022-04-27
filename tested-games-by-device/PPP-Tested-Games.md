@@ -42,9 +42,9 @@ Counter Strike - ```Runs great```
 
 Half-Life - ```Runs great```
 
-Half-Life 2 - ```Runs Well```
+Half-Life 2 - ```Kinda Broken due to libmimalloc Source Engine update for Steam Deck```
 
-Left 4 Dead 2 - ```Run ALright, Its playable for sure.```
+Left 4 Dead 2 - ```Kinda Broken due to libmimalloc Source Engine update for Steam Deck```
 
 Don't Starve - ```Runs Well```
 
@@ -52,11 +52,11 @@ Don't Starve Together - ```Runs Well```
 
 Portal - ```Runs Well```
 
-Portal 2 - ```Runs Alright```
+Portal 2 - ```Kinda Broken due to libmimalloc Source Engine update for Steam Deck```
 
 Team Fortress Classic - ```Runs Great```
 
-Team Fortress 2 - ```Runs Slow```
+Team Fortress 2 - ```Kinda Broken due to libmimalloc Source Engine update for Steam Deck```
 
 ----
 
