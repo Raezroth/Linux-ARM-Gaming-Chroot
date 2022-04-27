@@ -45,11 +45,11 @@ Team Fortress Classic - ```Runs Okay```
 
 ---
 
-### GOG:
+### GOG/DRM-FREE:
 
 Undertale - ```Runs Great```
 
-Super Meat Boy - ```Runs Well```
+Super Meat Boy - ```Runs Well may or may not need ptitSeb's GL4ES```
 
 ---
 
