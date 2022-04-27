@@ -17,13 +17,15 @@ Mupen64Plus - ```Runs great, Needs to be compiled from source.```
 
 VisualBoyAdvance - ```Runs Great```
 
+MGBA - ```Runs Great, , should be in repo for install with apt command``
+
 ---
 
 ### Ports:
 
-OpenMW - ```Runs Okay```
+OpenMW - ```Runs Okay, , should be in repo for install with apt command```
 
-lzDoom - ```Runs Okay```
+lzDoom - ```Runs Okay, Compile from source```
 
 ------------
 
