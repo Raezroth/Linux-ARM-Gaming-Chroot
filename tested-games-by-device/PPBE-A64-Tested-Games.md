@@ -72,7 +72,7 @@ Fallout 2 - ```Runs Okay```
 ---
  
 
-### GOG:
+### GOG/DRM-FREE:
 
 Super Meat Boy - ```Runs Well```
 
