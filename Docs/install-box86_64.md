@@ -81,13 +81,13 @@ Before we compile we need to install the arm64 version of `gcc` with `sudo apt i
 For PinePhone (A64)
 
 ```
-cd ~/box64*; mkdir build; cd build; cmake ../ -DA64=1; make -j$(nproc); sudo make install
+cd ~/box64; mkdir build; cd build; cmake ../ -DA64=1; make -j$(nproc); sudo make install
 ```
 
 For PinePhone Pro (RK3399s)
 
 ```
-cd ~/box64*; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo make install
+cd ~/box64; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo make install
 ```
 
 Now Box86/64 should be usuable. Updating will require reinstalling `gcc:armhf` for box86 and `gcc:arm64` for box64 to recompile.
