@@ -79,7 +79,7 @@ EOF
 	$root cp $GAMING_CHROOT/etc/binfmt.d/box64.conf /etc/binfmt.d
 	$root systemctl restart systemd-binfmt
 
-  # Create a helper script to launch the chroot
+  # Create a helper script to launch the chroot with steam
 	$root echo "cd $GAMING_CHROOT
        
 sudo mount -t proc /proc $GAMING_CHROOT/proc
@@ -103,6 +103,7 @@ ING_CHROOT/run/user/1000 $GAMING_CHROOT/tmp
 	$root chmod +x /bin/start-steam.sh
 	$root cp -r $GITDIR/scripts/steam.desktop /usr/share/applications/
 	$root chmod +x /usr/share/applications/steam.desktop
+	# Creates a helper script to get a standard terminal.
 	$root echo "cd $GAMING_CHROOT
        
 sudo mount -t proc /proc $GAMING_CHROOT/proc
@@ -117,7 +118,7 @@ ING_CHROOT/run/user/1000 $GAMING_CHROOT/tmp
  sudo chroot $GAMING_CHROOT 
       sudo umount $GAMING_CHROOT/dev/pts $GAMING_CHROOT/run/user/1000 $GAMING_CHROOT/*" >> /bin/gaming_chroot_terminal.sh
 
-  $root chmod +x /bin/gamig_chroot_terminal.sh
+  $root chmod +x /bin/gaming_chroot_terminal.sh
 
 	echo "Umounting container..."
 
@@ -126,15 +127,17 @@ ING_CHROOT/run/user/1000 $GAMING_CHROOT/tmp
 	echo "Install Complete! If everything went well you should be able to launch Steam."
 
 }
+
 maintenance_mode() {
   exec /bin/gaming_chroot_terminal.sh
 }
+
 uninstall_chroot() {
 		echo "Give the absolute path to the chroot: "
 		read DELDIR
 
 		echo "Making sure it is umounted..."
-		$root umount $DELDIR/dev/pts $DELDIR/run/user/1000 $DELDIR/*
+		$root umount -R $DELDIR/dev/pts $DELDIR/run/user/1000 $DELDIR/*
 		
 		echo "Deleting Chroot and Files..."
 		$root rm -r $DELDIR
