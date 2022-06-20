@@ -7,18 +7,17 @@ else
 fi
 
 install_chroot(){
-  echo "Before we get start we need 2 things."
-  echo "1. Chroot Directory (e.g. /home/user/.local/share/games)"
-  read CHROOTDIR
-  echo "2. Chroot Container name (NO SPACES OR SYMBOLS)"
-  read CHROOTNAME
-	GAMING_CHROOT=$CHROOTDIR/$CHROOTNAME
+  echo "Before we get start we need 1 thing."
+  echo "Where do you want to store the chroot? (e.g. /home/user/.local/share/games/gaming_chroot)"
+  read GAMING_CHROOT
   echo "$GAMING_CHROOT is where it will be installed."
-  mkdir -p $GAMING_CHROOT
+  $root mkdir -p $GAMING_CHROOT
   
   # detect distro and install necessary packages
+  # TODO, pmos support (might need some changes to other parts of the script aswell.)
   [ -d /etc/pacman.d ] && $root pacman -S debootstrap xorg-xhost
   [ -d /etc/apt/sources.list ] && $root apt install debootstrap xhost-xorg
+  xhost +local:
   # create chroot
 	$root debootstrap --arch armhf --components=main,universe sid $GAMING_CHROOT https://deb.debian.org/debian
   # mount all directories
