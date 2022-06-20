@@ -5,7 +5,9 @@
 -------------------------
 
 ###### Written on the go with a PinePhone Pro w/ Keyboard using bash, git, & vim.
-
+## Automated install script!!
+Inside the script folder the script can automatically install the chroot.
+CAREFUL, i havnt tested this yet cause my pinephone broke and im waiting on the new one, so use at your own risk!
 -------
 
 ## Index.
