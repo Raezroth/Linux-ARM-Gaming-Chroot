@@ -60,8 +60,8 @@ install_chroot(){
 		echo "export XDG_SESSION_TYPE=wayland" >> ~/.bash_profile
 		mkdir Downloads
 		cd Downloads
-		wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/0.2.6%2F0.1.8/box64_0.1.8_sid_generic__arm64.deb
-		wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/0.2.6%2F0.1.8/box86_0.2.6_sid_generic_armhf.deb
+		wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/Experimental-1/box64_0.1.8_sid_arm64_0606.deb
+		wget https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/Experimental-1/box86_0.2.7_sid_nightly_0606.deb
 		wget http://ftp.debian.org/debian/pool/main/libi/libindicator/libindicator7_0.5.0-4_armhf.deb
 		wget http://ftp.debian.org/debian/pool/main/liba/libappindicator/libappindicator1_0.4.92-7_armhf.deb
 		exit
