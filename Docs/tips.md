@@ -95,12 +95,14 @@ For Toucscreen Controller use in other programs [TabPad](https://github.com/nitg
 
 Recommend to launch another terminal and chroot into the container again for this. You can try to run this from the host, but TabPad relies on X11 and won't launch with wayland currently, Looking into modifying or just a new touchscreen controller.
 
--------
-
-[< Using Wine](using-wine.md) | [Uninstalling the container >](delete-chroot.md)
 
 ### Lzdoom Gamepad
 
 There is a hacked together gamepad for lzdoom using wvkbd, the link can be found here with more information: [DOOM-wvkbd](https://github.com/Laar3/DOOM-wvkbd).
 
 <img src="https://raw.githubusercontent.com/Laar3/DOOM-wvkbd/master/doom.png" width="175"/>
+
+
+-------
+
+[< Using Wine](using-wine.md) | [Uninstalling the container >](delete-chroot.md)
