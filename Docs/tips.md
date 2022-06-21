@@ -99,3 +99,8 @@ Recommend to launch another terminal and chroot into the container again for thi
 
 [< Using Wine](using-wine.md) | [Uninstalling the container >](delete-chroot.md)
 
+### Lzdoom Gamepad
+
+There is a hacked together gamepad for lzdoom using wvkbd, the link can be found here with more information: [DOOM-wvkbd](https://github.com/Laar3/DOOM-wvkbd).
+
+<img src="https://raw.githubusercontent.com/Laar3/DOOM-wvkbd/master/doom.png" width="175"/>
