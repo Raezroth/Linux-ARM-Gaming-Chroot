@@ -25,7 +25,7 @@ MGBA - ```Runs Great, , should be in repo for install with apt command``
 
 OpenMW - ```Runs Okay, , should be in repo for install with apt command```
 
-lzDoom - ```Runs Okay, Compile from source```
+lzDoom - ```Runs Okay, Compile from source``` There is a wayland "gamepad" for this, see [Tips & Tricks](Docs/tips.md) for more details
 
 ------------
 
