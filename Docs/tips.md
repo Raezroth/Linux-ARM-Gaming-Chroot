@@ -101,4 +101,6 @@ Recommend to launch another terminal and chroot into the container again for thi
 
 ### Lzdoom Gamepad
 
-There is a hacked together gamepad for lzdoom using wvkbd, the link can be found [DOOM-wvkbd](https://github.com/Laar3/DOOM-wvkbd).
+There is a hacked together gamepad for lzdoom using wvkbd, the link can be found here with more information: [DOOM-wvkbd](https://github.com/Laar3/DOOM-wvkbd).
+
+<img src="https://raw.githubusercontent.com/Laar3/DOOM-wvkbd/master/doom.png" width="175"/>
