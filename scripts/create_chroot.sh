@@ -32,6 +32,13 @@ echo "chmod 177 /dev/shm"                  >> /root/.bashrc
 echo "export MESA_GL_VERSION_OVERRIDE=3.2" >> /root/.bashrc
 echo "export PAN_MESA_DEBUG=gl3"           >> /root/.bashrc
 echo "export PULSE_SERVER=127.0.0.1"       >> /root/.bashrc
+echo "export SDL_VIDEODRIVER=wayland"      >> /root/.bashrc
+echo "export WAYLAND_DISPLAY=wayland-1"    >> /root/.bashrc
+echo "export GDK_BACKEND=wayland"          >> /root/.bashrc
+echo "export XDG_SESSION_TYPE=wayland"     >> /root/.bashrc
+echo "export XDG_RUNTIME_DIR=/run/user/1000" >> /root/.bashrc
+echo "export DISPLAY=:1"                   >> /root/.bashrc
+echo "export XSOCKET=/tmp/.X11-unix/X1"    >> /root/.bashrc
 source /root/.bashrc
 dpkg --add-architecture arm64
 apt update
