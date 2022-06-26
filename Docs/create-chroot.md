@@ -57,7 +57,7 @@ Xephyr :1 -resizable
 `systemd-nspawn` can be used to automatically mount the containers essentials while starting it.
 
 ```
-sudo systemd-nspawn --setenv=DISPLAY=:1 --bind-ro=/tmp/.11-unix/X1 --bind=/dev/dri --bind=/dev/pts --bind=/proc -D gaming
+sudo systemd-nspawn --setenv=DISPLAY=:1 --bind-ro=/tmp/.X11-unix/X1 --bind=/dev/dri --bind=/dev/pts --bind=/proc -D gaming
 ```
 
 `--setenv=DISPLAY=:1` sets the DISPLAY variable to be used by X11
