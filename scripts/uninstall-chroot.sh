@@ -2,7 +2,7 @@
 
 cd /chroot
 
-umount ./debian_gaming/*
+umount ./debian_gaming/run/user/1000 ./debian_gaming/* 
 
 rm -rf debian_gaming
 
