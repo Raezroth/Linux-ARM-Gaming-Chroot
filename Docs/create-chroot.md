@@ -6,7 +6,7 @@
 
 For Arch-based Distro(Arch Linux, Manjaro): `sudo pacman -S debootstrap debian-archive-keyring xorg-xhost xorg-server-xephyr`
 
-For Debian-based Distro(Mobian, Ubuntu Touch??): `sudo apt install deboostrap debian-archive-keyring x11-xserver-utils`
+For Debian-based Distro(Mobian, Ubuntu Touch??): `sudo apt install debootstrap debian-archive-keyring x11-xserver-utils`
 
 
 ### Navigate to a directory and Deboostrap container
