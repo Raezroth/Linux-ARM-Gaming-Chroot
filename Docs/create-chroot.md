@@ -25,7 +25,6 @@ There are a few different of going about this.
 
 Here we navigate into the secondary root directory, then mount necessary device and system folders to use the secondary root.
 
-We enable X11 connectivity so we can use graphical applications.
 
 ```
 cd gaming
@@ -38,7 +37,11 @@ sudo mount --bind /dev dev/
 
 sudo mount -t devpts devpts dev/pts
 
-xhost +local:
+sudo mount --bind /run run/
+
+sudo mount --bind /run/user/1000 run/user/1000
+
+sudo mount -t tmpfs tmpfs tmp/
 
 sudo chroot .
 ```
@@ -87,6 +90,20 @@ export LC_ALL="C"
 export LANGUAGE="C"
 
 export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/bin:/usr/local/sbin
+
+export SDL_VIDEODRIVER=wayland
+
+export WAYLAND_DISPLAY=wayland-1
+
+export GDK_BACKEND=wayland
+
+export XDG_SESSION_TYPE=wayland
+
+export XDG_RUNTIME_DIR=/run/user/1000
+
+export DISPLAY=:1
+
+export XSOCKET=/tmp/.X11-unix/X1
 
 export STEAMOS=1
 
