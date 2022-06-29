@@ -91,20 +91,6 @@ export LANGUAGE="C"
 
 export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/bin:/usr/local/sbin
 
-export SDL_VIDEODRIVER=wayland
-
-export WAYLAND_DISPLAY=wayland-1
-
-export GDK_BACKEND=wayland
-
-export XDG_SESSION_TYPE=wayland
-
-export XDG_RUNTIME_DIR=/run/user/1000
-
-export DISPLAY=:1
-
-export XSOCKET=/tmp/.X11-unix/X1
-
 export STEAMOS=1
 
 export STEAM_RUNTIME=1

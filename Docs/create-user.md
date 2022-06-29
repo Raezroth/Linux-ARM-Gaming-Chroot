@@ -65,7 +65,37 @@ chown user1 /home/user1
 
 ---
 
-If everything went well we can change to our user and install Box86 and Box64.
+Set user wayland & x11 variables for graphical use.
+
+`su user1`
+
+`cd ~/`
+
+`vim ./profile` or `nano .profile`
+
+Add these export variables
+
+```
+export SDL_VIDEODRIVER=wayland
+
+export WAYLAND_DISPLAY=wayland-1
+
+export GDK_BACKEND=wayland
+
+export XDG_SESSION_TYPE=wayland
+
+export XDG_RUNTIME_DIR=/run/user/1000
+
+export DISPLAY=:1
+
+export XSOCKET=/tmp/.X11-unix/X1
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+```
+
+---
+
+If everything went well we can install Box86 and Box64.
 
 ---
 
