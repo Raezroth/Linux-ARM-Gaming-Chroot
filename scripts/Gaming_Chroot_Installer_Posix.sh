@@ -87,8 +87,8 @@ apt-get -y install ./lib*
 wget https://repo.steampowered.com/steam/archive/stable/steam_latest.deb
 apt-get -y install ./steam_latest.deb
 EOF
-echo "  
-  cd $GAMING_CHROOT
+  
+  echo "cd $GAMING_CHROOT
   $root chmod 1777 /dev/shm
   $root mount -t proc /proc proc/
   $root mount -t sysfs /sys sys/
@@ -97,10 +97,14 @@ echo "
   $root mount --bind /run run/
   $root mount --bind /run/user/1000 run/user/1000
   $root mount -t tmpfs tmpfs tmp/
-  #TODO there may be a better way to do this but for now its needed to make internet work reliably, maybe a symlink
   $root cp /etc/resolv.conf etc/resolv.conf
-  " >> mount_chroot.sh 
+  " > mount_chroot.sh
   chmod +x ./mount_chroot.sh
+  chmod +x ./mount_chroot.sh
+  echo "\n\n\n A chroot has been created at $GAMING_CHROOT, to go into it first run the mount_chroot.sh script now found in this directory and then cd into the chroot directory, you can then run '$root chroot .' and finally 'su user\`'"
+  echo "To run steam then run the following command 'steam +open steam://open/minigameslist'"
+  echo "See https://github.com/Raezroth/Linux-ARM-Gaming-Chroot for more information"
+
 
 }
 
