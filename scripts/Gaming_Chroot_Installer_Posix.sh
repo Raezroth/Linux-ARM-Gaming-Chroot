@@ -22,6 +22,7 @@ install_chroot(){
 $root debootstrap --arch armhf --components=main,universe sid $GAMING_CHROOT https://deb.debian.org/debian
   # mount all directories
   cd $GAMING_CHROOT
+  $root chmod 1777 /dev/shm
   $root mount -t proc /proc proc/
   $root mount -t sysfs /sys sys/
   $root mount --bind /dev dev/
@@ -61,7 +62,7 @@ export XDG_SESSION_TYPE=wayland
 
 export XDG_RUNTIME_DIR=/run/user/1000
 
-export DISPLAY=:1
+export DISPLAY=:0
 
 export XSOCKET=/tmp/.X11-unix/X1
 
@@ -86,11 +87,25 @@ apt-get -y install ./lib*
 wget https://repo.steampowered.com/steam/archive/stable/steam_latest.deb
 apt-get -y install ./steam_latest.deb
 EOF
+echo "  
+  cd $GAMING_CHROOT
+  $root chmod 1777 /dev/shm
+  $root mount -t proc /proc proc/
+  $root mount -t sysfs /sys sys/
+  $root mount --bind /dev dev/
+  $root mount -t devpts devpts dev/pts
+  $root mount --bind /run run/
+  $root mount --bind /run/user/1000 run/user/1000
+  $root mount -t tmpfs tmpfs tmp/
+  #TODO there may be a better way to do this but for now its needed to make internet work reliably, maybe a symlink
+  $root cp /etc/resolv.conf etc/resolv.conf
+  " >> mount_chroot.sh 
+  chmod +x ./mount_chroot.sh
 
 }
 
 maintenance_mode() {
-  exec /bin/gaming_chroot_terminal.sh
+exec /bin/gaming_chroot_terminal.sh
 }
 
 uninstall_chroot() {
