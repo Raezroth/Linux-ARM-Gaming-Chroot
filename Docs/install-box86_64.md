@@ -5,31 +5,23 @@ There are 2 ways we can go about this.
 
 ------
 
-#### 1. Download the precompiled debian packages from the guides Release page and install with apt.
+#### 1. Download the precompiled debian packages from the repos.
 
-Make `Downloads` folder we will need this when installing Steam as well.
+You can use @Itai-Nelken's apt repository to install precompiled box86 debs, updated weekly.
+
 ```
-mkdir ~/Downloads
+sudo wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list
+wget -qO- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | sudo apt-key add -
+sudo apt update && sudo apt install box86 -y
+```
+You can use @ryanfortner's apt repository to install precompiled box64 debs, updated every 24 hours.
+
+```
+sudo wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
+wget -O- https://ryanfortner.github.io/box64-debs/KEY.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/box64-debs-archive-keyring.gpg 
+sudo apt update && sudo apt install box64 -y
 ```
 
-Navigate to Dowloads folder
-```
-cd ~/Downloads
-```
-
-Use `wget` to fetch the debian packages.
-
-For Sid RK3399:
-
-Head over to the [Releases](https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases) and grab the most recent precompiled.
-TIP: Use in chroot browser to download into chroot Downloads. You can also copy by `cp -r PATH-TO-DEBS PATH-TO-CHROOT-USER-HOME`
-
-A64 & Generic Debs coming soon!
-
-Then from inside your `Downloads` or `Home` folder use apt to install
-```
-sudo apt install ./box*.deb
-```
 
 If you are using `chroot` command or `systemd-nspawn` without the `-b` boot flag, you will have to copy the binfmt files to the host.
 
