@@ -35,15 +35,17 @@ lzDoom - ```Runs Okay, Compile from source``` There is a wayland "gamepad" for t
 
 ### STEAM:
 
-Counter Strike - ```Runs Okay```
+Counter Strike - ```Runs Well```
 
-Half-Life - ```Runs Okay```
+Day of Defeat - ```Runs Well```
+
+Half-Life - ```Runs Well```
 
 Don't Starve - ```Kinda Slow. Needs ptitSeb's GL4ES. Launch Steam with MESA_GL_VERSION_OVERRIDE=3.1 BOX86_EMULATED_LIBS=libudev.so.0 steam +open steam://open/bigpicture and set BOX86_LIBGL=/lib/gl4es/libGL.so.1 %command% in the game's launch options ```
 
 Don't Starve Together - ```Kinda Slow. Needs ptitSeb's GL4ES. Launch Steam with MESA_GL_VERSION_OVERRIDE=3.1 BOX86_EMULATED_LIBS=libudev.so.0 steam +open steam://open/bigpicture and set BOX86_LIBGL=/lib/gl4es/libGL.so.1 %command% in the game's launch options ```
 
-Team Fortress Classic - ```Runs Okay```
+Team Fortress Classic - ```Runs Well```
 
 ---
 
