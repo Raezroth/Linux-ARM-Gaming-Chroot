@@ -38,7 +38,7 @@ gzDoom - ```Runs Great, compile from source```
 
 BattleBlock Theater - ```Runs Great```
 
-Borderlands PreSequel (Linux Port) - ```Must use BOX86_LD_PRELOAD=/home/your_user/.local/share/Steam/steamapps/common/BorderlandsPreSequel/libiconv.so.2 MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 to launch - Loads Slow and has Black textures``` Skyrim Mods: [Low-End Textures - SE](https://www.nexusmods.com/skyrimspecialedition/mods/47479/)
+Borderlands PreSequel (Linux Port) - ```Must use BOX86_LD_PRELOAD=/home/your_user/.local/share/Steam/steamapps/common/BorderlandsPreSequel/libiconv.so.2 MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 to launch - Loads Slow and has Black textures```
 
 Counter Strike - ```Runs great```
 
@@ -46,7 +46,7 @@ Counter Strike Source - ```Prone to crashes due to newer updates, Runs Well when
 
 Day of Defeat - ```Runs Great```
 
-Elder Scrolls V: Skyrim Special Edition - ``` Requires Low End Textures mod and disabling Anniversary upgrade. Ingame downloader crashes the game. Launch with MESA_GLSL_VERSION_OVERRIDE=150```
+Elder Scrolls V: Skyrim Special Edition - ``` Requires Low End Textures mod and disabling Anniversary upgrade. Ingame downloader crashes the game. Launch with MESA_GLSL_VERSION_OVERRIDE=150```  Skyrim Mods: [Low-End Textures - SE](https://www.nexusmods.com/skyrimspecialedition/mods/47479/)
 
 Half-Life - ```Runs great```
 
