@@ -8,7 +8,7 @@ There are 2 ways we can go about this.
 ### 1. Download the precompiled debian packages from the repos.
 
 
-You can use @Itai-Nelken's apt repository to install precompiled box86 debs, updated weekly.
+You can use [@Itai-Nelken](https://github.com/Itai-Nelken)'s apt repository to install precompiled box86 debs, updated weekly.
 
 ```
 sudo wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list
@@ -16,7 +16,7 @@ wget -qO- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | sudo 
 sudo apt update && sudo apt install box86 -y
 ```
 
-You can use @ryanfortner's apt repository to install precompiled box64 debs, updated every 24 hours.
+You can use [@ryanfortner](https://github.com/ryanfortner)'s apt repository to install precompiled box64 debs, updated every 24 hours.
 
 ```
 sudo wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
