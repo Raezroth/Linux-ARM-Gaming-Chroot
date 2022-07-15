@@ -38,7 +38,7 @@ gzDoom - ```Runs Great, compile from source```
 
 BattleBlock Theater - ```Runs Great```
 
-Borderlands PreSequel (Linux Port) - ```Must use BOX86_LD_PRELOAD=/home/your_user/.local/share/Steam/steamapps/common/BorderlandsPreSequel/libiconv.so.2 MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 to launch - Loads Slow and has Black textures```
+Borderlands PreSequel (Linux Port) - ```Must use BOX86_LD_PRELOAD=/home/your_user/.local/share/Steam/steamapps/common/BorderlandsPreSequel/libiconv.so.2 MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 to launch - Loads Slow and has Black textures``` [Low-End Textures - SE](https://www.nexusmods.com/skyrimspecialedition/mods/47479/)
 
 Counter Strike - ```Runs great```
 
