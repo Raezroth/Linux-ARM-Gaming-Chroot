@@ -29,7 +29,7 @@ lzDoom - ```Runs Okay, Compile from source``` There is a wayland "gamepad" for t
 
 ------------
 
-## BOX86 - Use Generic Debs for now.
+## BOX86
 
 ---
 
@@ -63,7 +63,7 @@ Fallout 2 - ```Runs Okay```
 
 --------
 
-## BOX64 - Use Generic Debs for now.
+## BOX64
 
 ----
 
