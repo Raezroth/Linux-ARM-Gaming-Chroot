@@ -42,6 +42,12 @@ Borderlands PreSequel (Linux Port) - ```Must use BOX86_LD_PRELOAD=/home/your_use
 
 Counter Strike - ```Runs great```
 
+Counter Strike Source - ```Prone to crashes due to newer updates, Runs Well when plays. may take a couple of relaunches```
+
+Day of Defeat - ```Runs Great```
+
+Elder Scrolls V: Skyrim Special Edition - ``` Requires Low End Textures mod and disabling Anniversary upgrade. Ingame downloader crashes the game. Launch with MESA_GLSL_VERSION_OVERRIDE=150```
+
 Half-Life - ```Runs great```
 
 Half-Life 2 - ```Kinda Broken due to libmimalloc Source Engine update for Steam Deck```
@@ -52,6 +58,8 @@ Don't Starve - ```Runs Well```
 
 Don't Starve Together - ```Runs Well```
 
+Minit - ```Plays Great```
+
 Portal - ```Runs Well```
 
 Portal 2 - ```Kinda Broken due to libmimalloc Source Engine update for Steam Deck```
@@ -59,6 +67,8 @@ Portal 2 - ```Kinda Broken due to libmimalloc Source Engine update for Steam Dec
 Team Fortress Classic - ```Runs Great```
 
 Team Fortress 2 - ```Kinda Broken due to libmimalloc Source Engine update for Steam Deck```
+
+Terraria - ```Loads fine, runs slow. Looking into optimizations```
 
 ----
 
