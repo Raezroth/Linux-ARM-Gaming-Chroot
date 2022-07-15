@@ -71,10 +71,11 @@ export STEAM_RUNTIME=1' > /home/user1/.bashrc
 source /home/user1/.bashrc
 echo 'chmod 1777 /dev/shm' > /root/.bashrc
 source /root/.bashrc
-cd /tmp
-wget 'https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/Nightly-0626/box64_0.1.8_arm64_0626.deb'
-wget 'https://github.com/Raezroth/Linux-ARM-Gaming-Chroot/releases/download/Nightly-0626/box86_0.2.6_armhf_0626.deb'
-apt-get -y install ./box*.deb
+wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list
+wget -qO- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | apt-key add -
+wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
+wget -O- https://ryanfortner.github.io/box64-debs/KEY.gpg | gpg --dearmor | tee /usr/share/keyrings/box64-debs-archive-keyring.gpg
+apt update && apt install box86 box64 -y
 
 
 EOF
