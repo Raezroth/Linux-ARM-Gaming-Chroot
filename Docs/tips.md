@@ -104,7 +104,11 @@ There is a hacked together gamepad for lzdoom using wvkbd, the link can be found
 
 
 
-###Notes on getting WideVine to work in chromium-browser 78 inside chroot
+
+
+
+
+### Notes on getting WideVine to work in chromium-browser 78 inside chroot
 
 1. Open the chroot container's terminal.
 
