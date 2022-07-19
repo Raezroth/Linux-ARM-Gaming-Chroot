@@ -1,3 +1,13 @@
+
+
+### Updating the chroot
+There are a couple ways we cando this.
+
+1. Run `/bin/update-chroot` from terminal.
+2. Use the update option in the installer script. This just runs `/bin/update-chroot`
+3. Run `/bin/gaming-chroot-terminal` and run `apt update && apt upgrade` inside the chroot terminal
+
+
 ### To open a specific steam game, to get $STEAMAPPID go to [SteamDB](https://steamdb.info/apps/)
 ```
 steam +open steam://rungameid/$STEAMAPPID
