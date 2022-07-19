@@ -9,7 +9,20 @@
 ## Automated install script!!
 Inside the script folder the script can automatically install the chroot.
 This currently still needs testing from more people than [@Laar3](https://github.com/Laar3) and myself just to iron out edge cases and its not currently guaranteed to work (it should do though).
-The script is only tested currently on danctnix arch however it should work on mobian.
+The script is only tested currently on danctnix arch however it should work on mobian and postmarketos.
+
+To use automated script:
+
+Clone the repo `git clone https://github.com/Raezroth/Linux-ARM-Gaming-Chroot.git`
+
+Navigate to the repo `cd Linux-ARM-Gaming-Chroot`
+
+Launch script with `./scripts/Gaming_Chroot_Installer_Posix.sh`
+
+You can also manually set it up using the index below. This is best if you want to understand how it is all setup.
+
+Be sure to check out [Tips & Tricks](Docs/tips.md) either way
+
 ## Index.
 
 1. [Brief Introduction](Docs/introduction.md)
