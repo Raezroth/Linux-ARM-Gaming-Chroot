@@ -8,7 +8,7 @@
 
 ## Automated install script!!
 Inside the script folder the script can automatically install the chroot.
-This currently still needs testing from more people than myself just to iron out edge cases and its not currently guaranteed to work (it should do though).
+This currently still needs testing from more people than @Laar3 and myself just to iron out edge cases and its not currently guaranteed to work (it should do though).
 The script is only tested currently on danctnix arch however it should work on mobian.
 ## Index.
 
