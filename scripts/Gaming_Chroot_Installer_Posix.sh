@@ -76,7 +76,7 @@ wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/a
 wget -qO- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | apt-key add -
 wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
 wget -O- https://ryanfortner.github.io/box64-debs/KEY.gpg | gpg --dearmor | tee /usr/share/keyrings/box64-debs-archive-keyring.gpg
-apt update && apt install box86 box64 -y
+apt-get update && apt-get install box86 box64 -y
 
 
 EOF
@@ -185,8 +185,7 @@ EOF
   sudo chmod 1777 $CHROOTDIR/proc $CHROOTDIR/sys $CHROOTDIR/dev $CHROOTDIR/dev/pts $CHROOTDIR/dev/shm $CHROOTDIR/run $CHROOTDIR/run/user/1000 $CHROOTDIR/tmp
   sudo chroot $CHROOTDIR /bin/bash -i  <<'EOF'
   source /root/.bashrc
-  apt update
-  apt upgrade
+  apt-get update && apt-get upgrade
   exit
   EOF
   echo "Chroot Updated"
