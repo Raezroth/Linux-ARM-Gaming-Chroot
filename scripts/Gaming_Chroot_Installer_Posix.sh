@@ -1,6 +1,6 @@
 #!/bin/sh
 # Detect whether the user has doas or sudo
-if [ -e /etc/doas.conf ]; then
+if [ -e /etc/doas.conf ] || [ -d /etc/doas.d ]; then
   root=doas
 else
   root=sudo
@@ -17,6 +17,7 @@ install_chroot(){
   # TODO, pmos support (might need some changes to other parts of the script aswell.)
   [ -d /etc/pacman.d ] && $root pacman -S debootstrap debian-archive-keyring xorg-xhost xorg-server-xephyr --needed --noconfirm
   [ -d /etc/apt/sources.list ] && $root apt-get -y install deboostrap debian-archive-keyring x11-xserver-utils
+  [ -d /etc/apk ] && $root apk add debootstrap xhost
   xhost +local:
   # create chroot
 $root debootstrap --arch armhf --components=main,universe sid $GAMING_CHROOT https://deb.debian.org/debian
@@ -31,7 +32,7 @@ $root debootstrap --arch armhf --components=main,universe sid $GAMING_CHROOT htt
   $root mount -t tmpfs tmpfs tmp/
   #TODO there may be a better way to do this but for now its needed to make internet work reliably, maybe a symlink
   $root cp /etc/resolv.conf etc/resolv.conf
-  $root chroot . <<EOF
+  $root chroot . /bin/bash -i <<EOF
 apt-get -y install foot stterm
 
 dpkg --add-architecture arm64 
@@ -80,8 +81,12 @@ apt update && apt install box86 box64 -y
 
 EOF
 $root cp -r $GAMING_CHROOT/etc/binfmt.d/box* /etc/binfmt.d/
-$root systemctl restart systemd-binfmt
-$root chroot . <<EOF
+if [ -d /etc/apk ]; then
+	  $root rc-service restart binfmt
+  else
+	    $root systemctl restart systemd-binfmt
+fi
+$root chroot . /bin/bash -i <<EOF
 cd /tmp
 wget http://ftp.debian.org/debian/pool/main/libi/libindicator/libindicator7_0.5.0-4_armhf.deb
 wget http://ftp.debian.org/debian/pool/main/liba/libappindicator/libappindicator1_0.4.92-7_armhf.deb
@@ -89,7 +94,111 @@ apt-get -y install ./lib*
 wget https://repo.steampowered.com/steam/archive/stable/steam_latest.deb
 apt-get -y install ./steam_latest.deb
 EOF
+
+  $root echo "#!/bin/bash
+
+  # CHANGE ME TO DESIRED CHROOT DIRECTORY
+  CHROOTDIR=$GAMING_CHROOT
+
+  cd $CHROOTDIR
+
+  sudo mount -t proc /proc $CHROOTDIR/proc
+  sudo mount -t sysfs /sys $CHROOTDIR/sys
+  #sudo mount --bind /lib/dri $CHROOTDIR/lib/dri
+  sudo mount --bind /dev $CHROOTDIR/dev
+  sudo mount -t devpts devpts $CHROOTDIR/dev/pts
+  sudo mount --bind /run $CHROOTDIR/run
+  sudo mount --bind /run/user/1000 $CHROOTDIR/run/user/1000
+  sudo mount -t tmpfs tmpfs $CHROOTDIR/tmp
+  sudo mount --bind $CHROOTDIR/../steamapps $CHROOTDIR/home/raezroth/.local/share/Steam/steamapps
+  #sudo mount --bind $CHROOTDIR/../wine-games $CHROOTDIR/home/raezroth/wine-games
+  sudo chmod 1777 $CHROOTDIR/proc $CHROOTDIR/sys $CHROOTDIR/dev $CHROOTDIR/dev/shm $CHROOTDIR/dev/pts $CHROOTDIR/run $CHROOTDIR/run/user/1000 $CHROOTDIR/tmp
+  sudo chroot $CHROOTDIR /bin/bash -i <<EOF
+  su user1
+  cd ~/
+  MESA_GL_VERSION_OVERRIDE=3.2 MESA_GLSL_VERSION_OVERRIDE=150 steam +open steam://open/minigameslist
+  sleep 2
+  exit
+  EOF
+  echo "Waiting to umount...."
+  sleep 5
+  echo "Umounting chroot container....."
+  sudo umount $CHROOTDIR/run/user/1000 $CHROOTDIR/run $CHROOTDIR/dev/pts $CHROOTDIR/*
+  echo "Finished umounting. Good Bye!"
+  exit" > /bin/steam-box
+  $root chmod +x /bin/steam-box
+
+
+  mkdir /opt/steam
+  $root cp -r ./icons/steam.ico /opt/steam/steam.ico
+
+  $root echo "[Desktop Entry]
+  Encoding=UTF-8
+  Version=1.0
+  Type=Application
+  Terminal=false
+  Exec=/bin/steam-box
+  Name=Name of Application
+  Icon=/opt/steam/steam.ico" > /usr/share/applications/steam.desktop
+
+
+  $root echo "#!/bin/bash
+
+  # CHANGE ME TO DESIRED CHROOT DIRECTORY
+  CHROOTDIR=$GAMING_CHROOT
+
+  cd $CHROOTDIR
+
+  sudo mount -t proc /proc $CHROOTDIR/proc
+  sudo mount -t sysfs /sys $CHROOTDIR/sys
+  #sudo mount --bind /lib/dri $CHROOTDIR/lib/dri
+  sudo mount --bind /dev $CHROOTDIR/dev
+  sudo mount -t devpts devpts $CHROOTDIR/dev/pts
+  sudo mount --bind /run $CHROOTDIR/run
+  sudo mount --bind /run/user/1000 $CHROOTDIR/run/user/1000
+  sudo mount -t tmpfs tmpfs $CHROOTDIR/tmp
+  sudo cp -r /etc/resolv.conf $CHROOTDIR/etc/resolv.conf
+  sudo chmod 1777 $CHROOTDIR/proc $CHROOTDIR/sys $CHROOTDIR/dev $CHROOTDIR/dev/shm $CHROOTDIR/dev/pts $CHROOTDIR/run $CHROOTDIR/run/user/1000 $CHROOTDIR/tmp
+  sudo chroot $CHROOTDIR /bin/bash
+  echo "Waiting to umount...."
+  sleep 5
+  echo "Umounting chroot container...."
+  sudo umount $CHROOTDIR/run/user/1000 $CHROOTDIR/run $CHROOTDIR/dev/pts $CHROOTDIR/*
+  echo "Finished Umounting. Good Bye!"
+  exit" > /bin/gaming-chroot-terminal
+  $root chmod +x /bin/gaming-chroot-terminal
+
+  $root echo "#!/bin/bash
   
+  # CHANGE ME TO DESIRED CHROOT DIRECTORY
+  CHROOTDIR=$GAMING_CHROOT
+  cd $CHROOTDIR
+  
+  sudo mount -t proc /proc $CHROOTDIR/proc
+  sudo mount -t sysfs /sys $CHROOTDIR/sys
+  sudo mount --bind /dev $CHROOTDIR/dev
+  sudo mount -t devpts devpts $CHROOTDIR/dev/pts
+  sudo mount --bind /run $CHROOTDIR/run
+  sudo mount --bind /run/user/1000 $CHROOTDUR/run/user/1000
+  sudo mount -t tmpfs tmpfs $CHROOTDIR/tmp
+  sudo mount --bind $CHROOTDIR/../steamapps $CHROOTDIR/home/raezroth/.local/share/Steam/steamapps
+  sudo chmod 1777 $CHROOTDIR/proc $CHROOTDIR/sys $CHROOTDIR/dev $CHROOTDIR/dev/pts $CHROOTDIR/dev/shm $CHROOTDIR/run $CHROOTDIR/run/user/1000 $CHROOTDIR/tmp
+  sudo chroot $CHROOTDIR /bin/bash -i  <<'EOF'
+  source /root/.bashrc
+  apt update
+  apt upgrade
+  exit
+  EOF
+  echo "Chroot Updated"
+  echo "Waiting to unmount...,"
+  sleep 5
+  echo "Umounting chroot container...."
+  sudo umount $CHROOTDIR/dev/pts $CHROOTDIR/run/user/1000 $CHROOTDIR/*
+  echo"Finished umounting. Good Bye!"
+  exit" > /bin/update-chroot
+  $root chmod +x /bin/update-chroot
+
+
   echo "cd $GAMING_CHROOT
   $root mount -t proc /proc proc/
   $root mount -t sysfs /sys sys/
@@ -102,15 +211,19 @@ EOF
   " > mount_chroot.sh
   chmod +x ./mount_chroot.sh
   chmod +x ./mount_chroot.sh
-  echo "\n\n\n A chroot has been created at $GAMING_CHROOT, to go into it first run the mount_chroot.sh script now found in this directory and then cd into the chroot directory, you can then run '$root chroot .' and finally 'su user\`'"
-  echo "To run steam then run the following command 'steam +open steam://open/minigameslist'"
+  echo "\n\n\n A chroot has been created at $GAMING_CHROOT, to go into it run gaming_chroot_terminal from terminal or the mount_chroot.sh script now found in this directory and then cd into the chroot directory, you can then run '$root chroot .' and finally 'su user\`'"
+  echo "To run steam then run steam-arm from host terminal or the following command 'steam +open steam://open/minigameslist' inside the chroot as a user."
   echo "See https://github.com/Raezroth/Linux-ARM-Gaming-Chroot for more information"
 
 
 }
 
 maintenance_mode() {
-exec /bin/gaming_chroot_terminal.sh
+exec /bin/gaming-chroot-terminal
+}
+
+update_chroot() {
+exec /bin/update-chroot
 }
 
 uninstall_chroot() {
@@ -122,7 +235,7 @@ uninstall_chroot() {
 		
 		echo "Deleting Chroot and Files..."
 		$root rm -r $DELDIR
-		$root rm -r /usr/share/applications/steam.desktop /bin/start-steam.sh /bin/gaming_chroot_terminal.sh
+		$root rm -r /usr/share/applications/steam.desktop /bin/steam-box /bin/gaming-chroot-terminal
 
 		echo "Uninstall complete! Have a nice day!"
 }
@@ -132,8 +245,9 @@ main_menu() {
   echo "[0] Install Steam Gaming Chroot"
   echo "[1] Install Wine into Chroot"
   echo "[2] Maintenance Mode"
-  echo "[3] Uninstall Chroot. BACKUP ANY DATA YOU WISH TO SAVE FROM CHROOT FIRST!"
-  echo "[4] Exit"
+  echo "[3] Update Chroot"
+  echo "[4] Uninstall Chroot. BACKUP ANY DATA YOU WISH TO SAVE FROM CHROOT FIRST!"
+  echo "[5] Exit"
   read option
 }
 read_menu(){
@@ -141,8 +255,9 @@ read_menu(){
   [ $option = 0 ] && install_chroot && exit
   [ $option = 1 ] && echo "Install Wine" && exit
   [ $option = 2 ] && maintenance_mode && exit
-  [ $option = 3 ] && uninstall_chroot && exit
-  [ $option = 4 ] && exit
+  [ $option = 3 ] && update_chroot && exit
+  [ $option = 4 ] && uninstall_chroot && exit
+  [ $option = 5 ] && exit
   echo "Invalid option, please try again." && read_menu
 }
 read_menu
