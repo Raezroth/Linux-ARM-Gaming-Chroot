@@ -120,11 +120,8 @@ EOF
   sleep 2
   exit
   EOF
-  echo "Waiting to umount...."
   sleep 5
-  echo "Umounting chroot container....."
   sudo umount $CHROOTDIR/run/user/1000 $CHROOTDIR/run $CHROOTDIR/dev/pts $CHROOTDIR/*
-  echo "Finished umounting. Good Bye!"
   exit" > /bin/steam-box
   $root chmod +x /bin/steam-box
 
@@ -160,11 +157,8 @@ EOF
   sudo cp -r /etc/resolv.conf $CHROOTDIR/etc/resolv.conf
   sudo chmod 1777 $CHROOTDIR/proc $CHROOTDIR/sys $CHROOTDIR/dev $CHROOTDIR/dev/shm $CHROOTDIR/dev/pts $CHROOTDIR/run $CHROOTDIR/run/user/1000 $CHROOTDIR/tmp
   sudo chroot $CHROOTDIR /bin/bash
-  echo "Waiting to umount...."
   sleep 5
-  echo "Umounting chroot container...."
   sudo umount $CHROOTDIR/run/user/1000 $CHROOTDIR/run $CHROOTDIR/dev/pts $CHROOTDIR/*
-  echo "Finished Umounting. Good Bye!"
   exit" > /bin/gaming-chroot-terminal
   $root chmod +x /bin/gaming-chroot-terminal
 
@@ -188,12 +182,8 @@ EOF
   apt-get update && apt-get upgrade
   exit
   EOF
-  echo "Chroot Updated"
-  echo "Waiting to unmount...,"
   sleep 5
-  echo "Umounting chroot container...."
   sudo umount $CHROOTDIR/dev/pts $CHROOTDIR/run/user/1000 $CHROOTDIR/*
-  echo"Finished umounting. Good Bye!"
   exit" > /bin/update-chroot
   $root chmod +x /bin/update-chroot
 
