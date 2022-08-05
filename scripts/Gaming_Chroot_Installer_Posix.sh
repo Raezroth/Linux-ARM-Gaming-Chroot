@@ -100,20 +100,20 @@ EOF
   # CHANGE ME TO DESIRED CHROOT DIRECTORY
   CHROOTDIR=$GAMING_CHROOT
 
-  cd $CHROOTDIR
+  cd \$CHROOTDIR
 
-  sudo mount -t proc /proc $CHROOTDIR/proc
-  sudo mount -t sysfs /sys $CHROOTDIR/sys
-  #sudo mount --bind /lib/dri $CHROOTDIR/lib/dri
-  sudo mount --bind /dev $CHROOTDIR/dev
-  sudo mount -t devpts devpts $CHROOTDIR/dev/pts
-  sudo mount --bind /run $CHROOTDIR/run
-  sudo mount --bind /run/user/1000 $CHROOTDIR/run/user/1000
-  sudo mount -t tmpfs tmpfs $CHROOTDIR/tmp
-  sudo mount --bind $CHROOTDIR/../steamapps $CHROOTDIR/home/raezroth/.local/share/Steam/steamapps
-  #sudo mount --bind $CHROOTDIR/../wine-games $CHROOTDIR/home/raezroth/wine-games
-  sudo chmod 1777 $CHROOTDIR/proc $CHROOTDIR/sys $CHROOTDIR/dev $CHROOTDIR/dev/shm $CHROOTDIR/dev/pts $CHROOTDIR/run $CHROOTDIR/run/user/1000 $CHROOTDIR/tmp
-  sudo chroot $CHROOTDIR /bin/bash -i <<EOF
+  sudo mount -t proc /proc \$CHROOTDIR/proc
+  sudo mount -t sysfs /sys \$CHROOTDIR/sys
+  #sudo mount --bind /lib/dri \$CHROOTDIR/lib/dri
+  sudo mount --bind /dev \$CHROOTDIR/dev
+  sudo mount -t devpts devpts \$CHROOTDIR/dev/pts
+  sudo mount --bind /run \$CHROOTDIR/run
+  sudo mount --bind /run/user/1000 \$CHROOTDIR/run/user/1000
+  sudo mount -t tmpfs tmpfs \$CHROOTDIR/tmp
+  #sudo mount --bind \$CHROOTDIR/../steamapps \$CHROOTDIR/home/user1/.local/share/Steam/steamapps
+  #sudo mount --bind \$CHROOTDIR/../wine-games \$CHROOTDIR/home/user1/wine-games
+  sudo chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/shm \$CHROOTDIR/dev/pts \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
+  sudo chroot \$CHROOTDIR /bin/bash -i <<EOF
   su user1
   cd ~/
   MESA_GL_VERSION_OVERRIDE=3.2 MESA_GLSL_VERSION_OVERRIDE=150 steam +open steam://open/minigameslist
@@ -121,7 +121,7 @@ EOF
   exit
   EOF
   sleep 5
-  sudo umount $CHROOTDIR/run/user/1000 $CHROOTDIR/run $CHROOTDIR/dev/pts $CHROOTDIR/*
+  sudo umount \$CHROOTDIR/run/user/1000 \$CHROOTDIR/run \$CHROOTDIR/dev/pts \$CHROOTDIR/*
   exit" > /bin/steam-box
   $root chmod +x /bin/steam-box
 
@@ -144,21 +144,21 @@ EOF
   # CHANGE ME TO DESIRED CHROOT DIRECTORY
   CHROOTDIR=$GAMING_CHROOT
 
-  cd $CHROOTDIR
+  cd \$CHROOTDIR
 
-  sudo mount -t proc /proc $CHROOTDIR/proc
-  sudo mount -t sysfs /sys $CHROOTDIR/sys
-  #sudo mount --bind /lib/dri $CHROOTDIR/lib/dri
-  sudo mount --bind /dev $CHROOTDIR/dev
-  sudo mount -t devpts devpts $CHROOTDIR/dev/pts
-  sudo mount --bind /run $CHROOTDIR/run
-  sudo mount --bind /run/user/1000 $CHROOTDIR/run/user/1000
-  sudo mount -t tmpfs tmpfs $CHROOTDIR/tmp
-  sudo cp -r /etc/resolv.conf $CHROOTDIR/etc/resolv.conf
-  sudo chmod 1777 $CHROOTDIR/proc $CHROOTDIR/sys $CHROOTDIR/dev $CHROOTDIR/dev/shm $CHROOTDIR/dev/pts $CHROOTDIR/run $CHROOTDIR/run/user/1000 $CHROOTDIR/tmp
-  sudo chroot $CHROOTDIR /bin/bash
+  sudo mount -t proc /proc \$CHROOTDIR/proc
+  sudo mount -t sysfs /sys \$CHROOTDIR/sys
+  #sudo mount --bind /lib/dri \$CHROOTDIR/lib/dri
+  sudo mount --bind /dev \$CHROOTDIR/dev
+  sudo mount -t devpts devpts \$CHROOTDIR/dev/pts
+  sudo mount --bind /run \$CHROOTDIR/run
+  sudo mount --bind /run/user/1000 \$CHROOTDIR/run/user/1000
+  sudo mount -t tmpfs tmpfs \$CHROOTDIR/tmp
+  sudo cp -r /etc/resolv.conf \$CHROOTDIR/etc/resolv.conf
+  sudo chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/shm \$CHROOTDIR/dev/pts \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
+  sudo chroot \$CHROOTDIR /bin/bash
   sleep 5
-  sudo umount $CHROOTDIR/run/user/1000 $CHROOTDIR/run $CHROOTDIR/dev/pts $CHROOTDIR/*
+  sudo umount \$CHROOTDIR/run/user/1000 \$CHROOTDIR/run \$CHROOTDIR/dev/pts \$CHROOTDIR/*
   exit" > /bin/gaming-chroot-terminal
   $root chmod +x /bin/gaming-chroot-terminal
 
@@ -166,24 +166,23 @@ EOF
   
   # CHANGE ME TO DESIRED CHROOT DIRECTORY
   CHROOTDIR=$GAMING_CHROOT
-  cd $CHROOTDIR
+  cd \$CHROOTDIR
   
-  sudo mount -t proc /proc $CHROOTDIR/proc
-  sudo mount -t sysfs /sys $CHROOTDIR/sys
-  sudo mount --bind /dev $CHROOTDIR/dev
-  sudo mount -t devpts devpts $CHROOTDIR/dev/pts
-  sudo mount --bind /run $CHROOTDIR/run
-  sudo mount --bind /run/user/1000 $CHROOTDUR/run/user/1000
-  sudo mount -t tmpfs tmpfs $CHROOTDIR/tmp
-  sudo mount --bind $CHROOTDIR/../steamapps $CHROOTDIR/home/raezroth/.local/share/Steam/steamapps
-  sudo chmod 1777 $CHROOTDIR/proc $CHROOTDIR/sys $CHROOTDIR/dev $CHROOTDIR/dev/pts $CHROOTDIR/dev/shm $CHROOTDIR/run $CHROOTDIR/run/user/1000 $CHROOTDIR/tmp
-  sudo chroot $CHROOTDIR /bin/bash -i  <<'EOF'
+  sudo mount -t proc /proc \$CHROOTDIR/proc
+  sudo mount -t sysfs /sys \$CHROOTDIR/sys
+  sudo mount --bind /dev \$CHROOTDIR/dev
+  sudo mount -t devpts devpts \$CHROOTDIR/dev/pts
+  sudo mount --bind /run \$CHROOTDIR/run
+  sudo mount --bind /run/user/1000 \$CHROOTDUR/run/user/1000
+  sudo mount -t tmpfs tmpfs \$CHROOTDIR/tmp
+  sudo chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/pts \$CHROOTDIR/dev/shm \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
+  sudo chroot \$CHROOTDIR /bin/bash -i  <<'EOF'
   source /root/.bashrc
   apt-get update && apt-get upgrade
   exit
   EOF
   sleep 5
-  sudo umount $CHROOTDIR/dev/pts $CHROOTDIR/run/user/1000 $CHROOTDIR/*
+  sudo umount \$CHROOTDIR/dev/pts \$CHROOTDIR/run/user/1000 \$CHROOTDIR/*
   exit" > /bin/update-chroot
   $root chmod +x /bin/update-chroot
 
