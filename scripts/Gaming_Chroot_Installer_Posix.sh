@@ -189,9 +189,8 @@ EOF
   $root cp /etc/resolv.conf etc/resolv.conf
   " > mount_chroot.sh
   chmod +x ./mount_chroot.sh
-  chmod +x ./mount_chroot.sh
-  echo "\n\n\n A chroot has been created at $GAMING_CHROOT, to go into it run gaming_chroot_terminal from terminal or the mount_chroot.sh script now found in this directory and then cd into the chroot directory, you can then run '$root chroot .' and finally 'su user\`'"
-  echo "To run steam then run steam-arm from host terminal or the following command 'steam +open steam://open/minigameslist' inside the chroot as a user."
+  echo "\n\n\n A chroot has been created at $GAMING_CHROOT, to go into it run gaming-chroot-terminal from terminal or the mount_chroot.sh script now found in this directory and then cd into the chroot directory, you can then run '$root chroot .' and finally 'su user\`'"
+  echo "To run steam then run steam-box from host terminal or the following command 'steam +open steam://open/minigameslist' inside the chroot as a user."
   echo "See https://github.com/Raezroth/Linux-ARM-Gaming-Chroot for more information"
 
 
