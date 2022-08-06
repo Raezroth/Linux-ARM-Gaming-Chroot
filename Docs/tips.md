@@ -127,8 +127,7 @@ There is a hacked together gamepad for lzdoom using wvkbd, the link can be found
         ```
         cd ~/Downloads/
         wget https://github.com/HenningThiemann/docker-chromium-armhf/raw/master/dependencies/chromium-browser_78.0.3904.97-0ubuntu0.16.04.1_armhf.deb
-        wget https://github.com/HenningThiemann/docker-chromium-armhf/raw/master/dependencies/chromium-codecs-ffmpeg-extra_78.0.3904.97-0ubuntu0.16.04.1_armhf.
-deb
+        wget https://github.com/HenningThiemann/docker-chromium-armhf/raw/master/dependencies/chromium-codecs-ffmpeg-extra_78.0.3904.97-0ubuntu0.16.04.1_armhf.deb
         wget https://github.com/HenningThiemann/docker-chromium-armhf/raw/master/widevine/libwidevinecdm.so
         wget https://github.com/HenningThiemann/docker-chromium-armhf/raw/master/widevine/PepperFlash/libpepflashplayer.so
          ```
