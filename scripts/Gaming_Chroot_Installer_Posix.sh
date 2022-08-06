@@ -118,7 +118,7 @@ EOF
 
 
   mkdir /opt/steam
-  $root cp -r ./icons/steam.ico /opt/steam/steam.ico
+  $root cp -r ../icons/steam.ico /opt/steam/steam.ico
 
   $root echo "[Desktop Entry]
   Encoding=UTF-8
