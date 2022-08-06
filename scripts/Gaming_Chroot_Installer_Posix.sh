@@ -214,7 +214,7 @@ uninstall_chroot() {
 		
 		echo "Deleting Chroot and Files..."
 		$root rm -r $DELDIR
-		$root rm -r /usr/share/applications/steam.desktop /bin/steam-box /bin/gaming-chroot-terminal
+		$root rm -r /usr/share/applications/steam.desktop /bin/steam-box /bin/gaming-chroot-terminal /opt/steam
 
 		echo "Uninstall complete! Have a nice day!"
 }
