@@ -93,18 +93,18 @@ EOF
 
   cd \$CHROOTDIR
 
-  sudo mount -t proc /proc \$CHROOTDIR/proc
-  sudo mount -t sysfs /sys \$CHROOTDIR/sys
-  #sudo mount --bind /lib/dri \$CHROOTDIR/lib/dri
-  sudo mount --bind /dev \$CHROOTDIR/dev
-  sudo mount -t devpts devpts \$CHROOTDIR/dev/pts
-  sudo mount --bind /run \$CHROOTDIR/run
-  sudo mount --bind /run/user/1000 \$CHROOTDIR/run/user/1000
-  sudo mount -t tmpfs tmpfs \$CHROOTDIR/tmp
-  #sudo mount --bind \$CHROOTDIR/../steamapps \$CHROOTDIR/home/user1/.local/share/Steam/steamapps
-  #sudo mount --bind \$CHROOTDIR/../wine-games \$CHROOTDIR/home/user1/wine-games
-  sudo chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/shm \$CHROOTDIR/dev/pts \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
-  sudo chroot \$CHROOTDIR /bin/bash -i <<EOF
+  $root mount -t proc /proc \$CHROOTDIR/proc
+  $root mount -t sysfs /sys \$CHROOTDIR/sys
+  #$root mount --bind /lib/dri \$CHROOTDIR/lib/dri
+  $root mount --bind /dev \$CHROOTDIR/dev
+  $root mount -t devpts devpts \$CHROOTDIR/dev/pts
+  $root mount --bind /run \$CHROOTDIR/run
+  $root mount --bind /run/user/1000 \$CHROOTDIR/run/user/1000
+  $root mount -t tmpfs tmpfs \$CHROOTDIR/tmp
+  #$root mount --bind \$CHROOTDIR/../steamapps \$CHROOTDIR/home/user1/.local/share/Steam/steamapps
+  #$root mount --bind \$CHROOTDIR/../wine-games \$CHROOTDIR/home/user1/wine-games
+  $root chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/shm \$CHROOTDIR/dev/pts \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
+  $root chroot \$CHROOTDIR /bin/bash -i <<EOF
   su user1
   cd ~/
   MESA_GL_VERSION_OVERRIDE=3.2 MESA_GLSL_VERSION_OVERRIDE=150 steam +open steam://open/minigameslist
@@ -112,7 +112,7 @@ EOF
   exit
   EOF
   sleep 5
-  sudo umount \$CHROOTDIR/run/user/1000 \$CHROOTDIR/run \$CHROOTDIR/dev/pts \$CHROOTDIR/*
+  $root umount \$CHROOTDIR/run/user/1000 \$CHROOTDIR/run \$CHROOTDIR/dev/pts \$CHROOTDIR/*
   exit" > /bin/steam-box
   $root chmod +x /bin/steam-box
 
@@ -137,19 +137,19 @@ EOF
 
   cd \$CHROOTDIR
 
-  sudo mount -t proc /proc \$CHROOTDIR/proc
-  sudo mount -t sysfs /sys \$CHROOTDIR/sys
-  #sudo mount --bind /lib/dri \$CHROOTDIR/lib/dri
-  sudo mount --bind /dev \$CHROOTDIR/dev
-  sudo mount -t devpts devpts \$CHROOTDIR/dev/pts
-  sudo mount --bind /run \$CHROOTDIR/run
-  sudo mount --bind /run/user/1000 \$CHROOTDIR/run/user/1000
-  sudo mount -t tmpfs tmpfs \$CHROOTDIR/tmp
-  sudo cp -r /etc/resolv.conf \$CHROOTDIR/etc/resolv.conf
-  sudo chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/shm \$CHROOTDIR/dev/pts \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
-  sudo chroot \$CHROOTDIR /bin/bash
+  $root mount -t proc /proc \$CHROOTDIR/proc
+  $root mount -t sysfs /sys \$CHROOTDIR/sys
+  #$root mount --bind /lib/dri \$CHROOTDIR/lib/dri
+  $root mount --bind /dev \$CHROOTDIR/dev
+  $root mount -t devpts devpts \$CHROOTDIR/dev/pts
+  $root mount --bind /run \$CHROOTDIR/run
+  $root mount --bind /run/user/1000 \$CHROOTDIR/run/user/1000
+  $root mount -t tmpfs tmpfs \$CHROOTDIR/tmp
+  $root cp -r /etc/resolv.conf \$CHROOTDIR/etc/resolv.conf
+  $root chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/shm \$CHROOTDIR/dev/pts \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
+  $root chroot \$CHROOTDIR /bin/bash
   sleep 5
-  sudo umount \$CHROOTDIR/run/user/1000 \$CHROOTDIR/run \$CHROOTDIR/dev/pts \$CHROOTDIR/*
+  $root umount \$CHROOTDIR/run/user/1000 \$CHROOTDIR/run \$CHROOTDIR/dev/pts \$CHROOTDIR/*
   exit" > /bin/gaming-chroot-terminal
   $root chmod +x /bin/gaming-chroot-terminal
 
@@ -159,21 +159,21 @@ EOF
   CHROOTDIR=$GAMING_CHROOT
   cd \$CHROOTDIR
   
-  sudo mount -t proc /proc \$CHROOTDIR/proc
-  sudo mount -t sysfs /sys \$CHROOTDIR/sys
-  sudo mount --bind /dev \$CHROOTDIR/dev
-  sudo mount -t devpts devpts \$CHROOTDIR/dev/pts
-  sudo mount --bind /run \$CHROOTDIR/run
-  sudo mount --bind /run/user/1000 \$CHROOTDUR/run/user/1000
-  sudo mount -t tmpfs tmpfs \$CHROOTDIR/tmp
-  sudo chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/pts \$CHROOTDIR/dev/shm \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
-  sudo chroot \$CHROOTDIR /bin/bash -i  <<'EOF'
+  $root mount -t proc /proc \$CHROOTDIR/proc
+  $root mount -t sysfs /sys \$CHROOTDIR/sys
+  $root mount --bind /dev \$CHROOTDIR/dev
+  $root mount -t devpts devpts \$CHROOTDIR/dev/pts
+  $root mount --bind /run \$CHROOTDIR/run
+  $root mount --bind /run/user/1000 \$CHROOTDUR/run/user/1000
+  $root mount -t tmpfs tmpfs \$CHROOTDIR/tmp
+  $root chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/pts \$CHROOTDIR/dev/shm \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
+  $root chroot \$CHROOTDIR /bin/bash -i  <<'EOF'
   source /root/.bashrc
   apt-get update && apt-get upgrade
   exit
   EOF
   sleep 5
-  sudo umount \$CHROOTDIR/dev/pts \$CHROOTDIR/run/user/1000 \$CHROOTDIR/*
+  $root umount \$CHROOTDIR/dev/pts \$CHROOTDIR/run/user/1000 \$CHROOTDIR/*
   exit" > /bin/update-chroot
   $root chmod +x /bin/update-chroot
 
