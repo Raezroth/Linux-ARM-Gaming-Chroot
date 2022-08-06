@@ -46,7 +46,10 @@ export LANGUAGE="C"
 
 export PATH=\$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/bin:/usr/local/sbin
 
-export SDL_VIDEODRIVER=wayland
+export STEAMOS=1
+
+export STEAM_RUNTIME=1' > /root/.bashrc
+echo 'export SDL_VIDEODRIVER=wayland
 
 export WAYLAND_DISPLAY=wayland-1
 
@@ -58,13 +61,7 @@ export XDG_RUNTIME_DIR=/run/user/1000
 
 export DISPLAY=:0
 
-export XSOCKET=/tmp/.X11-unix/X1
-
-export STEAMOS=1
-
-export STEAM_RUNTIME=1' > /home/user1/.bashrc
-source /home/user1/.bashrc
-echo 'chmod 1777 /dev/shm' > /root/.bashrc
+export XSOCKET=/tmp/.X11-unix/X1' > /home/user1/.profile
 source /root/.bashrc
 wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list
 wget -qO- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | apt-key add -
