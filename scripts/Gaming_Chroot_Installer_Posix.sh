@@ -66,7 +66,7 @@ source /root/.bashrc
 wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list
 wget -qO- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | apt-key add -
 wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
-wget -qO- https://ryanfortner.github.io/box64-debs/KEY.gpg | apt-ket add -
+wget -qO- https://ryanfortner.github.io/box64-debs/KEY.gpg | apt-key add -
 apt-get update && apt-get install box86 box64 -y
 
 
