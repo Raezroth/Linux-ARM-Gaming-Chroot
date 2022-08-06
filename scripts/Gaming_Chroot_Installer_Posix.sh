@@ -39,13 +39,7 @@ dpkg --add-architecture arm64
 apt-get -y update
 apt-get -y upgrade
 apt-get -y install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium alsamixergui libsdl2-dev unzip libgles-dev firefox-esr:arm64 libx11-dev:arm64 libvulkan-dev:arm64 libsdl2-dev:arm64 libgl-dev:arm64 libc6-dev:arm64 libgles-dev:arm64 xterm
-useradd -m user1
-usermod -aG users sudo user1
-echo "user1:gaming" | chpasswd
-echo "root:gaming" | chpasswd
-chsh user1 -s /bin/bash
-mkdir /home/user1
-chown user1 /home/user1
+adduser --home /home/user1 user1
 echo 'export LC_ALL="C"
 
 export LANGUAGE="C"
