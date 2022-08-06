@@ -113,7 +113,8 @@ EOF
   EOF
   sleep 5
   $root umount \$CHROOTDIR/run/user/1000 \$CHROOTDIR/run \$CHROOTDIR/dev/pts \$CHROOTDIR/*
-  exit" > /bin/steam-box
+  exit" > ./scripts/steam-box
+  $root cp -r ./scripts/steam-box /bin/
   $root chmod +x /bin/steam-box
 
 
@@ -150,7 +151,8 @@ EOF
   $root chroot \$CHROOTDIR /bin/bash
   sleep 5
   $root umount \$CHROOTDIR/run/user/1000 \$CHROOTDIR/run \$CHROOTDIR/dev/pts \$CHROOTDIR/*
-  exit" > /bin/gaming-chroot-terminal
+  exit" > ./scripts/gaming-chroot-terminal
+  $root cp -r ./scripts/gaming-chroot-terminal /bin/
   $root chmod +x /bin/gaming-chroot-terminal
 
   $root echo "#!/bin/bash
@@ -174,7 +176,8 @@ EOF
   EOF
   sleep 5
   $root umount \$CHROOTDIR/dev/pts \$CHROOTDIR/run/user/1000 \$CHROOTDIR/*
-  exit" > /bin/update-chroot
+  exit" > ./scripts/update-chroot
+  $root cp -r ./scripts/update-chroot /bin/
   $root chmod +x /bin/update-chroot
 
 
