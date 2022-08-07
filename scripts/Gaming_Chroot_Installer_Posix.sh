@@ -130,7 +130,7 @@ echo 'export PATH=$PATH:/home/$USER/bin' >> ~/.profile
   Version=1.0
   Type=Application
   Terminal=false
-  Exec=/bin/steam-box
+  Exec=/home/$USER/bin/steam-box
   Name=Name of Application
   Icon=/opt/steam/steam.ico" > /usr/share/applications/steam.desktop
 
