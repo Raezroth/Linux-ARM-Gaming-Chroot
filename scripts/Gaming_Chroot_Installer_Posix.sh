@@ -92,7 +92,7 @@ wget https://repo.steampowered.com/steam/archive/stable/steam_latest.deb
 apt-get -y install ./steam_latest.deb
 EOF
 
-mkdir /home$USER/bin
+mkdir /home/$USER/bin
 BINDIR=/home/$USER/bin
 echo 'export PATH=$PATH:/home/$USER/bin' >> ~/.profile
 
