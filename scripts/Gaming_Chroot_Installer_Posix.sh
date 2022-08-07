@@ -218,6 +218,7 @@ exec $BINDIR/update-chroot
 }
 
 uninstall_chroot() {
+		BINDIR=/home/$USER/bin
 		echo "Give the absolute path to the chroot: "
 		read DELDIR
 
