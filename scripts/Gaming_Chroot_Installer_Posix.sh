@@ -86,6 +86,10 @@ wget https://repo.steampowered.com/steam/archive/stable/steam_latest.deb
 apt-get -y install ./steam_latest.deb
 EOF
 
+mkdir /home$USER/bin
+BINDIR=/home/$USER/bin
+echo 'export PATH=$PATH:/home/$USER/bin' >> ~/.profile
+
   $root echo "#!/bin/bash
 
   # CHANGE ME TO DESIRED CHROOT DIRECTORY
@@ -113,9 +117,9 @@ EOF
   EOF
   sleep 5
   $root umount \$CHROOTDIR/run/user/1000 \$CHROOTDIR/run \$CHROOTDIR/dev/pts \$CHROOTDIR/*
-  exit" > ./scripts/steam-box
-  $root cp -r ./scripts/steam-box /bin/
-  $root chmod +x /bin/steam-box
+  exit" > $BINDIR/steam-box
+  #$root cp -r $BINDIR/steam-box /usr/local/bin/
+  $root chmod +x $BINDIR/steam-box
 
 
   mkdir /opt/steam
@@ -151,9 +155,9 @@ EOF
   $root chroot \$CHROOTDIR /bin/bash
   sleep 5
   $root umount \$CHROOTDIR/run/user/1000 \$CHROOTDIR/run \$CHROOTDIR/dev/pts \$CHROOTDIR/*
-  exit" > ./scripts/gaming-chroot-terminal
-  $root cp -r ./scripts/gaming-chroot-terminal /bin/
-  $root chmod +x /bin/gaming-chroot-terminal
+  exit" > $BINDIR/gaming-chroot-terminal
+  #$root cp -r ./scripts/gaming-chroot-terminal /usr/local/bin/
+  $root chmod +x $BINDIR/gaming-chroot-terminal
 
   $root echo "#!/bin/bash
   
@@ -176,9 +180,9 @@ EOF
   EOF
   sleep 5
   $root umount \$CHROOTDIR/dev/pts \$CHROOTDIR/run/user/1000 \$CHROOTDIR/*
-  exit" > ./scripts/update-chroot
-  $root cp -r ./scripts/update-chroot /bin/
-  $root chmod +x /bin/update-chroot
+  exit" > $BINDIR/update-chroot
+  #$root cp -r $BINDIR/update-chroot /usr/local/bin/
+  $root chmod +x $BINDIR/update-chroot
 
 
   echo "cd $GAMING_CHROOT
@@ -200,11 +204,11 @@ EOF
 }
 
 maintenance_mode() {
-exec /bin/gaming-chroot-terminal
+exec $BINDIR/gaming-chroot-terminal
 }
 
 update_chroot() {
-exec /bin/update-chroot
+exec $BINDIR/update-chroot
 }
 
 uninstall_chroot() {
@@ -216,7 +220,7 @@ uninstall_chroot() {
 		
 		echo "Deleting Chroot and Files..."
 		$root rm -r $DELDIR
-		$root rm -r /usr/share/applications/steam.desktop /bin/steam-box /bin/gaming-chroot-terminal /opt/steam
+		$root rm -r /usr/share/applications/steam.desktop $BINDIR/steam-box $BINDIR/gaming-chroot-terminal /opt/steam
 
 		echo "Uninstall complete! Have a nice day!"
 }
