@@ -68,11 +68,11 @@ source /root/.bashrc
 
 wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list
 
-wget -O- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | apt-key add -
+wget -O- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg |  gpg --dearmor | sudo tee /usr/share/keyrings/box86-debs-archive-keyring.gpg 
 
 wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
 
-wget -O- https://ryanfortner.github.io/box64-debs/KEY.gpg | apt-key add -
+wget -O- https://ryanfortner.github.io/box64-debs/KEY.gpg |  gpg --dearmor | sudo tee /usr/share/keyrings/box64-debs-archive-keyring.gpg 
 
 apt-get update && apt-get -y install box86 box64
 EOF
