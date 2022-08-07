@@ -19,6 +19,9 @@ Navigate to the repo `cd Linux-ARM-Gaming-Chroot`
 
 Launch script with `./scripts/Gaming_Chroot_Installer_Posix.sh`
 
+Make sure you enter the chroot's terminal after creation and set the root and your user passwords.
+Run `gaming-chroot-terminal`, then from the chroot's root run `passwd root` for root, then `passwd user1` for your user. 
+
 You can also manually set it up using the index below. This is best if you want to understand how it is all setup.
 
 Be sure to check out [Tips & Tricks](Docs/tips.md) either way
