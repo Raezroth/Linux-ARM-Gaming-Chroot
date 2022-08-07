@@ -62,15 +62,20 @@ export XDG_RUNTIME_DIR=/run/user/1000
 export DISPLAY=:0
 
 export XSOCKET=/tmp/.X11-unix/X1' > /home/user1/.profile
+
 source /root/.bashrc
+
 wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list
-wget -qO- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | apt-key add -
+
+wget -O- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | apt-key add -
+
 wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
-wget -qO- https://ryanfortner.github.io/box64-debs/KEY.gpg | apt-key add -
-apt-get update && apt-get install box86 box64 -y
 
+wget -O- https://ryanfortner.github.io/box64-debs/KEY.gpg | apt-key add -
 
+apt-get update && apt-get -y install box86 box64
 EOF
+
 $root cp -r $GAMING_CHROOT/etc/binfmt.d/box* /etc/binfmt.d/
 if [ -d /etc/apk ]; then
 	  $root rc-service restart binfmt
