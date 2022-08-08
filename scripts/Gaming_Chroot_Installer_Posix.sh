@@ -66,6 +66,7 @@ export XDG_SESSION_TYPE=wayland
 export XDG_RUNTIME_DIR=/run/user/1000
 export DISPLAY=:1
 export XSOCKET=/tmp/.X11-unix/X1' >> /home/$USER1/.profile
+EOF
 
 $root chroot $GAMING_CHROOT <<EOF
 sleep 10
