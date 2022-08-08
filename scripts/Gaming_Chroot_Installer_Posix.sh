@@ -57,18 +57,20 @@ EOF
 
 $root chroot $GAMING_CHROOT <<EOF
 usermod -aG sudo $USER1
-exit
-EOF
- 
-$root cp -r ./configs $GAMING_CHROOT/configs
 
-$root chroot $GAMING_CHROOT << EOF
+echo 'export LC_ALL="C"
+export LANGUAGE="C"
+export PATH=\$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/bin:/usr/local/sbin
+export STEAMOS=1
+export STEAM_RUNTIME=1' | tee -a /root/.bashrc
 
-rm -rf /root/.bashrc
-rm -rf /home/$USER/.profile
-
-cp -r /configs/.bashrc /root/
-cp -r /configs/.profile /home/$USER/.profile
+echo 'export SDL_VIDEODRIVER=wayland
+export WAYLAND_DISPLAY=wayland-1
+export GDK_BACKEND=wayland
+export XDG_SESSION_TYPE=wayland
+export XDG_RUNTIME_DIR=/run/user/1000
+export DISPLAY=:1
+export XSOCKET=/tmp/.X11-unix/X1' > /home/$USER/.profilee
 
 wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list
 
