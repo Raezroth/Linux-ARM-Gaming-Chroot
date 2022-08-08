@@ -12,10 +12,17 @@ install_chroot(){
   read GAMING_CHROOT
   echo "$GAMING_CHROOT is where it will be installed."
   $root mkdir -p $GAMING_CHROOT
-  
+ 
+  echo "\nPlease give a  username. Must be all lowercase."
+  read USER1
+
+  sleep 15
+
+  echo "\nSetting up chroot.... Please be patient."
+
   # detect distro and install necessary packages
   # TODO, pmos support (might need some changes to other parts of the script aswell.)
-  [ -d /etc/pacman.d ] && $root pacman -S debootstrap debian-archive-keyring xorg-xhost xorg-server-xephyr --needed --noconfirm
+  [ -d /etc/pacman.d ] && $root pacman -S debootstrap debian-archive-keyring xorg-xhost --needed --noconfirm
   [ -d /etc/apt/sources.list ] && $root apt-get -y install deboostrap debian-archive-keyring x11-xserver-utils
   [ -d /etc/apk ] && $root apk add debootstrap xhost
   xhost +local:
@@ -39,9 +46,21 @@ dpkg --add-architecture arm64
 apt-get -y update
 apt-get -y upgrade
 apt-get -y install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium alsamixergui libsdl2-dev unzip libgles-dev firefox-esr:arm64 libx11-dev:arm64 libvulkan-dev:arm64 libsdl2-dev:arm64 libgl-dev:arm64 libc6-dev:arm64 libgles-dev:arm64 xterm
-adduser --home /home/user1 user1
-usermod -aG sudo user1
-echo 'export LC_ALL="C"
+exit
+EOF
+
+$root chroot <<EOF
+sleep 60
+adduser --home /home/$USER1 $USER1
+exit
+EOF
+
+$root chroot <<EOF
+usermod -aG sudo $USER1
+exit
+EOF
+
+$root echo 'export LC_ALL="C"
 
 export LANGUAGE="C"
 
@@ -49,7 +68,8 @@ export PATH=\$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/bin:/usr/
 
 export STEAMOS=1
 
-export STEAM_RUNTIME=1' > /root/.bashrc
+export STEAM_RUNTIME=1' >> $GAMING_CHROOT/root/.bashrc
+
 echo 'export SDL_VIDEODRIVER=wayland
 
 export WAYLAND_DISPLAY=wayland-1
@@ -62,9 +82,9 @@ export XDG_RUNTIME_DIR=/run/user/1000
 
 export DISPLAY=:0
 
-export XSOCKET=/tmp/.X11-unix/X1' > /home/user1/.profile
+export XSOCKET=/tmp/.X11-unix/X1' >> $GAMING_CHROOT/home/$USER1/.profile
 
-source /root/.bashrc
+$root chroot $GAMING_CHROOT << EOF
 
 wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list
 
@@ -75,6 +95,7 @@ wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.lis
 wget -O- https://ryanfortner.github.io/box64-debs/KEY.gpg |  gpg --dearmor | sudo tee /usr/share/keyrings/box64-debs-archive-keyring.gpg 
 
 apt-get update && apt-get -y install box86 box64
+exit
 EOF
 
 $root cp -r $GAMING_CHROOT/etc/binfmt.d/box* /etc/binfmt.d/
@@ -94,7 +115,7 @@ EOF
 
 mkdir /home/$USER/bin
 BINDIR=/home/$USER/bin
-echo 'export PATH=$PATH:/home/$USER/bin' >> ~/.profile
+echo 'export PATH=$PATH:/home/$USER/bin' >> /home/$USER/.profile
 
   $root echo "#!/bin/bash
 
@@ -115,7 +136,7 @@ echo 'export PATH=$PATH:/home/$USER/bin' >> ~/.profile
   #$root mount --bind \$CHROOTDIR/../wine-games \$CHROOTDIR/home/user1/wine-games
   $root chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/shm \$CHROOTDIR/dev/pts \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
   $root chroot \$CHROOTDIR /bin/bash -i <<EOF
-  su user1
+  su $USER1
   cd ~/
   MESA_GL_VERSION_OVERRIDE=3.2 MESA_GLSL_VERSION_OVERRIDE=150 steam +open steam://open/minigameslist
   sleep 2
@@ -128,17 +149,19 @@ echo 'export PATH=$PATH:/home/$USER/bin' >> ~/.profile
   $root chmod +x $BINDIR/steam-box
 
 
-  mkdir /opt/steam
-  $root cp -r ../icons/steam.ico /opt/steam/steam.ico
+  $root mkdir /opt/steam
+  curl -o /tmp/steam.ico 
+  $root cp -r /tmp/steam.ico /opt/steam/steam.ico
 
-  $root echo "[Desktop Entry]
+  echo "[Desktop Entry]
   Encoding=UTF-8
   Version=1.0
   Type=Application
   Terminal=false
   Exec=/home/$USER/bin/steam-box
   Name=Name of Application
-  Icon=/opt/steam/steam.ico" > /usr/share/applications/steam.desktop
+  Icon=/opt/steam/steam.ico" > /tmp/steam.desktop
+  $root cp -r /tmp/steam.desktop /usr/share/applications
 
 
   $root echo "#!/bin/bash
@@ -190,19 +213,24 @@ echo 'export PATH=$PATH:/home/$USER/bin' >> ~/.profile
   #$root cp -r $BINDIR/update-chroot /usr/local/bin/
   $root chmod +x $BINDIR/update-chroot
 
+  
 
-  echo "cd $GAMING_CHROOT
-  $root mount -t proc /proc proc/
-  $root mount -t sysfs /sys sys/
-  $root mount --bind /dev dev/
-  $root mount -t devpts devpts dev/pts
-  $root mount --bind /run run/
-  $root mount --bind /run/user/1000 run/user/1000
-  $root mount -t tmpfs tmpfs tmp/
-  $root cp /etc/resolv.conf etc/resolv.conf
-  " > mount_chroot.sh
-  chmod +x ./mount_chroot.sh
-  echo "\n\n\n A chroot has been created at $GAMING_CHROOT, to go into it run gaming-chroot-terminal from terminal or the mount_chroot.sh script now found in this directory and then cd into the chroot directory, you can then run '$root chroot .' and finally 'su user\`'"
+  
+  #echo "cd $GAMING_CHROOT
+  #$root mount -t proc /proc proc/
+  #$root mount -t sysfs /sys sys/
+  #$root mount --bind /dev dev/
+  #$root mount -t devpts devpts dev/pts
+  #$root mount --bind /run run/
+  #$root mount --bind /run/user/1000 run/user/1000
+  #$root mount -t tmpfs tmpfs tmp/
+  #$root cp /etc/resolv.conf etc/resolv.conf
+  #" > mount_chroot.sh
+  #chmod +x ./mount_chroot.sh
+ 
+  $root umount -R $GAMING_CHROOT/dev/pts $GAMING_CHROOT/run/user/1000 $GAMING_CHROOT/*
+
+  echo "\n\n\n A chroot has been created at $GAMING_CHROOT with user $USER1, to go into it run gaming-chroot-terminal from terminal or the mount_chroot.sh script now found in this directory and then cd into the chroot directory, you can then run '$root chroot .' and finally 'su user\`'"
   echo "To run steam then run steam-box from host terminal or the following command 'steam +open steam://open/minigameslist' inside the chroot as a user."
   echo "See https://github.com/Raezroth/Linux-ARM-Gaming-Chroot for more information"
 
