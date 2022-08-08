@@ -40,24 +40,19 @@ $root debootstrap --arch armhf --components=main,universe sid $GAMING_CHROOT htt
   $root cp /etc/resolv.conf $GAMING_CHROOT/etc/resolv.conf
   $root chroot $GAMING_CHROOT /bin/bash -i <<EOF
 apt-get -y install foot stterm
-
 dpkg --add-architecture arm64 
+echo 'deb http://ftp.us.debian.org/debian/ sid main
+deb http://ftp.de.debian.org/debian/ main' >> /etc/apt/sources.list
 apt-get -y update
 apt-get -y upgrade
 apt-get -y install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium alsamixergui libsdl2-dev unzip libgles-dev firefox-esr:arm64 libx11-dev:arm64 libvulkan-dev:arm64 libsdl2-dev:arm64 libgl-dev:arm64 libc6-dev:arm64 libgles-dev:arm64 xterm
+sleep 20
 mkdir /configs
 exit
 EOF
 
-$root chroot $GAMING_CHROOT <<EOF
-sleep 10
-adduser --home /home/$USER1 $USER1
-exit
-EOF
 
 $root chroot $GAMING_CHROOT <<EOF
-usermod -aG sudo $USER1
-
 echo 'export LC_ALL="C"
 export LANGUAGE="C"
 export PATH=\$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/bin:/usr/local/sbin
@@ -70,8 +65,16 @@ export GDK_BACKEND=wayland
 export XDG_SESSION_TYPE=wayland
 export XDG_RUNTIME_DIR=/run/user/1000
 export DISPLAY=:1
-export XSOCKET=/tmp/.X11-unix/X1' > /home/$USER/.profilee
+export XSOCKET=/tmp/.X11-unix/X1' >> /home/$USER1/.profile
 
+$root chroot $GAMING_CHROOT <<EOF
+sleep 10
+adduser --home /home/$USER1 $USER1
+usermod -aG sudo $USER1
+exit
+EOF
+
+$root chroot $GAMING_CHROOT <<EOF
 wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list
 
 wget -O- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | sudo apt-key add - 
@@ -118,8 +121,8 @@ echo 'export PATH=$PATH:/home/$USER/bin' >> /home/$USER/.profile
   $root mount --bind /run \$CHROOTDIR/run
   $root mount --bind /run/user/1000 \$CHROOTDIR/run/user/1000
   $root mount -t tmpfs tmpfs \$CHROOTDIR/tmp
-  #$root mount --bind \$CHROOTDIR/../steamapps \$CHROOTDIR/home/$USER/.local/share/Steam/steamapps
-  #$root mount --bind \$CHROOTDIR/../wine-games \$CHROOTDIR/home/$USER/wine-games
+  #$root mount --bind \$CHROOTDIR/../steamapps \$CHROOTDIR/home/$USER1/.local/share/Steam/steamapps
+  #$root mount --bind \$CHROOTDIR/../wine-games \$CHROOTDIR/home/$USER1/wine-games
   $root chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/shm \$CHROOTDIR/dev/pts \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
   $root chroot \$CHROOTDIR /bin/bash -i <<EOF
   su $USER1
