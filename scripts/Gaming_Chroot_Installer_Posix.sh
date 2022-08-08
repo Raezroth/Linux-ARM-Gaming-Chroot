@@ -88,7 +88,7 @@ if [ -d /etc/apk ]; then
   else
 	    $root systemctl restart systemd-binfmt
 fi
-$root chroot . /bin/bash -i <<EOF
+$root chroot $GAMING_CHROOT /bin/bash -i <<EOF
 cd /tmp
 wget http://ftp.debian.org/debian/pool/main/libi/libindicator/libindicator7_0.5.0-4_armhf.deb
 wget http://ftp.debian.org/debian/pool/main/liba/libappindicator/libappindicator1_0.4.92-7_armhf.deb
@@ -134,7 +134,7 @@ echo 'export PATH=$PATH:/home/$USER/bin' >> /home/$USER/.profile
 
 
   $root mkdir /opt/steam
-  curl -o /tmp/steam.ico 
+  curl -o /tmp/steam.ico https://store.steampowered.com/favicon.ico
   $root cp -r /tmp/steam.ico /opt/steam/steam.ico
 
   echo "[Desktop Entry]
