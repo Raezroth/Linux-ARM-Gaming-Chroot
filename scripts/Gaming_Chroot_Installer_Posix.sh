@@ -50,7 +50,7 @@ exit
 EOF
 
 $root chroot $GAMING_CHROOT <<EOF
-sleep 60
+sleep 10
 adduser --home /home/$USER1 $USER1
 exit
 EOF
