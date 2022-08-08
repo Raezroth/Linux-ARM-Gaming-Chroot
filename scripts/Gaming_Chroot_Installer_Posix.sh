@@ -29,23 +29,23 @@ install_chroot(){
   # create chroot
 $root debootstrap --arch armhf --components=main,universe sid $GAMING_CHROOT https://deb.debian.org/debian
   # mount all directories
-  cd $GAMING_CHROOT
-  $root mount -t proc /proc proc/
-  $root mount -t sysfs /sys sys/
-  $root mount --bind /dev dev/
-  $root mount -t devpts devpts dev/pts
-  $root mount --bind /run run/
-  $root mount --bind /run/user/1000 run/user/1000
-  $root mount -t tmpfs tmpfs tmp/
+  $root mount -t proc /proc $GAMING_CHROOT/proc/
+  $root mount -t sysfs /sys $GAMING_CHROOT/sys/
+  $root mount --bind /dev $GAMING_CHROOT/dev/
+  $root mount -t devpts devpts $GAMING_CHROOT/dev/pts
+  $root mount --bind /run $GAMING_CHROOT/run/
+  $root mount --bind /run/user/1000 $GAMING_CHROOT/run/user/1000
+  $root mount -t tmpfs tmpfs $GAMING_CHROOT/tmp/
   #TODO there may be a better way to do this but for now its needed to make internet work reliably, maybe a symlink
-  $root cp /etc/resolv.conf etc/resolv.conf
-  $root chroot . /bin/bash -i <<EOF
+  $root cp /etc/resolv.conf $GAMING_CHROOT/etc/resolv.conf
+  $root chroot $GAMING_CHROOT /bin/bash -i <<EOF
 apt-get -y install foot stterm
 
 dpkg --add-architecture arm64 
 apt-get -y update
 apt-get -y upgrade
 apt-get -y install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium alsamixergui libsdl2-dev unzip libgles-dev firefox-esr:arm64 libx11-dev:arm64 libvulkan-dev:arm64 libsdl2-dev:arm64 libgl-dev:arm64 libc6-dev:arm64 libgles-dev:arm64 xterm
+mkdir /configs
 exit
 EOF
 
@@ -59,32 +59,16 @@ $root chroot $GAMING_CHROOT <<EOF
 usermod -aG sudo $USER1
 exit
 EOF
-
-$root echo 'export LC_ALL="C"
-
-export LANGUAGE="C"
-
-export PATH=\$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/bin:/usr/local/sbin
-
-export STEAMOS=1
-
-export STEAM_RUNTIME=1' >> $GAMING_CHROOT/root/.bashrc
-
-echo 'export SDL_VIDEODRIVER=wayland
-
-export WAYLAND_DISPLAY=wayland-1
-
-export GDK_BACKEND=wayland
-
-export XDG_SESSION_TYPE=wayland
-
-export XDG_RUNTIME_DIR=/run/user/1000
-
-export DISPLAY=:0
-
-export XSOCKET=/tmp/.X11-unix/X1' >> $GAMING_CHROOT/home/$USER1/.profile
+ 
+$root cp -r ./configs $GAMING_CHROOT/configs
 
 $root chroot $GAMING_CHROOT << EOF
+
+rm -rf /root/.bashrc
+rm -rf /home/$USER/.profile
+
+cp -r /configs/.bashrc /root/
+cp -r /configs/.profile /home/$USER/.profile
 
 wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list
 
@@ -132,8 +116,8 @@ echo 'export PATH=$PATH:/home/$USER/bin' >> /home/$USER/.profile
   $root mount --bind /run \$CHROOTDIR/run
   $root mount --bind /run/user/1000 \$CHROOTDIR/run/user/1000
   $root mount -t tmpfs tmpfs \$CHROOTDIR/tmp
-  #$root mount --bind \$CHROOTDIR/../steamapps \$CHROOTDIR/home/user1/.local/share/Steam/steamapps
-  #$root mount --bind \$CHROOTDIR/../wine-games \$CHROOTDIR/home/user1/wine-games
+  #$root mount --bind \$CHROOTDIR/../steamapps \$CHROOTDIR/home/$USER/.local/share/Steam/steamapps
+  #$root mount --bind \$CHROOTDIR/../wine-games \$CHROOTDIR/home/$USER/wine-games
   $root chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/shm \$CHROOTDIR/dev/pts \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
   $root chroot \$CHROOTDIR /bin/bash -i <<EOF
   su $USER1
