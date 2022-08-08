@@ -72,7 +72,7 @@ cp -r /configs/.profile /home/$USER/.profile
 
 wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list
 
-wget -O- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg |  gpg --dearmor | sudo tee /usr/share/keyrings/box86-debs-archive-keyring.gpg 
+wget -O- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | sudo apt-key add - 
 
 wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
 
