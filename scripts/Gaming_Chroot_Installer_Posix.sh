@@ -49,13 +49,13 @@ apt-get -y install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvu
 exit
 EOF
 
-$root chroot <<EOF
+$root chroot $GAMING_CHROOT <<EOF
 sleep 60
 adduser --home /home/$USER1 $USER1
 exit
 EOF
 
-$root chroot <<EOF
+$root chroot $GAMING_CHROOT <<EOF
 usermod -aG sudo $USER1
 exit
 EOF
