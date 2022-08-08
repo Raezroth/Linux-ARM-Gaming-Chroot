@@ -260,8 +260,9 @@ uninstall_chroot() {
 		echo "Uninstall complete! Have a nice day!"
 }
 main_menu() {
-  echo "		EXPERIMENTAL-LINUX-ARM-GAMING-CHROOT-INSTALLER\n 	    		VER. 0.1.B 06/05/2022\n"
-  echo "Please type the number relating to what you want to do."
+  
+  echo "\n\n\n		EXPERIMENTAL-LINUX-ARM-GAMING-CHROOT-INSTALLER\n 	    		VER. 0.2.0 08/08/2022\n"
+  echo "Please type the number relating to what you want to do.\n"
   echo "[0] Install Steam Gaming Chroot"
   echo "[1] Install Wine into Chroot"
   echo "[2] Maintenance Mode"
