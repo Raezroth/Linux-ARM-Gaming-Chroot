@@ -47,7 +47,6 @@ apt-get -y update
 apt-get -y upgrade
 apt-get -y install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium alsamixergui libsdl2-dev unzip libgles-dev firefox-esr:arm64 libx11-dev:arm64 libvulkan-dev:arm64 libsdl2-dev:arm64 libgl-dev:arm64 libc6-dev:arm64 libgles-dev:arm64 xterm
 sleep 20
-mkdir /configs
 exit
 EOF
 
@@ -58,6 +57,15 @@ export LANGUAGE="C"
 export PATH=\$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/games:/usr/local/bin:/usr/local/sbin
 export STEAMOS=1
 export STEAM_RUNTIME=1' | tee -a /root/.bashrc
+EOF
+
+$root chroot $GAMING_CHROOT <<EOF
+sleep 10
+adduser --home /home/$USER1 $USER1
+
+
+usermod -aG sudo $USER1
+
 
 echo 'export SDL_VIDEODRIVER=wayland
 export WAYLAND_DISPLAY=wayland-1
@@ -66,12 +74,6 @@ export XDG_SESSION_TYPE=wayland
 export XDG_RUNTIME_DIR=/run/user/1000
 export DISPLAY=:1
 export XSOCKET=/tmp/.X11-unix/X1' >> /home/$USER1/.profile
-EOF
-
-$root chroot $GAMING_CHROOT <<EOF
-sleep 10
-adduser --home /home/$USER1 $USER1
-usermod -aG sudo $USER1
 exit
 EOF
 
@@ -84,7 +86,7 @@ wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.lis
 
 wget -O- https://ryanfortner.github.io/box64-debs/KEY.gpg |  gpg --dearmor | sudo tee /usr/share/keyrings/box64-debs-archive-keyring.gpg 
 
-apt-get update && apt-get -y install box86 box64
+apt-get update && apt-get -y --allow-unauthenticated install box86 box64
 exit
 EOF
 
