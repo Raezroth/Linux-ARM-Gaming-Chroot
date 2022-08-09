@@ -34,7 +34,7 @@ $root debootstrap --arch armhf --components=main,universe bookworm $GAMING_CHROO
   $root mount --bind /dev $GAMING_CHROOT/dev/
   $root mount -t devpts devpts $GAMING_CHROOT/dev/pts
   $root mount --bind /run $GAMING_CHROOT/run/
-  $root mount --bind /run/user/1000 $GAMING_CHROOT/run/user/1000
+  $root mount --bind $XDG_RUNTIME_DIR $GAMING_CHROOT/run/user/1000
   $root mount -t tmpfs tmpfs $GAMING_CHROOT/tmp/
   #TODO there may be a better way to do this but for now its needed to make internet work reliably, maybe a symlink
   $root cp /etc/resolv.conf $GAMING_CHROOT/etc/resolv.conf
@@ -122,7 +122,7 @@ echo 'export PATH=$PATH:/home/$USER/bin' >> /home/$USER/.profile
   $root mount --bind /dev \$CHROOTDIR/dev
   $root mount -t devpts devpts \$CHROOTDIR/dev/pts
   $root mount --bind /run \$CHROOTDIR/run
-  $root mount --bind /run/user/1000 \$CHROOTDIR/run/user/1000
+  $root mount --bind $XDG_RUNTIME_DIR \$CHROOTDIR/run/user/1000
   $root mount -t tmpfs tmpfs \$CHROOTDIR/tmp
   #$root mount --bind \$CHROOTDIR/../steamapps \$CHROOTDIR/home/$USER1/.local/share/Steam/steamapps
   #$root mount --bind \$CHROOTDIR/../wine-games \$CHROOTDIR/home/$USER1/wine-games
@@ -169,7 +169,7 @@ echo 'export PATH=$PATH:/home/$USER/bin' >> /home/$USER/.profile
   $root mount --bind /dev \$CHROOTDIR/dev
   $root mount -t devpts devpts \$CHROOTDIR/dev/pts
   $root mount --bind /run \$CHROOTDIR/run
-  $root mount --bind /run/user/1000 \$CHROOTDIR/run/user/1000
+  $root mount --bind $XDG_RUNTIME_DIR \$CHROOTDIR/run/user/1000
   $root mount -t tmpfs tmpfs \$CHROOTDIR/tmp
   $root cp -r /etc/resolv.conf \$CHROOTDIR/etc/resolv.conf
   $root chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/shm \$CHROOTDIR/dev/pts \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
@@ -191,7 +191,7 @@ echo 'export PATH=$PATH:/home/$USER/bin' >> /home/$USER/.profile
   $root mount --bind /dev \$CHROOTDIR/dev
   $root mount -t devpts devpts \$CHROOTDIR/dev/pts
   $root mount --bind /run \$CHROOTDIR/run
-  $root mount --bind /run/user/1000 \$CHROOTDUR/run/user/1000
+  $root mount --bind $XDG_RUNTIME_DIR \$CHROOTDUR/run/user/1000
   $root mount -t tmpfs tmpfs \$CHROOTDIR/tmp
   $root chmod 1777 \$CHROOTDIR/proc \$CHROOTDIR/sys \$CHROOTDIR/dev \$CHROOTDIR/dev/pts \$CHROOTDIR/dev/shm \$CHROOTDIR/run \$CHROOTDIR/run/user/1000 \$CHROOTDIR/tmp
   $root chroot \$CHROOTDIR /bin/bash -i  <<'EOF'
