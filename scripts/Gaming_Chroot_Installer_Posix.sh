@@ -62,11 +62,13 @@ EOF
 $root chroot $GAMING_CHROOT <<EOF
 sleep 10
 adduser --home /home/$USER1 $USER1
+EOF
 
-
+$root chroot $GAMING_CHROOT <<EOF
 usermod -aG sudo $USER1
+EOF
 
-
+$root chroot $GAMING_CHROOT <<EOF
 echo 'export SDL_VIDEODRIVER=wayland
 export WAYLAND_DISPLAY=wayland-1
 export GDK_BACKEND=wayland
