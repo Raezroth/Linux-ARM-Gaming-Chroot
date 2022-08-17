@@ -139,9 +139,12 @@ There is a hacked together gamepad for lzdoom using wvkbd, the link can be found
         `sudo apt install ~/Downloads/chromium-*`
 
 4. Copy files to directories.
+        
         ```
-        sudo cp -r ./libwidevinecdm.so /usr/lib/chromium-browser/\
+        sudo cp -r ./libwidevinecdm.so /usr/lib/chromium-browser/
+        
         sudo mkdir /usr/lib/chromium-browser/pepper
+        
         sudo cp -r ./libpepflashplayer.so /usr/lib/chromium-browser/pepper/
         ```
 
