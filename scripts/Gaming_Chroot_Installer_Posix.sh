@@ -9,7 +9,7 @@ fi
 BINDIR=/home/$USER/bin
 
 install_chroot(){
-  echo "Before we get start we need 1 thing."
+  echo "Before we get start we need 2 things."
   echo "Where do you want to store the chroot? (e.g. /home/user/.local/share/games/gaming_chroot)"
   read GAMING_CHROOT
   echo "$GAMING_CHROOT is where it will be installed."
@@ -280,7 +280,7 @@ read_menu(){
   [ $option = 1 ] && echo "Install Wine" && read_menu
   [ $option = 2 ] && maintenance_mode && read_menu
   [ $option = 3 ] && update_chroot && read_menu
-  [ $option = 4 ] && exerimental_repos && read_menu
+  [ $option = 4 ] && experimental_repos && read_menu
   [ $option = 5 ] && uninstall_chroot && read_menu
   [ $option = 6 ] && exit
   echo "Invalid option, please try again." && read_menu
