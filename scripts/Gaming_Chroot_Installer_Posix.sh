@@ -6,6 +6,8 @@ else
   root=sudo
 fi
 
+BINDIR=/home/$USER/bin
+
 install_chroot(){
   echo "Before we get start we need 1 thing."
   echo "Where do you want to store the chroot? (e.g. /home/user/.local/share/games/gaming_chroot)"
@@ -108,7 +110,6 @@ apt-get -y install ./steam_latest.deb
 EOF
 
 mkdir /home/$USER/bin
-BINDIR=/home/$USER/bin
 echo 'export PATH=$PATH:/home/$USER/bin' >> /home/$USER/.profile
 
   $root echo "#!/bin/bash
@@ -232,11 +233,18 @@ echo 'export PATH=$PATH:/home/$USER/bin' >> /home/$USER/.profile
 }
 
 maintenance_mode() {
-exec $BINDIR/gaming-chroot-terminal
+		exec $BINDIR/gaming-chroot-terminal
 }
 
 update_chroot() {
-exec $BINDIR/update-chroot
+		exec $BINDIR/update-chroot
+}
+
+experimental_repos() {
+		echo "Give the absolute path to the chroot: "
+		read $DEV_REPO
+		echo 'deb https:/deb.debian.org/debian experimental main contrib' | doas tee -a $DEV_REPO/etc/apt/sources.list
+		exec $BINDIR/update-chroot
 }
 
 uninstall_chroot() {
@@ -261,18 +269,20 @@ main_menu() {
   echo "[1] Install Wine into Chroot"
   echo "[2] Maintenance Mode"
   echo "[3] Update Chroot"
-  echo "[4] Uninstall Chroot. BACKUP ANY DATA YOU WISH TO SAVE FROM CHROOT FIRST!"
-  echo "[5] Exit"
+  echo "[4] Add Experimental Repos (for latest Mesa packages)"
+  echo "[5] Uninstall Chroot. BACKUP ANY DATA YOU WISH TO SAVE FROM CHROOT FIRST!"
+  echo "[6] Exit"
   read option
 }
 read_menu(){
   main_menu 
-  [ $option = 0 ] && install_chroot && exit
-  [ $option = 1 ] && echo "Install Wine" && exit
-  [ $option = 2 ] && maintenance_mode && exit
-  [ $option = 3 ] && update_chroot && exit
-  [ $option = 4 ] && uninstall_chroot && exit
-  [ $option = 5 ] && exit
+  [ $option = 0 ] && install_chroot && read_menu
+  [ $option = 1 ] && echo "Install Wine" && read_menu
+  [ $option = 2 ] && maintenance_mode && read_menu
+  [ $option = 3 ] && update_chroot && read_menu
+  [ $option = 4 ] && exerimental_repos && read_menu
+  [ $option = 5 ] && uninstall_chroot && read_menu
+  [ $option = 6 ] && exit
   echo "Invalid option, please try again." && read_menu
 }
 read_menu
