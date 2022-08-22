@@ -27,7 +27,7 @@ install_chroot(){
   [ -d /etc/apk ] && $root apk add debootstrap xhost
   xhost +local:
   # create chroot
-$root debootstrap --arch armhf --components=main,universe bookworm $GAMING_CHROOT https://deb.debian.org/debian
+$root debootstrap --arch armhf --components=main,universe sid $GAMING_CHROOT https://deb.debian.org/debian
   # mount all directories
   $root mount -t proc /proc $GAMING_CHROOT/proc/
   $root mount -t sysfs /sys $GAMING_CHROOT/sys/
@@ -75,7 +75,7 @@ export GDK_BACKEND=wayland
 export XDG_SESSION_TYPE=wayland
 export XDG_RUNTIME_DIR=/run/user/1000
 export DISPLAY=:1
-export XSOCKET=/tmp/.X11-unix/X1' >> /home/$USER1/.profile
+export XSOCKET=/tmp/.X11-unix/X1' | tee -a /home/$USER1/.profile
 exit
 EOF
 
