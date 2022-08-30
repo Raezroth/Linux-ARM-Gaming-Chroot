@@ -5,7 +5,7 @@ For those of you who don't know, Wine is a Windows Compatibility Layer for Linux
 
 ### Setting up Wine x86_64 for both Box86 and Box64
 
-From inside the chroot terminal as your user, download and extract [Wine-TKG's 6.17-r0](https://github.com/Frogging-Family/wine-tkg-git/releases/tag/6.17.r0.g5f19a815):
+From inside the chroot terminal as your user, download and extract [Wine-TKG's 5.22.r2](https://github.com/Frogging-Family/wine-tkg-git/releases/tag/5.22.r2.g0ae73155):
 
 ```
 cd ~/Downloads
