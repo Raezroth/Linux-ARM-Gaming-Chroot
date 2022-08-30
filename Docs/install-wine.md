@@ -9,18 +9,18 @@ From inside the chroot terminal as your user, download and extract [Wine-TKG's 6
 
 ```
 cd ~/Downloads
-wget https://github.com/Frogging-Family/wine-tkg-git/releases/download/6.17.r0.g5f19a815/wine-tkg-staging-fsync-git-6.17.r0.g5f19a815-326-x86_64.pkg.tar.zst
-mkdir TKG-6.17/ && cd TKG-6.17/
-tar -xvf ../wine-tkg-staging-fsync-git-6.17.r0.g5f19a815-326-x86_64.pkg.tar.zst
+wget https://github.com/Frogging-Family/wine-tkg-git/releases/download/5.22.r2.g0ae73155/wine-tkg-staging-fsync-git-5.22.r2.g0ae73155-309-x86_64.pkg.tar.zst
+mkdir TKG-5.22/ && cd TKG-5.22/
+tar -xvf ../wine-tkg-staging-fsync-git-5.22.r2.g0ae73155-309-x86_64.pkg.tar.zst
 cd ~/
-mv ~/Downloads/TKG-6.17/ ~/
+mv ~/Downloads/TKG-5.22/ ~/wine-tkg
 ```
 
 
 
 To add Wine to your `$PATH`:
 ```
-echo 'PATH=$PATH:/home/$USER/TKG-6.17/usr/bin' >> ~/.profile
+echo 'PATH=$PATH:/home/$USER/wine-tkg/usr/bin' >> ~/.profile
 ```
 
 
