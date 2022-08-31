@@ -71,6 +71,7 @@ usermod -aG sudo $USER1
 EOF
 
 $root chroot $GAMING_CHROOT <<EOF
+su $USER1
 echo 'export SDL_VIDEODRIVER=wayland
 export WAYLAND_DISPLAY=wayland-1
 export GDK_BACKEND=wayland
@@ -78,6 +79,7 @@ export XDG_SESSION_TYPE=wayland
 export XDG_RUNTIME_DIR=/run/user/1000
 export DISPLAY=:1
 export XSOCKET=/tmp/.X11-unix/X1' | tee -a /home/$USER1/.profile
+exit
 exit
 EOF
 
