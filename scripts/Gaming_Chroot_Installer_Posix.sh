@@ -15,21 +15,21 @@ install_chroot(){
   echo "$GAMING_CHROOT is where it will be installed."
   $root mkdir -p $GAMING_CHROOT
  
-  echo "\nPlease give a  username. Must be all lowercase."
+  echo "Please give a  username. Must be all lowercase."
   read USER1
 
-  sleep 15
-
-  echo "\nSetting up chroot.... Please be patient."
+  echo "Setting up chroot.... Please be patient."
 
   # detect distro and install necessary packages
   # TODO, pmos support (might need some changes to other parts of the script aswell.)
   [ -d /etc/pacman.d ] && $root pacman -S debootstrap debian-archive-keyring xorg-xhost --needed --noconfirm
   [ -d /etc/apt/sources.list ] && $root apt-get -y install deboostrap debian-archive-keyring x11-xserver-utils
-  [ -d /etc/apk ] && $root apk add debootstrap xhost
+  [ -d /etc/apk ] && $root apk add debootstrap xhost curl
   xhost +local:
   # create chroot
-$root debootstrap --arch armhf --components=main,universe sid $GAMING_CHROOT https://deb.debian.org/debian
+  until $root debootstrap --arch armhf --components=main,universe --include=ash bookworm $GAMING_CHROOT https://deb.debian.org/debian; do
+    echo "debootstrap encountered an error, retrying..."
+  done
   # mount all directories
   $root mount -t proc /proc $GAMING_CHROOT/proc/
   $root mount -t sysfs /sys $GAMING_CHROOT/sys/
@@ -40,6 +40,7 @@ $root debootstrap --arch armhf --components=main,universe sid $GAMING_CHROOT htt
   $root mount -t tmpfs tmpfs $GAMING_CHROOT/tmp/
   #TODO there may be a better way to do this but for now its needed to make internet work reliably, maybe a symlink
   $root cp /etc/resolv.conf $GAMING_CHROOT/etc/resolv.conf
+  $root cp scripts/box86-binfmt.sh $GAMING_CHROOT/usr/local/bin
   $root chroot $GAMING_CHROOT /bin/bash -i <<EOF
 apt-get -y install foot stterm
 dpkg --add-architecture arm64 
@@ -51,7 +52,6 @@ apt-get -y install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvu
 sleep 20
 exit
 EOF
-
 
 $root chroot $GAMING_CHROOT <<EOF
 echo 'export LC_ALL="C"
@@ -228,7 +228,7 @@ echo 'export PATH=$PATH:/home/$USER/bin' >> /home/$USER/.profile
   $root umount -R $GAMING_CHROOT/dev/pts $GAMING_CHROOT/run/user/1000 $GAMING_CHROOT/*
 
   echo "\n\n\n A chroot has been created at $GAMING_CHROOT with user $USER1, to go into it run gaming-chroot-terminal from terminal or the mount_chroot.sh script now found in this directory and then cd into the chroot directory, you can then run '$root chroot .' and finally 'su user\`'"
-  echo "To run steam then run steam-box from host terminal or the following command 'steam +open steam://open/minigameslist' inside the chroot as a user."
+  echo "To run steam then run steam-box from host terminal or the following command 'steam +open steam://open/minigameslist' inbookworme the chroot as a user."
   echo "See https://github.com/Raezroth/Linux-ARM-Gaming-Chroot for more information"
 
 
