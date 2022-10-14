@@ -47,7 +47,7 @@ echo 'deb http://ftp.us.debian.org/debian/ bookworm main
 deb http://ftp.de.debian.org/debian/ bookworm main' >> /etc/apt/sources.list
 apt-get -y update
 apt-get -y upgrade
-apt-get -y install sudo vim make cmake git wget gnupg libx11-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium alsamixergui libsdl2-dev unzip libgles-dev firefox-esr:arm64 libx11-dev:arm64 libvulkan-dev:arm64 libsdl2-dev:arm64 libgl-dev:arm64 libc6-dev:arm64 libgles-dev:arm64 xterm
+apt-get -y install sudo vim make cmake git wget gnupg libx11-dev libsdl2-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium alsamixergui libsdl2-dev unzip libgles-dev firefox-esr:arm64 libx11-dev:arm64 libvulkan-dev:arm64 libsdl2-dev:arm64 libgl-dev:arm64 libc6-dev:arm64 libgles-dev:arm64 xterm
 sleep 20
 exit
 EOF
@@ -77,7 +77,6 @@ export WAYLAND_DISPLAY=wayland-1
 export GDK_BACKEND=wayland
 export XDG_SESSION_TYPE=wayland
 export XDG_RUNTIME_DIR=/run/user/1000
-export DISPLAY=:1
 export XSOCKET=/tmp/.X11-unix/X1' | tee -a /home/$USER1/.profile
 exit
 exit
