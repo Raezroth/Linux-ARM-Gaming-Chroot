@@ -71,7 +71,7 @@ Set user wayland & x11 variables for graphical use.
 
 `cd ~/`
 
-`vim ./profile` or `nano .profile`
+`vim ~/.profile` or `nano ~/.profile`
 
 Add these export variables
 
