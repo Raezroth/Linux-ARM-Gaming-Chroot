@@ -7,19 +7,19 @@ Note: Steam runs best in `minigameslist`. You can use steam skins just be care d
 If you are only using Box86, this command will set the architecture to linux32 to use 32bit libraries only. This is so Steam doesn't register 64bit.
 
 ```
-setarch -L linux32 steam +open steam://open/minigameslist
+setarch -L linux32 steam +open steam://open/minigameslist -noreactlogin
 ```
 
 If you have both Box86 & Box64, just launch this and it will register 64bit
 
 ```
-steam +open steam://open/minigameslist
+steam +open steam://open/minigameslist -noreactlogin
 ```
 
 If you are running the PinePhone Pro, you may need to force OpenGL 3. You can do this by forcing mesa and panfrost to gl3. Just launch Steam with these variables or put the variables in your root's bashrc.
 
 ```
-MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 steam +open steam://open/minigameslist
+MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 steam +open steam://open/minigameslist -noreactlogin
 ```
 I set it to force OpenGL 3.2 so games like TableTop Simulator and Borderlands PreSequel launch.
 
