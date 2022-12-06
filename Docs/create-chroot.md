@@ -51,7 +51,7 @@ sudo chroot .
 Using `Xephyr` we can specify a window for chroot grpahical applications avoiding xhost.
 
 ```
-Xephyr :1 -resizable
+Xephyr :1 -resizeable
 ```
 
 `systemd-nspawn` can be used to automatically mount the containers essentials while starting it.
