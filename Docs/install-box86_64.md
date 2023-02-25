@@ -45,7 +45,12 @@ Now Box86 and/or Box64 should start automatically when launching x86 or x86_64 b
 
 
 
-### 2. Manually compile and install.
+### 2. Manually compile and install. RECOMMENDED
+
+Make sure `GCC:armhf` is installed.
+```
+sudo apt install gcc:armhf
+```
 
 
 For Box86, copy the latest source for box86  and then compile it.
@@ -69,10 +74,15 @@ cd ~/box86; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo m
 
 For Box64, copy the latest source for box64 and compile it
 
+Make sure `gcc:arm64` is installed.
+```
+sudo apt install gcc:arm64
+```
+
 git clone box64 source
 
 ```
-git clone https://github.com/ptitSeb/box64
+git clone -b steam_chrome https://github.com/ptitSeb/box64
 ```
 
 Before we compile we need to install the arm64 version of `gcc` with `sudo apt install gcc:arm64`
