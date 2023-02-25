@@ -6,6 +6,9 @@
 ###### Written on the go with a PinePhone Pro w/ Keyboard using bash, git, & vim.
 -------
 
+# WARNIING ::::: With the latest updates to Steam, As of Feb. 18, 2023 Steam requires more then 4GB of RAM to run in Box86/64.  
+
+
 ## Automated install script!!
 Inside the script folder the script can automatically install the chroot.
 This currently still needs testing from more people than [@Laar3](https://github.com/Laar3) and myself just to iron out edge cases and its not currently guaranteed to work (it should do though).
