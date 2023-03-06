@@ -6,7 +6,7 @@
 ###### Written on the go with a PinePhone Pro w/ Keyboard using bash, git, & vim.
 -------
 
-# WARNIING ::::: With the latest updates to Steam, As of Feb. 18, 2023 Steam requires more then 4GB of RAM to run in Box86/64.  
+## WARNIING ::::: With the latest updates to Steam, As of Feb. 18, 2023 Steam requires more then 4GB of RAM to run in Box86/64. Increasing zram makes Steam usable and provides some stability to some games & programs.  
 
 
 ## Automated install script!!
