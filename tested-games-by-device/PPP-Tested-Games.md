@@ -101,13 +101,3 @@ Fallout NV - ```Runs Slow```
 ---
 
 TableTop Simulator - ```Must use MESA_GL_VERSION_OVERRIDE=3.2 PAN_MESA_DEBUG=gl3 to launch - Loads Slow, especially with 10+ workshop addons.```
- 
-
-### GOG
-
-----
-
-Super Meat Boy - ```Runs Well```
-
-
-
