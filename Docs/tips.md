@@ -112,49 +112,6 @@ There is a hacked together gamepad for lzdoom using wvkbd, the link can be found
 
 <img src="https://raw.githubusercontent.com/Laar3/DOOM-wvkbd/master/doom.png" width="175"/>
 
-
-
-
-
-
-
-### Notes on getting WideVine to work in chromium-browser 78 inside chroot
-
-1. Open the chroot container's terminal.
-
-2. Download required packages into Downloads
-
-        ```
-        cd ~/Downloads/
-        wget https://github.com/HenningThiemann/docker-chromium-armhf/raw/master/dependencies/chromium-browser_78.0.3904.97-0ubuntu0.16.04.1_armhf.deb
-        wget https://github.com/HenningThiemann/docker-chromium-armhf/raw/master/dependencies/chromium-codecs-ffmpeg-extra_78.0.3904.97-0ubuntu0.16.04.1_armhf.deb
-        wget https://github.com/HenningThiemann/docker-chromium-armhf/raw/master/widevine/libwidevinecdm.so
-        wget https://github.com/HenningThiemann/docker-chromium-armhf/raw/master/widevine/PepperFlash/libpepflashplayer.so
-         ```
-         
-         
-
-3. Install .deb packages
-
-        `sudo apt install ~/Downloads/chromium-*`
-
-4. Copy files to directories.
-        
-        ```
-        sudo cp -r ./libwidevinecdm.so /usr/lib/chromium-browser/
-        
-        sudo mkdir /usr/lib/chromium-browser/pepper
-        
-        sudo cp -r ./libpepflashplayer.so /usr/lib/chromium-browser/pepper/
-        ```
-
-5. Test to see if it went well.
-
-```
-/usr/bin/chromium-browser --user-agent='Mozilla/5.0 (X11; CrOS armv7l 12607.82.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.123 Safari/537.3
-6' --no-sandbox
-```
-
 -------
 
 [< Using Wine](using-wine.md) | [Uninstalling the container >](delete-chroot.md)
