@@ -107,14 +107,14 @@ Now we can set up the libraries require to run the programs we want.
 
 At this time we can setup arm64 as well.
 
-`dpkg --add-architecture arm64` Adds the architecture
+`dpkg --add-architecture armhf` Adds the architecture
 
 `apt update` Updates the Repository Lists
 
 This next command will grab and install the libraries as well as a couple of programs that maybe useful for us later. 
 
 ```
-apt install sudo vim make cmake git wget gnupg libx11-dev libsdl2-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium alsamixergui libsdl2-dev unzip libgles-dev firefox-esr:arm64 libx11-dev:arm64 libvulkan-dev:arm64 libsdl2-dev:arm64 libgl-dev:arm64 libc6-dev:arm64 libgles-dev:arm64
+apt install sudo vim make cmake git wget gnupg libx11-dev libsdl2-dev libgl-dev libvulkan-dev libtcmalloc-minimal4 libnm0 zenity chromium alsamixergui libsdl2-dev unzip libgles-dev firefox-esr:armhf libx11-dev:armhf libvulkan-dev:armhf libsdl2-dev:armhf libgl-dev:armhf libc6-dev:armhf libgles-dev:armhf
 ```
 
 Once this is done installing we can create our user.

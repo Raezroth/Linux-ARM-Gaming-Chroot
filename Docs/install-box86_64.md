@@ -47,9 +47,9 @@ Now Box86 and/or Box64 should start automatically when launching x86 or x86_64 b
 
 ### 2. Manually compile and install. RECOMMENDED
 
-Make sure `GCC:armhf` is installed.
+Make sure `gcc-arm-linux-gnueabihf` is installed.
 ```
-sudo apt install gcc:armhf
+sudo apt install gcc-arm-linux-gnueabihf
 ```
 
 
@@ -74,10 +74,6 @@ cd ~/box86; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo m
 
 For Box64, copy the latest source for box64 and compile it
 
-Make sure `gcc:arm64` is installed.
-```
-sudo apt install gcc:arm64
-```
 
 git clone box64 source
 
@@ -85,7 +81,6 @@ git clone box64 source
 git clone -b steam_chrome https://github.com/ptitSeb/box64
 ```
 
-Before we compile we need to install the arm64 version of `gcc` with `sudo apt install gcc:arm64`
 
 For PinePhone (A64)
 
@@ -98,8 +93,6 @@ For PinePhone Pro (RK3399s)
 ```
 cd ~/box64; mkdir build; cd build; cmake ../ -DRK3399=1; make -j$(nproc); sudo make install
 ```
-
-Now Box86/64 should be usuable. Updating will require reinstalling `gcc:armhf` for box86 and `gcc:arm64` for box64 to recompile.
 
 
 ------
