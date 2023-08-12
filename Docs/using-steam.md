@@ -54,7 +54,7 @@ What works:
 Use Big Picture Mode or manual uninstall down below.
 
 1. Close Steam
-2. Grab `APPID` from [SteamDB](https://steamdb.info/apps/)
+2. Grab `APPID` from [SteamDB](https://steamdb.info/apps/) or [Steambase](https://steambase.io/apps/)
 3. Delete game from `PATH_TO_STEAMLIBRARY/common/`
 4. Delete `appmanifest_APPID.acf` from `PATH_TO_STEAMLIBRARY/`
 5. Launch Steam again and the game should be uninstalled.
