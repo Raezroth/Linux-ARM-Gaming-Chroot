@@ -28,7 +28,7 @@ Removing debootstrap and xhost
 
 For Arch-based Distro(Arch Linux, Manjaro): `sudo pacman -R debootstrap debian-archive-keyring xorg-xhost`
 
-For Debian-based Distro(Mobian, Ubuntu Touch??): `sudo apt remove deboostrap debian-archive-keyring x11-xserver-utils`
+For Debian-based Distro(Mobian, Ubuntu Touch??): `sudo apt remove debootstrap debian-archive-keyring x11-xserver-utils`
 
 ---------
 
